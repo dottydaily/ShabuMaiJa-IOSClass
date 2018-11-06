@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A07BDFE21914F95003941DE /* Storyboard.storyboard */; };
 		6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08521428AA800612EF2 /* AppDelegate.swift */; };
 		6AA3E08821428AA800612EF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* ViewController.swift */; };
 		6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08921428AA800612EF2 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A07BDFE21914F95003941DE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6AA3E08221428AA800612EF2 /* ShabuMaiJa-IOSClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShabuMaiJa-IOSClass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E08521428AA800612EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AA3E08721428AA800612EF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,9 +76,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A07BDFD21914F7A003941DE /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				6A07BDFE21914F95003941DE /* Storyboard.storyboard */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
 		6AA3E07921428AA800612EF2 = {
 			isa = PBXGroup;
 			children = (
+				6A07BDFD21914F7A003941DE /* Time */,
 				6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */,
 				6AA3E09921428AA800612EF2 /* ShabuMaiJa-IOSClassTests */,
 				6AA3E0A421428AA800612EF2 /* ShabuMaiJa-IOSClassUITests */,
@@ -233,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */,
+				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
 				6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */,
 			);
