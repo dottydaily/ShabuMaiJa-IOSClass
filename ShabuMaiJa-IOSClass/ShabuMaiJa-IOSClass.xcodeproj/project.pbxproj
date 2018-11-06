@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A07BDFE21914F95003941DE /* Storyboard.storyboard */; };
+		6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DF94A2191711E00A59C25 /* Tab.storyboard */; };
 		6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08521428AA800612EF2 /* AppDelegate.swift */; };
 		6AA3E08821428AA800612EF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* ViewController.swift */; };
 		6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08921428AA800612EF2 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		6A07BDFE21914F95003941DE /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		6A8DF94A2191711E00A59C25 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		6AA3E08221428AA800612EF2 /* ShabuMaiJa-IOSClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShabuMaiJa-IOSClass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E08521428AA800612EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AA3E08721428AA800612EF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,9 +111,18 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		6A8DF949219170F400A59C25 /* King */ = {
+			isa = PBXGroup;
+			children = (
+				6A8DF94A2191711E00A59C25 /* Tab.storyboard */,
+			);
+			path = King;
+			sourceTree = "<group>";
+		};
 		6AA3E07921428AA800612EF2 = {
 			isa = PBXGroup;
 			children = (
+				6A8DF949219170F400A59C25 /* King */,
 				6A07BDFD21914F7A003941DE /* Time */,
 				6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */,
 				6AA3E09921428AA800612EF2 /* ShabuMaiJa-IOSClassTests */,
@@ -267,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */,
 				6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */,
 				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
