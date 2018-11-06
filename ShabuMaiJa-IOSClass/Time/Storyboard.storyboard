@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,15 +15,49 @@
             <objects>
                 <viewController id="CYU-kB-JR3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pIN-a8-5aR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38O-O7-Ceh">
+                                <rect key="frame" x="0.0" y="20" width="414" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.2006510644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <barButtonItem title="Item" image="hamburgers" width="24" id="FLp-qd-rW9"/>
+                                    <barButtonItem style="plain" id="oQv-4y-hlT">
+                                        <searchBar key="customView" contentMode="redraw" text="" id="oDw-2D-bXP">
+                                            <rect key="frame" x="25" y="0.0" width="369" height="56"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihB-O2-LqW">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="5T3-Pc-WFP"/>
+                                    <barButtonItem title="Item" id="jbh-bm-boe"/>
+                                    <barButtonItem title="Item" id="hTy-Xz-FWz"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="38O-O7-Ceh" firstAttribute="trailing" secondItem="oOX-XQ-rYR" secondAttribute="trailing" id="FyS-ho-NUO"/>
+                            <constraint firstItem="38O-O7-Ceh" firstAttribute="leading" secondItem="oOX-XQ-rYR" secondAttribute="leading" id="lTB-MV-5za"/>
+                            <constraint firstItem="38O-O7-Ceh" firstAttribute="top" secondItem="oOX-XQ-rYR" secondAttribute="top" id="wHa-k9-idC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oOX-XQ-rYR"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhX-j8-i41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="-269"/>
+            <point key="canvasLocation" x="112.8" y="-269.41529235382313"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hamburgers" width="24" height="24"/>
+    </resources>
 </document>

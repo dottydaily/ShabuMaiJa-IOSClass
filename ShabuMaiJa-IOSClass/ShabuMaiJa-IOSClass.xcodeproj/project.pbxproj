@@ -84,6 +84,31 @@
 			path = Time;
 			sourceTree = "<group>";
 		};
+		6A07BE002191554C003941DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3E08921428AA800612EF2 /* Main.storyboard */,
+				6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A07BE0121915557003941DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A07BE022191555D003941DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3E08721428AA800612EF2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		6AA3E07921428AA800612EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -108,11 +133,10 @@
 		6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */ = {
 			isa = PBXGroup;
 			children = (
-				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
-				6AA3E08721428AA800612EF2 /* ViewController.swift */,
-				6AA3E08921428AA800612EF2 /* Main.storyboard */,
+				6A07BE022191555D003941DE /* Controller */,
+				6A07BE0121915557003941DE /* Model */,
+				6A07BE002191554C003941DE /* View */,
 				6AA3E08C21428AA800612EF2 /* Assets.xcassets */,
-				6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */,
 				6AA3E09121428AA800612EF2 /* Info.plist */,
 			);
 			path = "ShabuMaiJa-IOSClass";
