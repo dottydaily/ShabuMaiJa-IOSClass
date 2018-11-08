@@ -10,12 +10,24 @@
 		6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A07BDFE21914F95003941DE /* Storyboard.storyboard */; };
 		6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DF94A2191711E00A59C25 /* Tab.storyboard */; };
 		6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08521428AA800612EF2 /* AppDelegate.swift */; };
-		6AA3E08821428AA800612EF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* ViewController.swift */; };
+		6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* MainPageController.swift */; };
 		6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08921428AA800612EF2 /* Main.storyboard */; };
 		6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08C21428AA800612EF2 /* Assets.xcassets */; };
 		6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */; };
 		6AA3E09B21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E09A21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift */; };
 		6AA3E0A621428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */; };
+		7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */; };
+		7D74FAC92194D07F003BDF2D /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */; };
+		7D74FACA2194D07F003BDF2D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC22194D07F003BDF2D /* nanopb.framework */; };
+		7D74FACB2194D07F003BDF2D /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC32194D07F003BDF2D /* FirebaseAnalytics.framework */; };
+		7D74FACC2194D07F003BDF2D /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC42194D07F003BDF2D /* FirebaseInstanceID.framework */; };
+		7D74FACD2194D07F003BDF2D /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC52194D07F003BDF2D /* FirebaseCoreDiagnostics.framework */; };
+		7D74FACE2194D07F003BDF2D /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC62194D07F003BDF2D /* FIRAnalyticsConnector.framework */; };
+		7D74FACF2194D07F003BDF2D /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC72194D07F003BDF2D /* GoogleAppMeasurement.framework */; };
+		7D74FAD72194D255003BDF2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D74FAD62194D255003BDF2D /* GoogleService-Info.plist */; };
+		7D74FADA2194D652003BDF2D /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */; };
+		7D74FADB2194D652003BDF2D /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD92194D652003BDF2D /* leveldb-library.framework */; };
+		7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D74FADE2194D967003BDF2D /* SubPageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +52,7 @@
 		6A8DF94A2191711E00A59C25 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		6AA3E08221428AA800612EF2 /* ShabuMaiJa-IOSClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShabuMaiJa-IOSClass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E08521428AA800612EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6AA3E08721428AA800612EF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6AA3E08721428AA800612EF2 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		6AA3E08A21428AA800612EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AA3E08C21428AA800612EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AA3E08F21428AA800612EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +63,21 @@
 		6AA3E0A121428AA800612EF2 /* ShabuMaiJa-IOSClassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShabuMaiJa-IOSClassUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShabuMaiJa_IOSClassUITests.swift; sourceTree = "<group>"; };
 		6AA3E0A721428AA800612EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/GoogleUtilities.framework"; sourceTree = "<group>"; };
+		7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseCore.framework"; sourceTree = "<group>"; };
+		7D74FAC22194D07F003BDF2D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/nanopb.framework"; sourceTree = "<group>"; };
+		7D74FAC32194D07F003BDF2D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
+		7D74FAC42194D07F003BDF2D /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseInstanceID.framework"; sourceTree = "<group>"; };
+		7D74FAC52194D07F003BDF2D /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseCoreDiagnostics.framework"; sourceTree = "<group>"; };
+		7D74FAC62194D07F003BDF2D /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FIRAnalyticsConnector.framework"; sourceTree = "<group>"; };
+		7D74FAC72194D07F003BDF2D /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/GoogleAppMeasurement.framework"; sourceTree = "<group>"; };
+		7D74FAD12194D12F003BDF2D /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		7D74FAD22194D164003BDF2D /* ShabuMaiJa-IOSClass-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShabuMaiJa-IOSClass-Bridging-Header.h"; sourceTree = "<group>"; };
+		7D74FAD52194D1B5003BDF2D /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		7D74FAD62194D255003BDF2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/FirebaseDatabase.framework"; sourceTree = "<group>"; };
+		7D74FAD92194D652003BDF2D /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/leveldb-library.framework"; sourceTree = "<group>"; };
+		7D74FADE2194D967003BDF2D /* SubPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D74FADA2194D652003BDF2D /* FirebaseDatabase.framework in Frameworks */,
+				7D74FADB2194D652003BDF2D /* leveldb-library.framework in Frameworks */,
+				7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */,
+				7D74FAC92194D07F003BDF2D /* FirebaseCore.framework in Frameworks */,
+				7D74FACA2194D07F003BDF2D /* nanopb.framework in Frameworks */,
+				7D74FACB2194D07F003BDF2D /* FirebaseAnalytics.framework in Frameworks */,
+				7D74FACC2194D07F003BDF2D /* FirebaseInstanceID.framework in Frameworks */,
+				7D74FACD2194D07F003BDF2D /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				7D74FACE2194D07F003BDF2D /* FIRAnalyticsConnector.framework in Frameworks */,
+				7D74FACF2194D07F003BDF2D /* GoogleAppMeasurement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +135,6 @@
 		6A07BE0121915557003941DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,7 +142,8 @@
 		6A07BE022191555D003941DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6AA3E08721428AA800612EF2 /* ViewController.swift */,
+				6AA3E08721428AA800612EF2 /* MainPageController.swift */,
+				7D74FADE2194D967003BDF2D /* SubPageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,12 +159,11 @@
 		6AA3E07921428AA800612EF2 = {
 			isa = PBXGroup;
 			children = (
-				6A8DF949219170F400A59C25 /* King */,
-				6A07BDFD21914F7A003941DE /* Time */,
 				6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */,
 				6AA3E09921428AA800612EF2 /* ShabuMaiJa-IOSClassTests */,
 				6AA3E0A421428AA800612EF2 /* ShabuMaiJa-IOSClassUITests */,
 				6AA3E08321428AA800612EF2 /* Products */,
+				7D74FABF2194D07E003BDF2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,11 +180,18 @@
 		6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */ = {
 			isa = PBXGroup;
 			children = (
-				6A07BE022191555D003941DE /* Controller */,
 				6A07BE0121915557003941DE /* Model */,
 				6A07BE002191554C003941DE /* View */,
+				6A07BE022191555D003941DE /* Controller */,
+				6A07BDFD21914F7A003941DE /* Time */,
+				6A8DF949219170F400A59C25 /* King */,
+				7D74FABC2194CC94003BDF2D /* Frameworks */,
+				7D74FABE2194CE22003BDF2D /* Resource */,
+				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
 				6AA3E08C21428AA800612EF2 /* Assets.xcassets */,
 				6AA3E09121428AA800612EF2 /* Info.plist */,
+				7D74FAD62194D255003BDF2D /* GoogleService-Info.plist */,
+				7D74FAD22194D164003BDF2D /* ShabuMaiJa-IOSClass-Bridging-Header.h */,
 			);
 			path = "ShabuMaiJa-IOSClass";
 			sourceTree = "<group>";
@@ -169,6 +212,47 @@
 				6AA3E0A721428AA800612EF2 /* Info.plist */,
 			);
 			path = "ShabuMaiJa-IOSClassUITests";
+			sourceTree = "<group>";
+		};
+		7D74FABC2194CC94003BDF2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D74FABD2194CCB0003BDF2D /* Firebase */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D74FABD2194CCB0003BDF2D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				7D74FAD52194D1B5003BDF2D /* module.modulemap */,
+				7D74FAD12194D12F003BDF2D /* Firebase.h */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		7D74FABE2194CE22003BDF2D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		7D74FABF2194D07E003BDF2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */,
+				7D74FAD92194D652003BDF2D /* leveldb-library.framework */,
+				7D74FAC62194D07F003BDF2D /* FIRAnalyticsConnector.framework */,
+				7D74FAC32194D07F003BDF2D /* FirebaseAnalytics.framework */,
+				7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */,
+				7D74FAC52194D07F003BDF2D /* FirebaseCoreDiagnostics.framework */,
+				7D74FAC42194D07F003BDF2D /* FirebaseInstanceID.framework */,
+				7D74FAC72194D07F003BDF2D /* GoogleAppMeasurement.framework */,
+				7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */,
+				7D74FAC22194D07F003BDF2D /* nanopb.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +323,7 @@
 				TargetAttributes = {
 					6AA3E08121428AA800612EF2 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					6AA3E09521428AA800612EF2 = {
@@ -283,6 +368,7 @@
 				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
 				6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */,
+				7D74FAD72194D255003BDF2D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +393,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AA3E08821428AA800612EF2 /* ViewController.swift in Sources */,
+				6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */,
+				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,14 +561,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89ST658N5L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Database",
+				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShabuMaiJa-IOSClass/ShabuMaiJa-IOSClass-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase";
 			};
 			name = Debug;
 		};
@@ -489,14 +586,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89ST658N5L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Database",
+				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShabuMaiJa-IOSClass/ShabuMaiJa-IOSClass-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase";
 			};
 			name = Release;
 		};
