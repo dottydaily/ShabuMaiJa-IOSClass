@@ -59,10 +59,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="yrm-dG-pcN">
-                                <rect key="frame" x="54.5" y="193.5" width="266.5" height="280"/>
+                                <rect key="frame" x="44.5" y="193.5" width="286.5" height="280"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-Be-jhz">
-                                        <rect key="frame" x="0.0" y="0.0" width="266.5" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-Be-jhz">
+                                        <rect key="frame" x="0.0" y="0.0" width="286.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP4-qo-dDc">
                                                 <rect key="frame" x="0.0" y="5" width="52.5" height="20.5"/>
@@ -74,7 +74,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-3j-HoM">
-                                                <rect key="frame" x="62.5" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="72.5" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="3De-Gs-PUq"/>
                                                 </constraints>
@@ -83,7 +83,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="ErB-Zf-4F0">
-                                                <rect key="frame" x="172.5" y="0.5" width="94" height="29"/>
+                                                <rect key="frame" x="192.5" y="0.5" width="94" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="wfb-jy-z4U"/>
                                                 </constraints>
@@ -94,10 +94,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-kN-fv8">
-                                        <rect key="frame" x="0.0" y="100" width="266.5" height="180"/>
+                                        <rect key="frame" x="0.0" y="100" width="286.5" height="180"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter group description here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MXu-55-EFe">
-                                                <rect key="frame" x="0.0" y="0.0" width="266.5" height="140"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="286.5" height="140"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="l7u-f8-Krl"/>
@@ -106,7 +106,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxx-mO-ahn">
-                                                <rect key="frame" x="217.5" y="150" width="49" height="30"/>
+                                                <rect key="frame" x="237.5" y="150" width="49" height="30"/>
                                                 <state key="normal" title="Submit"/>
                                             </button>
                                         </subviews>

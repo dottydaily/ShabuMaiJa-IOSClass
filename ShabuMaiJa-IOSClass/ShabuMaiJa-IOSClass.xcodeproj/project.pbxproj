@@ -30,6 +30,7 @@
 		7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D74FADE2194D967003BDF2D /* SubPageController.swift */; };
 		7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA21E2219C2C0900728998 /* Group.storyboard */; };
 		7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21E4219C463F00728998 /* CreateGroupController.swift */; };
+		7DAA21E7219C596A00728998 /* launchImage-iPhone-XR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA21E6219C596A00728998 /* launchImage-iPhone-XR.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		7D74FADE2194D967003BDF2D /* SubPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageController.swift; sourceTree = "<group>"; };
 		7DAA21E2219C2C0900728998 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		7DAA21E4219C463F00728998 /* CreateGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
+		7DAA21E6219C596A00728998 /* launchImage-iPhone-XR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "launchImage-iPhone-XR.jpg"; path = "../../Etc/launchImage-iPhone-XR.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */ = {
 			isa = PBXGroup;
 			children = (
+				7DAA21E6219C596A00728998 /* launchImage-iPhone-XR.jpg */,
 				6A07BE0121915557003941DE /* Model */,
 				6A07BE002191554C003941DE /* View */,
 				6A07BE022191555D003941DE /* Controller */,
@@ -382,6 +385,7 @@
 				7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */,
 				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
+				7DAA21E7219C596A00728998 /* launchImage-iPhone-XR.jpg in Resources */,
 				6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */,
 				7D74FAD72194D255003BDF2D /* GoogleService-Info.plist in Resources */,
 			);
