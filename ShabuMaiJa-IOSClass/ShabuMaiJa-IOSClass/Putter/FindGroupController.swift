@@ -10,18 +10,23 @@ import UIKit
 
 class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var storeList: StoreData = StoreData()
+    var accountList: AccountData = AccountData()
     
-    @IBOutlet weak var storeTableView: UITableView!
+    @IBOutlet weak var accountTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for _ in 1...5{
-            self.storeList.add(store: Store(random: true))
+        for _ in 1...8{
+            self.accountList.add(account: Account(random: true))
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    // tap on table view cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,14 +34,29 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storeList.total()
+        return self.accountList.total()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreTableViewCell", for: indexPath) as! StoreTableViewCell
-        cell.nameLabel.text = storeList.getAt(index: indexPath.row).name
-        cell.typeLabel.text = storeList.getAt(index: indexPath.row).type
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell", for: indexPath) as! AccountTableViewCell
+        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
+        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! GroupDetailController
+        if let index = accountTableView.indexPathForSelectedRow {
+            controller.ownerName = accountList.getAt(index: index.row).name
+            controller.ownerUsername = accountList.getAt(index: index.row).username
+        }
+        
+        /*
+        let controller = seque.destination as! SweetViewController
+        if let index = tableView.indexPathForSelectedRow{
+            controller.sweetText = data[index.row]
+        }
+         */
     }
     
     /*

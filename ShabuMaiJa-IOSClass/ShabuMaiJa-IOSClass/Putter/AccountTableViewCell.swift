@@ -8,10 +8,10 @@
 
 import UIKit
 
-class StoreTableViewCell: UITableViewCell {
+class AccountTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,12 +24,12 @@ class StoreTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func set(store: Store) {
-        self.nameLabel.text = store.name
-        self.typeLabel.text = store.type
+    func set(account: Account) {
+        self.nameLabel.text = account.name
+        self.usernameLabel.text = account.username
     }
     
-    var storeName: String {
+    var accountName: String {
         set(name) {
             self.nameLabel.text = name
         }
@@ -38,13 +38,12 @@ class StoreTableViewCell: UITableViewCell {
         }
     }
     
-    var storeType: String {
+    var accountUsername: String {
         set(type) {
-            self.typeLabel.text = type
+            self.usernameLabel.text = type
         }
         get {
-            return self.typeLabel.text!
+            return self.usernameLabel.text!
         }
     }
-    
 }
