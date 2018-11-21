@@ -28,6 +28,7 @@
 		7D74FADA2194D652003BDF2D /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */; };
 		7D74FADB2194D652003BDF2D /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD92194D652003BDF2D /* leveldb-library.framework */; };
 		7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D74FADE2194D967003BDF2D /* SubPageController.swift */; };
+		E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5EFB21A5B1C900B01597 /* RatingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/FirebaseDatabase.framework"; sourceTree = "<group>"; };
 		7D74FAD92194D652003BDF2D /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/leveldb-library.framework"; sourceTree = "<group>"; };
 		7D74FADE2194D967003BDF2D /* SubPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageController.swift; sourceTree = "<group>"; };
+		E90F5EFB21A5B1C900B01597 /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8DF94A2191711E00A59C25 /* Tab.storyboard */,
+				E90F5EFB21A5B1C900B01597 /* RatingController.swift */,
 			);
 			path = King;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			files = (
 				6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */,
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
+				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
