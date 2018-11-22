@@ -109,6 +109,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxx-mO-ahn">
                                                 <rect key="frame" x="237.5" y="150" width="49" height="30"/>
                                                 <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <segue destination="Xa4-ww-cI9" kind="show" id="eYX-K1-Qm2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -135,6 +138,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqx-xe-2BD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1516" y="-450"/>
+        </scene>
+        <!--WaitingPage-->
+        <scene sceneID="iBE-hH-Aft">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tab" referencedIdentifier="WaitingPage" id="Xa4-ww-cI9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ih-O2-yeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2331" y="-451"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xrH-pA-JyV">
