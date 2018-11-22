@@ -19,6 +19,18 @@
 		7D0A26EF219DF55F0090360A /* usericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A26EE219DF55E0090360A /* usericon.png */; };
 		7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F0219E071F0090360A /* GroupDetailController.swift */; };
 		7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F2219E0FC10090360A /* AccountProfileController.swift */; };
+		7D4915AD21A72A06009550FD /* launch640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915A821A72A06009550FD /* launch640x960.jpg */; };
+		7D4915AE21A72A06009550FD /* launch1242x2688.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915A921A72A06009550FD /* launch1242x2688.jpg */; };
+		7D4915AF21A72A06009550FD /* launch640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915AA21A72A06009550FD /* launch640x1136.jpg */; };
+		7D4915B021A72A06009550FD /* launch750x1334.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915AB21A72A06009550FD /* launch750x1334.jpg */; };
+		7D4915B121A72A06009550FD /* launch2688x1242.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915AC21A72A06009550FD /* launch2688x1242.jpg */; };
+		7D4915B321A72AA2009550FD /* launch320x480.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B221A72AA2009550FD /* launch320x480.jpg */; };
+		7D4915B621A72BCE009550FD /* launch1792x828.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B421A72BCE009550FD /* launch1792x828.jpg */; };
+		7D4915B721A72BCE009550FD /* launch828x1792.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B521A72BCE009550FD /* launch828x1792.jpg */; };
+		7D4915B921A72E06009550FD /* launch2208x1242.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915B821A72E06009550FD /* launch2208x1242.jpg */; };
+		7D4915BB21A72E5D009550FD /* launch1242x2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BA21A72E5D009550FD /* launch1242x2208.jpg */; };
+		7D4915BE21A72F0C009550FD /* launch1125x2436.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BC21A72F0C009550FD /* launch1125x2436.jpg */; };
+		7D4915BF21A72F0C009550FD /* launch2436x1125.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BD21A72F0C009550FD /* launch2436x1125.jpg */; };
 		7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */; };
 		7D74FAC92194D07F003BDF2D /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */; };
 		7D74FACA2194D07F003BDF2D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC22194D07F003BDF2D /* nanopb.framework */; };
@@ -72,10 +84,21 @@
 		6AA3E0A121428AA800612EF2 /* ShabuMaiJa-IOSClassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShabuMaiJa-IOSClassUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShabuMaiJa_IOSClassUITests.swift; sourceTree = "<group>"; };
 		6AA3E0A721428AA800612EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D0A26EB219DF49D0090360A /* launchImage-iPhone-XR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "launchImage-iPhone-XR.jpg"; sourceTree = "<group>"; };
 		7D0A26EE219DF55E0090360A /* usericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = usericon.png; path = ../../../../Etc/usericon.png; sourceTree = "<group>"; };
 		7D0A26F0219E071F0090360A /* GroupDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailController.swift; sourceTree = "<group>"; };
 		7D0A26F2219E0FC10090360A /* AccountProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfileController.swift; sourceTree = "<group>"; };
+		7D4915A821A72A06009550FD /* launch640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch640x960.jpg; sourceTree = "<group>"; };
+		7D4915A921A72A06009550FD /* launch1242x2688.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1242x2688.jpg; sourceTree = "<group>"; };
+		7D4915AA21A72A06009550FD /* launch640x1136.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch640x1136.jpg; sourceTree = "<group>"; };
+		7D4915AB21A72A06009550FD /* launch750x1334.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch750x1334.jpg; sourceTree = "<group>"; };
+		7D4915AC21A72A06009550FD /* launch2688x1242.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch2688x1242.jpg; sourceTree = "<group>"; };
+		7D4915B221A72AA2009550FD /* launch320x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch320x480.jpg; sourceTree = "<group>"; };
+		7D4915B421A72BCE009550FD /* launch1792x828.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1792x828.jpg; sourceTree = "<group>"; };
+		7D4915B521A72BCE009550FD /* launch828x1792.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch828x1792.jpg; sourceTree = "<group>"; };
+		7D4915B821A72E06009550FD /* launch2208x1242.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch2208x1242.jpg; sourceTree = "<group>"; };
+		7D4915BA21A72E5D009550FD /* launch1242x2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1242x2208.jpg; sourceTree = "<group>"; };
+		7D4915BC21A72F0C009550FD /* launch1125x2436.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1125x2436.jpg; sourceTree = "<group>"; };
+		7D4915BD21A72F0C009550FD /* launch2436x1125.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch2436x1125.jpg; sourceTree = "<group>"; };
 		7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseCore.framework"; sourceTree = "<group>"; };
 		7D74FAC22194D07F003BDF2D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/nanopb.framework"; sourceTree = "<group>"; };
@@ -237,7 +260,18 @@
 		7D0A26EC219DF4A80090360A /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				7D0A26EB219DF49D0090360A /* launchImage-iPhone-XR.jpg */,
+				7D4915BC21A72F0C009550FD /* launch1125x2436.jpg */,
+				7D4915BD21A72F0C009550FD /* launch2436x1125.jpg */,
+				7D4915BA21A72E5D009550FD /* launch1242x2208.jpg */,
+				7D4915B821A72E06009550FD /* launch2208x1242.jpg */,
+				7D4915B521A72BCE009550FD /* launch828x1792.jpg */,
+				7D4915B421A72BCE009550FD /* launch1792x828.jpg */,
+				7D4915B221A72AA2009550FD /* launch320x480.jpg */,
+				7D4915A821A72A06009550FD /* launch640x960.jpg */,
+				7D4915AA21A72A06009550FD /* launch640x1136.jpg */,
+				7D4915AB21A72A06009550FD /* launch750x1334.jpg */,
+				7D4915A921A72A06009550FD /* launch1242x2688.jpg */,
+				7D4915AC21A72A06009550FD /* launch2688x1242.jpg */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
@@ -416,14 +450,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4915B921A72E06009550FD /* launch2208x1242.jpg in Resources */,
 				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
+				7D4915AD21A72A06009550FD /* launch640x960.jpg in Resources */,
 				6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */,
+				7D4915B021A72A06009550FD /* launch750x1334.jpg in Resources */,
+				7D4915B121A72A06009550FD /* launch2688x1242.jpg in Resources */,
 				6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */,
+				7D4915AE21A72A06009550FD /* launch1242x2688.jpg in Resources */,
 				7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */,
+				7D4915BF21A72F0C009550FD /* launch2436x1125.jpg in Resources */,
 				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
+				7D4915B721A72BCE009550FD /* launch828x1792.jpg in Resources */,
+				7D4915AF21A72A06009550FD /* launch640x1136.jpg in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
 				6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */,
+				7D4915B321A72AA2009550FD /* launch320x480.jpg in Resources */,
 				7D74FAD72194D255003BDF2D /* GoogleService-Info.plist in Resources */,
+				7D4915BB21A72E5D009550FD /* launch1242x2208.jpg in Resources */,
+				7D4915B621A72BCE009550FD /* launch1792x828.jpg in Resources */,
+				7D4915BE21A72F0C009550FD /* launch1125x2436.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89ST658N5L;
@@ -639,7 +686,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "ShabuMaiJa-IOSClass/ShabuMaiJa-IOSClass-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase";
 			};
 			name = Debug;
@@ -648,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89ST658N5L;
@@ -663,7 +711,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShabuMaiJa-IOSClass/ShabuMaiJa-IOSClass-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase";
 			};
 			name = Release;
