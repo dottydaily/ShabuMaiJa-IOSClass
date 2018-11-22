@@ -49,6 +49,7 @@
 		7DAA21ED219C70C600728998 /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EC219C70C600728998 /* AccountData.swift */; };
 		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
 		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
+		E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5EFB21A5B1C900B01597 /* RatingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		7DAA21EC219C70C600728998 /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
+		E90F5EFB21A5B1C900B01597 /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				6A8DF94A2191711E00A59C25 /* Tab.storyboard */,
+				E90F5EFB21A5B1C900B01597 /* RatingController.swift */,
 			);
 			path = King;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */,
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
 				7DAA21ED219C70C600728998 /* AccountData.swift in Sources */,
+				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 				7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */,
 				7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */,
