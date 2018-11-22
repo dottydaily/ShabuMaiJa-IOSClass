@@ -16,6 +16,9 @@
 		6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */; };
 		6AA3E09B21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E09A21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift */; };
 		6AA3E0A621428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */; };
+		7D0A26EF219DF55F0090360A /* usericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A26EE219DF55E0090360A /* usericon.png */; };
+		7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F0219E071F0090360A /* GroupDetailController.swift */; };
+		7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F2219E0FC10090360A /* AccountProfileController.swift */; };
 		7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */; };
 		7D74FAC92194D07F003BDF2D /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */; };
 		7D74FACA2194D07F003BDF2D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC22194D07F003BDF2D /* nanopb.framework */; };
@@ -28,6 +31,12 @@
 		7D74FADA2194D652003BDF2D /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */; };
 		7D74FADB2194D652003BDF2D /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAD92194D652003BDF2D /* leveldb-library.framework */; };
 		7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D74FADE2194D967003BDF2D /* SubPageController.swift */; };
+		7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DAA21E2219C2C0900728998 /* Group.storyboard */; };
+		7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21E4219C463F00728998 /* CreateGroupController.swift */; };
+		7DAA21E9219C6DA600728998 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21E8219C6DA600728998 /* Account.swift */; };
+		7DAA21ED219C70C600728998 /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EC219C70C600728998 /* AccountData.swift */; };
+		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
+		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +72,10 @@
 		6AA3E0A121428AA800612EF2 /* ShabuMaiJa-IOSClassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShabuMaiJa-IOSClassUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShabuMaiJa_IOSClassUITests.swift; sourceTree = "<group>"; };
 		6AA3E0A721428AA800612EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D0A26EB219DF49D0090360A /* launchImage-iPhone-XR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "launchImage-iPhone-XR.jpg"; sourceTree = "<group>"; };
+		7D0A26EE219DF55E0090360A /* usericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = usericon.png; path = ../../../../Etc/usericon.png; sourceTree = "<group>"; };
+		7D0A26F0219E071F0090360A /* GroupDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailController.swift; sourceTree = "<group>"; };
+		7D0A26F2219E0FC10090360A /* AccountProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfileController.swift; sourceTree = "<group>"; };
 		7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseCore.framework"; sourceTree = "<group>"; };
 		7D74FAC22194D07F003BDF2D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/nanopb.framework"; sourceTree = "<group>"; };
@@ -78,6 +91,12 @@
 		7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/FirebaseDatabase.framework"; sourceTree = "<group>"; };
 		7D74FAD92194D652003BDF2D /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Database/leveldb-library.framework"; sourceTree = "<group>"; };
 		7D74FADE2194D967003BDF2D /* SubPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPageController.swift; sourceTree = "<group>"; };
+		7DAA21E2219C2C0900728998 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
+		7DAA21E4219C463F00728998 /* CreateGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
+		7DAA21E8219C6DA600728998 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		7DAA21EC219C70C600728998 /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
+		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +204,7 @@
 				6A07BE022191555D003941DE /* Controller */,
 				6A07BDFD21914F7A003941DE /* Time */,
 				6A8DF949219170F400A59C25 /* King */,
+				7DAA21E1219C2C0900728998 /* Putter */,
 				7D74FABC2194CC94003BDF2D /* Frameworks */,
 				7D74FABE2194CE22003BDF2D /* Resource */,
 				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
@@ -214,6 +234,22 @@
 			path = "ShabuMaiJa-IOSClassUITests";
 			sourceTree = "<group>";
 		};
+		7D0A26EC219DF4A80090360A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A26EB219DF49D0090360A /* launchImage-iPhone-XR.jpg */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		7D0A26ED219DF5110090360A /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				7D0A26EE219DF55E0090360A /* usericon.png */,
+			);
+			path = Icon;
+			sourceTree = "<group>";
+		};
 		7D74FABC2194CC94003BDF2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +270,8 @@
 		7D74FABE2194CE22003BDF2D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7D0A26ED219DF5110090360A /* Icon */,
+				7D0A26EC219DF4A80090360A /* LaunchScreen */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -253,6 +291,21 @@
 				7D74FAC22194D07F003BDF2D /* nanopb.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DAA21E1219C2C0900728998 /* Putter */ = {
+			isa = PBXGroup;
+			children = (
+				7DAA21E2219C2C0900728998 /* Group.storyboard */,
+				7DAA21E4219C463F00728998 /* CreateGroupController.swift */,
+				7DAA21E8219C6DA600728998 /* Account.swift */,
+				7DAA21EC219C70C600728998 /* AccountData.swift */,
+				7DAA21EE219C753500728998 /* AccountTableViewCell.swift */,
+				7DAA21F0219C78EB00728998 /* FindGroupController.swift */,
+				7D0A26F0219E071F0090360A /* GroupDetailController.swift */,
+				7D0A26F2219E0FC10090360A /* AccountProfileController.swift */,
+			);
+			path = Putter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,8 +416,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
 				6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */,
 				6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */,
+				7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */,
 				6A07BDFF21914F95003941DE /* Storyboard.storyboard in Resources */,
 				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
 				6AA3E08B21428AA800612EF2 /* Main.storyboard in Resources */,
@@ -393,9 +448,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */,
+				7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */,
+				7DAA21E9219C6DA600728998 /* Account.swift in Sources */,
 				6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */,
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
+				7DAA21ED219C70C600728998 /* AccountData.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
+				7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */,
+				7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */,
+				7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
