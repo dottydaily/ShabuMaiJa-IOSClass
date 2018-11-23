@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		04E63E3021A7BA7A00013B7E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E63E2F21A7BA7A00013B7E /* MapViewController.swift */; };
+		04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E63E3121A7D20700013B7E /* Assets.xcassets */; };
 		6A07BDFF21914F95003941DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A07BDFE21914F95003941DE /* Main.storyboard */; };
 		6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DF94A2191711E00A59C25 /* Tab.storyboard */; };
 		6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08521428AA800612EF2 /* AppDelegate.swift */; };
 		6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* MainPageController.swift */; };
 		6AA3E08B21428AA800612EF2 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08921428AA800612EF2 /* Test.storyboard */; };
-		6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08C21428AA800612EF2 /* Assets.xcassets */; };
 		6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */; };
 		6AA3E09B21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E09A21428AA800612EF2 /* ShabuMaiJa_IOSClassTests.swift */; };
 		6AA3E0A621428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E0A521428AA800612EF2 /* ShabuMaiJa_IOSClassUITests.swift */; };
@@ -73,13 +73,13 @@
 
 /* Begin PBXFileReference section */
 		04E63E2F21A7BA7A00013B7E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "ShabuMaiJa-IOSClass/Controller/MapViewController.swift"; sourceTree = SOURCE_ROOT; };
+		04E63E3121A7D20700013B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A07BDFE21914F95003941DE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6A8DF94A2191711E00A59C25 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		6AA3E08221428AA800612EF2 /* ShabuMaiJa-IOSClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShabuMaiJa-IOSClass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E08521428AA800612EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AA3E08721428AA800612EF2 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		6AA3E08A21428AA800612EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Test.storyboard; sourceTree = "<group>"; };
-		6AA3E08C21428AA800612EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AA3E08F21428AA800612EF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AA3E09121428AA800612EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA3E09621428AA800612EF2 /* ShabuMaiJa-IOSClassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShabuMaiJa-IOSClassTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,13 +231,13 @@
 		6AA3E08421428AA800612EF2 /* ShabuMaiJa-IOSClass */ = {
 			isa = PBXGroup;
 			children = (
+				04E63E3121A7D20700013B7E /* Assets.xcassets */,
 				6A07BE0121915557003941DE /* Model */,
 				6A07BE002191554C003941DE /* View */,
 				6A07BE022191555D003941DE /* Controller */,
 				7D74FABC2194CC94003BDF2D /* Frameworks */,
 				7D74FABE2194CE22003BDF2D /* Resource */,
 				6AA3E08521428AA800612EF2 /* AppDelegate.swift */,
-				6AA3E08C21428AA800612EF2 /* Assets.xcassets */,
 				6AA3E09121428AA800612EF2 /* Info.plist */,
 				7D74FAD62194D255003BDF2D /* GoogleService-Info.plist */,
 				7D74FAD22194D164003BDF2D /* ShabuMaiJa-IOSClass-Bridging-Header.h */,
@@ -512,8 +512,8 @@
 				6A07BDFF21914F95003941DE /* Main.storyboard in Resources */,
 				7D4915B721A72BCE009550FD /* launch828x1792.jpg in Resources */,
 				7D4915AF21A72A06009550FD /* launch640x1136.jpg in Resources */,
-				6AA3E08D21428AA800612EF2 /* Assets.xcassets in Resources */,
 				6AA3E08B21428AA800612EF2 /* Test.storyboard in Resources */,
+				04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */,
 				7D4915B321A72AA2009550FD /* launch320x480.jpg in Resources */,
 				7D74FAD72194D255003BDF2D /* GoogleService-Info.plist in Resources */,
 				7D4915BB21A72E5D009550FD /* launch1242x2208.jpg in Resources */,
