@@ -51,6 +51,7 @@
 		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
 		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
 		7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE4BB121A74C38007E82B2 /* WaitingController.swift */; };
+		C895933221AE99DF00CDF059 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C895933121AE99DF00CDF059 /* Search.storyboard */; };
 		E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5EFB21A5B1C900B01597 /* RatingController.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
 		7DCE4BB121A74C38007E82B2 /* WaitingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingController.swift; sourceTree = "<group>"; };
+		C895933121AE99DF00CDF059 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E90F5EFB21A5B1C900B01597 /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,6 +354,7 @@
 		7DCE4BAC21A74407007E82B2 /* SearchPage */ = {
 			isa = PBXGroup;
 			children = (
+				C895933121AE99DF00CDF059 /* Search.storyboard */,
 			);
 			path = SearchPage;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
 				7D4915AD21A72A06009550FD /* launch640x960.jpg in Resources */,
 				6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */,
+				C895933221AE99DF00CDF059 /* Search.storyboard in Resources */,
 				7D4915B021A72A06009550FD /* launch750x1334.jpg in Resources */,
 				7D4915B121A72A06009550FD /* launch2688x1242.jpg in Resources */,
 				6AA3E09021428AA800612EF2 /* LaunchScreen.storyboard in Resources */,
