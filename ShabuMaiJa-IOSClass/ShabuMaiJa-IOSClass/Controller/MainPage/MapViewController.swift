@@ -54,4 +54,12 @@ class MapViewController: UIViewController {
         }
     }
 
+    @IBAction func goToSelectMode(_ sender: Any) {
+        performSegue(withIdentifier: "goToSelectSearch", sender: self)
+    }
+    
+    @IBAction func backToMapPage(seg: UIStoryboardSegue) {
+        
+    }
+
 }

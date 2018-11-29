@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7B1-oE-xVr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7B1-oE-xVr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Select Search Controller-->
         <scene sceneID="xXX-2L-IvC">
             <objects>
-                <viewController id="7B1-oE-xVr" sceneMemberID="viewController">
+                <viewController id="7B1-oE-xVr" customClass="SelectSearchController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gv-DI-d9w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,9 +33,6 @@
                                                     <constraint firstAttribute="height" constant="56" id="nnU-ne-pCe"/>
                                                 </constraints>
                                                 <state key="normal" image="backicon"/>
-                                                <connections>
-                                                    <segue destination="6Ph-yh-vuW" kind="show" id="j8D-WJ-8nk"/>
-                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YSV-Tf-alg">
                                                 <rect key="frame" x="56" y="0.0" width="319" height="56"/>
@@ -64,6 +61,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
                                                 <color key="backgroundColor" red="1" green="0.61028571890000005" blue="0.55201474640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" backgroundImage="searchByPrice"/>
+                                                <connections>
+                                                    <action selector="selectPrice:" destination="7B1-oE-xVr" eventType="touchUpInside" id="huM-tS-1We"/>
+                                                    <segue destination="J8h-9S-5FO" kind="show" identifier="searchSelectPrice" id="qfJ-v8-DuF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -97,18 +98,79 @@
             </objects>
             <point key="canvasLocation" x="-271" y="-206"/>
         </scene>
-        <!--UITabBarController-thp-0L-elg-->
-        <scene sceneID="AfS-2s-KO1">
+        <!--Search By Price Controller-->
+        <scene sceneID="ocv-Lg-fug">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UITabBarController-thp-0L-elg" id="6Ph-yh-vuW" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4yP-gj-Xqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="kfs-dp-mL3" customClass="SearchByPriceController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nBN-bz-gbE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64o-vb-weX">
+                                <rect key="frame" x="164.5" y="318.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Txa-Y5-LtE" kind="show" id="kiT-bV-oIB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="64o-vb-weX" firstAttribute="centerX" secondItem="nBN-bz-gbE" secondAttribute="centerX" id="jlY-TT-d4f"/>
+                            <constraint firstItem="64o-vb-weX" firstAttribute="centerY" secondItem="nBN-bz-gbE" secondAttribute="centerY" id="v8y-xL-TlJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SHP-Cs-DoW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HVG-Z1-5VP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="tEV-U3-egI">
+                            <connections>
+                                <segue destination="HcU-zy-sWI" kind="unwind" unwindAction="backToSelectSearchWithSeg:" id="BxO-gq-I9M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyo-cj-BNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HcU-zy-sWI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="375" y="-1560"/>
+            <point key="canvasLocation" x="1420" y="-206"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="z3K-bP-0dS">
+            <objects>
+                <viewController id="Txa-Y5-LtE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LOe-oA-nrb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bxR-Cf-GbZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLi-JG-wZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2188" y="-206"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L0y-G6-krF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J8h-9S-5FO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uia-0F-u3l">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kfs-dp-mL3" kind="relationship" relationship="rootViewController" id="vvD-h6-MOL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L65-qc-v6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="-206"/>
         </scene>
     </scenes>
     <resources>
-        <image name="backicon" width="37.5" height="37.5"/>
-        <image name="searchByCategory" width="750" height="600"/>
-        <image name="searchByPrice" width="750" height="600"/>
+        <image name="backicon" width="25" height="25"/>
+        <image name="searchByCategory" width="375" height="300"/>
+        <image name="searchByPrice" width="375" height="300"/>
     </resources>
 </document>
