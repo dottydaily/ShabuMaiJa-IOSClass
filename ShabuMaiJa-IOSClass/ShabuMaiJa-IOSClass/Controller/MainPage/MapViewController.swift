@@ -24,9 +24,14 @@ class MapViewController: UIViewController {
         // Need this to allow auto layout (If true all constrains that we add just won't matter
         trackingButton.translatesAutoresizingMaskIntoConstraints = false
         self.mapView.addSubview(trackingButton)
+//        self.mapView.addConstraints([
+//            trackingButton.centerXAnchor.constraint(equalTo: self.mapView.centerXAnchor),
+//            trackingButton.centerYAnchor.constraint(equalTo: self.mapView.centerYAnchor)])
         self.mapView.addConstraints([
-        trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: 0),
-        trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: 0)])
+            trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
+            trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
+        
+        self.mapView.userTrackingMode = .follow
 }
 
     override func viewDidAppear(_ animated: Bool) {

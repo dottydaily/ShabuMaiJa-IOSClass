@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="thp-0L-elg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="thp-0L-elg">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -193,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NPB-tt-3xm">
-                                <rect key="frame" x="0.0" y="76" width="320" height="492"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="442"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pF9-fo-kKv">
                                 <rect key="frame" x="0.0" y="20" width="320" height="56"/>
@@ -226,8 +226,8 @@
                             <constraint firstItem="zkp-Fu-nCH" firstAttribute="trailing" secondItem="pF9-fo-kKv" secondAttribute="trailing" id="3Uw-E0-qCq"/>
                             <constraint firstItem="NPB-tt-3xm" firstAttribute="top" secondItem="pF9-fo-kKv" secondAttribute="bottom" id="99X-lr-ew8"/>
                             <constraint firstItem="NPB-tt-3xm" firstAttribute="leading" secondItem="zkp-Fu-nCH" secondAttribute="leading" id="GRs-Yd-XMK"/>
-                            <constraint firstAttribute="bottom" secondItem="NPB-tt-3xm" secondAttribute="bottom" id="IG8-Zj-I7j"/>
                             <constraint firstItem="NPB-tt-3xm" firstAttribute="trailing" secondItem="zkp-Fu-nCH" secondAttribute="trailing" id="Kyl-z4-XTe"/>
+                            <constraint firstAttribute="bottom" secondItem="NPB-tt-3xm" secondAttribute="bottom" constant="50" id="QcB-5H-9CD"/>
                             <constraint firstItem="pF9-fo-kKv" firstAttribute="leading" secondItem="zkp-Fu-nCH" secondAttribute="leading" id="UJo-g7-wO6"/>
                             <constraint firstItem="pF9-fo-kKv" firstAttribute="top" secondItem="zkp-Fu-nCH" secondAttribute="top" id="xlW-85-Bfm"/>
                         </constraints>
