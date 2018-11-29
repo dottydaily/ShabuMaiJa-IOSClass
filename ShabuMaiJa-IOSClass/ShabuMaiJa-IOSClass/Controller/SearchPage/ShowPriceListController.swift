@@ -1,18 +1,18 @@
 //
-//  findGroupController.swift
+//  ShowPriceListController.swift
 //  ShabuMaiJa-IOSClass
 //
-//  Created by DottyPurkt on 14/11/2561 BE.
+//  Created by DottyPurkt on 30/11/2561 BE.
 //  Copyright © 2561 iOS Dev. All rights reserved.
 //
 
 import UIKit
 
-class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShowPriceListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var accountList: AccountData = AccountData()
     
-    @IBOutlet weak var accountTableView: UITableView!
+    @IBOutlet weak var restaurantTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +43,15 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! GroupDetailController
-        if let index = accountTableView.indexPathForSelectedRow {
-            controller.ownerName = accountList.getAt(index: index.row).name
-            controller.ownerUsername = accountList.getAt(index: index.row).username
-        }
-        
-        /*
-        let controller = seque.destination as! SweetViewController
-        if let index = tableView.indexPathForSelectedRow{
-            controller.sweetText = data[index.row]
-        }
-         */
-    }
     
+
+    
+    
+    
+    
+
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
