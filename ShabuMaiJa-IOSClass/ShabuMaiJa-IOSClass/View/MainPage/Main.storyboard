@@ -32,7 +32,7 @@
                                                     <constraint firstAttribute="height" constant="56" id="BRW-rZ-Fvk"/>
                                                     <constraint firstAttribute="width" constant="56" id="gP4-RA-I37"/>
                                                 </constraints>
-                                                <state key="normal" image="hamburgers"/>
+                                                <state key="normal" image="filtersearch"/>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxd-DS-Yzk">
                                                 <rect key="frame" x="56" y="0.0" width="264" height="56"/>
@@ -60,7 +60,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oOX-XQ-rYR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="q9r-2w-tx8"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profileicon" id="q9r-2w-tx8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JhX-j8-i41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +98,7 @@
                                             <constraint firstAttribute="width" constant="56" id="0Wc-ld-aPp"/>
                                             <constraint firstAttribute="height" constant="56" id="sLZ-XI-Tmv"/>
                                         </constraints>
-                                        <state key="normal" image="hamburgers"/>
+                                        <state key="normal" image="filtersearch"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lmx-aD-Mfd">
                                         <rect key="frame" x="56" y="0.0" width="264" height="56"/>
@@ -121,7 +121,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jgO-aB-wOV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Promotion" id="Sll-ao-wiu">
+                    <tabBarItem key="tabBarItem" title="Promotion" image="promotionicon" id="Sll-ao-wiu">
                         <color key="badgeColor" red="0.32229177790000002" green="1" blue="0.6591073033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                 </viewController>
@@ -129,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="-613.04347826086962" y="-780.16304347826087"/>
         </scene>
-        <!--Find-->
+        <!--Find Nearby-->
         <scene sceneID="6gL-Qu-cta">
             <objects>
                 <viewController id="iMb-Fr-CqC" sceneMemberID="viewController">
@@ -150,7 +150,7 @@
                                                     <constraint firstAttribute="height" constant="56" id="D2a-gH-qW4"/>
                                                     <constraint firstAttribute="width" constant="56" id="Xd8-gU-H9f"/>
                                                 </constraints>
-                                                <state key="normal" image="hamburgers"/>
+                                                <state key="normal" image="filtersearch"/>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iGv-RZ-cMc">
                                                 <rect key="frame" x="56" y="0.0" width="264" height="56"/>
@@ -178,7 +178,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OaZ-uX-KgT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Find" id="H3a-fA-upF"/>
+                    <tabBarItem key="tabBarItem" title="Find Nearby" image="nearby" id="H3a-fA-upF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vz-sK-mu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,16 +205,20 @@
                                             <constraint firstAttribute="height" constant="56" id="dof-mZ-OmW"/>
                                             <constraint firstAttribute="width" constant="56" id="niY-DW-rQ5"/>
                                         </constraints>
-                                        <state key="normal" image="hamburgers"/>
+                                        <state key="normal" image="filtersearch"/>
                                         <connections>
                                             <action selector="goToSelectMode:" destination="XB1-dR-D9B" eventType="touchUpInside" id="dKi-tB-DMh"/>
                                             <segue destination="enw-yA-zGW" kind="show" identifier="goToSelectSearch" id="F7C-8p-dTn"/>
                                         </connections>
                                     </button>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5c1-Nv-XlV">
+                                    <searchBar contentMode="redraw" placeholder="Find restaurants" translatesAutoresizingMaskIntoConstraints="NO" id="5c1-Nv-XlV">
                                         <rect key="frame" x="56" y="0.0" width="264" height="56"/>
                                         <color key="barTintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="location"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.096288654890000006" blue="0.075258612799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -233,7 +237,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zkp-Fu-nCH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="7Jn-F4-Zsd"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapicon" id="7Jn-F4-Zsd"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -271,10 +275,14 @@
                 <viewControllerPlaceholder storyboardName="Search" id="enw-yA-zGW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVb-Y0-pMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="93"/>
+            <point key="canvasLocation" x="38" y="-174"/>
         </scene>
     </scenes>
     <resources>
-        <image name="hamburgers" width="24" height="24"/>
+        <image name="filtersearch" width="256" height="256"/>
+        <image name="mapicon" width="50" height="50"/>
+        <image name="nearby" width="50" height="50"/>
+        <image name="profileicon" width="50" height="50"/>
+        <image name="promotionicon" width="50" height="50"/>
     </resources>
 </document>

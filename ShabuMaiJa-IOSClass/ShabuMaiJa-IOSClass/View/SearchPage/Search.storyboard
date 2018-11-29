@@ -62,7 +62,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYQ-GB-1pd">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
-                                                <color key="backgroundColor" red="1" green="0.61028571890000005" blue="0.55201474640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.47535295050761417" green="0.33594559936794943" blue="0.10655712194175319" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" backgroundImage="searchByPrice"/>
                                                 <connections>
                                                     <action selector="selectPrice:" destination="7B1-oE-xVr" eventType="touchUpInside" id="huM-tS-1We"/>
@@ -76,8 +76,11 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwB-yh-t1M">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
-                                                <color key="backgroundColor" red="1" green="0.61028571890000005" blue="0.55201474640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.30688555734243811" green="0.10854987114179278" blue="0.3819003807106599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" backgroundImage="searchByCategory"/>
+                                                <connections>
+                                                    <segue destination="pgH-aP-Ino" kind="show" identifier="searchSelectCategory" id="ja0-1o-fEe"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -136,7 +139,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyo-cj-BNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HcU-zy-sWI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1420" y="-206"/>
+            <point key="canvasLocation" x="1535" y="-536"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="owl-Cm-6oI">
+            <objects>
+                <viewController id="VAh-KY-p3d" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XDB-sM-IqK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OaJ-HB-a97"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x7f-xx-zah">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gl1-V6-LPF">
+                            <connections>
+                                <segue destination="GSQ-Db-GRG" kind="unwind" unwindAction="backToSelectSearchWithSeg:" id="kAr-1a-wkH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UHq-dp-7aB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GSQ-Db-GRG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="179"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="z3K-bP-0dS">
@@ -151,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLi-JG-wZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-206"/>
+            <point key="canvasLocation" x="2303" y="-536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0y-G6-krF">
@@ -169,12 +195,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L65-qc-v6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="-206"/>
+            <point key="canvasLocation" x="692" y="-536"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ird-Xf-ukK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgH-aP-Ino" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FDo-OD-i7O">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VAh-KY-p3d" kind="relationship" relationship="rootViewController" id="i8n-89-nS4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXp-xr-ev1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="179"/>
         </scene>
     </scenes>
     <resources>
-        <image name="backicon" width="37.5" height="37.5"/>
-        <image name="searchByCategory" width="750" height="600"/>
-        <image name="searchByPrice" width="750" height="600"/>
+        <image name="backicon" width="25" height="25"/>
+        <image name="searchByCategory" width="375" height="300"/>
+        <image name="searchByPrice" width="375" height="300"/>
     </resources>
 </document>
