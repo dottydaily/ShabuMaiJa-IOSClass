@@ -43,16 +43,6 @@ class MapViewController: UIViewController {
             break
         }
     }
-    //Time : Follow user button will make it always follow user.Cannot turn off following unless disable location service.
-    @IBAction func followUserSwitchValueChange(_ sender: UISwitch) {
-        // sender is Switch in UI
-        if (sender.isOn) {
-            self.mapView.userTrackingMode = .follow
-        }
-        else {
-            self.mapView.userTrackingMode = .none
-        }
-    }
 
     @IBAction func goToSelectMode(_ sender: Any) {
         performSegue(withIdentifier: "goToSelectSearch", sender: self)
