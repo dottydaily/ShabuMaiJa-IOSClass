@@ -249,6 +249,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="6Sq-TG-9Mw" id="OQo-hy-Nup"/>
                                             <outlet property="usernameLabel" destination="N1Z-lp-a5G" id="B5E-29-M7M"/>
+                                            <segue destination="HYA-WT-7qF" kind="show" id="i62-ek-7Mv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -337,6 +338,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="zUF-3g-JjG" id="3Ao-pr-tpI"/>
                                             <outlet property="usernameLabel" destination="6ah-OV-sx7" id="8NK-AV-ZPg"/>
+                                            <segue destination="HYA-WT-7qF" kind="show" id="abO-P2-SnI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -362,6 +364,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLi-JG-wZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2303" y="-536"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="WZ5-dJ-vC2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Group" id="HYA-WT-7qF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcE-ll-RVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3153" y="-49"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L0y-G6-krF">
@@ -410,5 +420,8 @@
         <image name="searchByPrice" width="750" height="600"/>
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="i62-ek-7Mv"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34137055837563457" green="0.34137055837563457" blue="0.34137055837563457" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
