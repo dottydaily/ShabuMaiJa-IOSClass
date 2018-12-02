@@ -15,6 +15,10 @@ class Restaurant: NSObject {
     var longtitude: Double
     
     init(name: String, reviewScore: Double, categoryType: String, latitude: Double, longtitude: Double) {
-        <#statements#>
+        self.name = name
+        self.reviewScore = reviewScore
+        self.categoryType = categoryType
+        self.latitude = latitude
+        self.longtitude = longtitude
     }
 }
