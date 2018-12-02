@@ -34,6 +34,32 @@
 		7D4915BB21A72E5D009550FD /* launch1242x2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BA21A72E5D009550FD /* launch1242x2208.jpg */; };
 		7D4915BE21A72F0C009550FD /* launch1125x2436.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BC21A72F0C009550FD /* launch1125x2436.jpg */; };
 		7D4915BF21A72F0C009550FD /* launch2436x1125.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915BD21A72F0C009550FD /* launch2436x1125.jpg */; };
+		7D5D5FA721B0580600F92364 /* ShowPriceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5D5FA621B0580600F92364 /* ShowPriceListController.swift */; };
+		7D6C61B821B3BC2500A031F3 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C61B721B3BC2500A031F3 /* RestaurantTableViewCell.swift */; };
+		7D6C61BA21B3BC9E00A031F3 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6C61B921B3BC9E00A031F3 /* Restaurant.swift */; };
+		7D6C61D621B3C14E00A031F3 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61D321B3C14E00A031F3 /* GoogleMapsBase.framework */; };
+		7D6C61D721B3C14E00A031F3 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61D521B3C14E00A031F3 /* GooglePlaces.framework */; };
+		7D6C61D921B3C19F00A031F3 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C61D821B3C19F00A031F3 /* GooglePlaces.bundle */; };
+		7D6C61DB21B3C28D00A031F3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61DA21B3C28D00A031F3 /* Accelerate.framework */; };
+		7D6C61E221B3C2D000A031F3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61DC21B3C2CF00A031F3 /* CoreLocation.framework */; };
+		7D6C61E321B3C2D000A031F3 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61DD21B3C2D000A031F3 /* CoreImage.framework */; };
+		7D6C61E421B3C2D000A031F3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61DE21B3C2D000A031F3 /* CoreText.framework */; };
+		7D6C61E521B3C2D000A031F3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61DF21B3C2D000A031F3 /* CoreData.framework */; };
+		7D6C61E621B3C2D000A031F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61E021B3C2D000A031F3 /* CoreTelephony.framework */; };
+		7D6C61E721B3C2D000A031F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61E121B3C2D000A031F3 /* CoreGraphics.framework */; };
+		7D6C61EC21B3C30900A031F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61E821B3C30900A031F3 /* libz.tbd */; };
+		7D6C61ED21B3C30900A031F3 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61E921B3C30900A031F3 /* GLKit.framework */; };
+		7D6C61EE21B3C30900A031F3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61EA21B3C30900A031F3 /* ImageIO.framework */; };
+		7D6C61EF21B3C30900A031F3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61EB21B3C30900A031F3 /* libc++.tbd */; };
+		7D6C61F121B3C31E00A031F3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61F021B3C31E00A031F3 /* OpenGLES.framework */; };
+		7D6C61F321B3C32300A031F3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61F221B3C32300A031F3 /* QuartzCore.framework */; };
+		7D6C61F521B3C32D00A031F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61F421B3C32D00A031F3 /* SystemConfiguration.framework */; };
+		7D6C61F721B3C33500A031F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61F621B3C33500A031F3 /* UIKit.framework */; };
+		7D6C61F921B3C60900A031F3 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C61F821B3C60900A031F3 /* GoogleMaps.bundle */; };
+		7D6C61FC21B3C63500A031F3 /* GooglePlacePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61FB21B3C63500A031F3 /* GooglePlacePicker.framework */; };
+		7D6C61FE21B3C63D00A031F3 /* GooglePlacePicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D6C61FD21B3C63D00A031F3 /* GooglePlacePicker.bundle */; };
+		7D6C620121B3C67D00A031F3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C61FF21B3C67D00A031F3 /* GoogleMaps.framework */; };
+		7D6C620221B3C67D00A031F3 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6C620021B3C67D00A031F3 /* GoogleMapsCore.framework */; };
 		7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */; };
 		7D74FAC92194D07F003BDF2D /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */; };
 		7D74FACA2194D07F003BDF2D /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D74FAC22194D07F003BDF2D /* nanopb.framework */; };
@@ -53,6 +79,7 @@
 		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
 		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
 		7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE4BB121A74C38007E82B2 /* WaitingController.swift */; };
+		C86699E121B1369B00333FCA /* ShowCategoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86699E021B1369B00333FCA /* ShowCategoryListController.swift */; };
 		C895933221AE99DF00CDF059 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C895933121AE99DF00CDF059 /* Search.storyboard */; };
 		E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5EFB21A5B1C900B01597 /* RatingController.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +135,46 @@
 		7D4915BA21A72E5D009550FD /* launch1242x2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1242x2208.jpg; sourceTree = "<group>"; };
 		7D4915BC21A72F0C009550FD /* launch1125x2436.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1125x2436.jpg; sourceTree = "<group>"; };
 		7D4915BD21A72F0C009550FD /* launch2436x1125.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch2436x1125.jpg; sourceTree = "<group>"; };
+		7D5D5FA621B0580600F92364 /* ShowPriceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPriceListController.swift; sourceTree = "<group>"; };
+		7D6C61B721B3BC2500A031F3 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		7D6C61B921B3BC9E00A031F3 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		7D6C61BE21B3C0EC00A031F3 /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		7D6C61BF21B3C0EC00A031F3 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		7D6C61C021B3C0EC00A031F3 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		7D6C61C121B3C0EC00A031F3 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		7D6C61C221B3C0EC00A031F3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		7D6C61C321B3C0EC00A031F3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		7D6C61C421B3C0EC00A031F3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		7D6C61C521B3C0EC00A031F3 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = nanopb.framework; sourceTree = "<group>"; };
+		7D6C61C621B3C0EC00A031F3 /* Firebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		7D6C61C721B3C0EC00A031F3 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		7D6C61C921B3C0EC00A031F3 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		7D6C61CA21B3C0EC00A031F3 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "leveldb-library.framework"; sourceTree = "<group>"; };
+		7D6C61CC21B3C0EC00A031F3 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		7D6C61CF21B3C0EC00A031F3 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		7D6C61D321B3C14E00A031F3 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		7D6C61D521B3C14E00A031F3 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		7D6C61D821B3C19F00A031F3 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		7D6C61DA21B3C28D00A031F3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7D6C61DC21B3C2CF00A031F3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7D6C61DD21B3C2D000A031F3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		7D6C61DE21B3C2D000A031F3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		7D6C61DF21B3C2D000A031F3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7D6C61E021B3C2D000A031F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7D6C61E121B3C2D000A031F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7D6C61E821B3C30900A031F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7D6C61E921B3C30900A031F3 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		7D6C61EA21B3C30900A031F3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		7D6C61EB21B3C30900A031F3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		7D6C61F021B3C31E00A031F3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		7D6C61F221B3C32300A031F3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7D6C61F421B3C32D00A031F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7D6C61F621B3C33500A031F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7D6C61F821B3C60900A031F3 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		7D6C61FB21B3C63500A031F3 /* GooglePlacePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlacePicker.framework; sourceTree = "<group>"; };
+		7D6C61FD21B3C63D00A031F3 /* GooglePlacePicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlacePicker.bundle; path = GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle; sourceTree = "<group>"; };
+		7D6C61FF21B3C67D00A031F3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0/GoogleMaps.framework"; sourceTree = "<group>"; };
+		7D6C620021B3C67D00A031F3 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = "ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0/GoogleMapsCore.framework"; sourceTree = "<group>"; };
 		7D74FAC02194D07F003BDF2D /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		7D74FAC12194D07F003BDF2D /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/FirebaseCore.framework"; sourceTree = "<group>"; };
 		7D74FAC22194D07F003BDF2D /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics/nanopb.framework"; sourceTree = "<group>"; };
@@ -130,6 +197,7 @@
 		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
 		7DCE4BB121A74C38007E82B2 /* WaitingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingController.swift; sourceTree = "<group>"; };
+		C86699E021B1369B00333FCA /* ShowCategoryListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCategoryListController.swift; sourceTree = "<group>"; };
 		C895933121AE99DF00CDF059 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E90F5EFB21A5B1C900B01597 /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +207,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D6C61FC21B3C63500A031F3 /* GooglePlacePicker.framework in Frameworks */,
+				7D6C620121B3C67D00A031F3 /* GoogleMaps.framework in Frameworks */,
+				7D6C620221B3C67D00A031F3 /* GoogleMapsCore.framework in Frameworks */,
+				7D6C61F721B3C33500A031F3 /* UIKit.framework in Frameworks */,
+				7D6C61F521B3C32D00A031F3 /* SystemConfiguration.framework in Frameworks */,
+				7D6C61F321B3C32300A031F3 /* QuartzCore.framework in Frameworks */,
+				7D6C61F121B3C31E00A031F3 /* OpenGLES.framework in Frameworks */,
+				7D6C61EC21B3C30900A031F3 /* libz.tbd in Frameworks */,
+				7D6C61ED21B3C30900A031F3 /* GLKit.framework in Frameworks */,
+				7D6C61EE21B3C30900A031F3 /* ImageIO.framework in Frameworks */,
+				7D6C61EF21B3C30900A031F3 /* libc++.tbd in Frameworks */,
+				7D6C61E221B3C2D000A031F3 /* CoreLocation.framework in Frameworks */,
+				7D6C61E321B3C2D000A031F3 /* CoreImage.framework in Frameworks */,
+				7D6C61E421B3C2D000A031F3 /* CoreText.framework in Frameworks */,
+				7D6C61E521B3C2D000A031F3 /* CoreData.framework in Frameworks */,
+				7D6C61E621B3C2D000A031F3 /* CoreTelephony.framework in Frameworks */,
+				7D6C61E721B3C2D000A031F3 /* CoreGraphics.framework in Frameworks */,
+				7D6C61DB21B3C28D00A031F3 /* Accelerate.framework in Frameworks */,
+				7D6C61D721B3C14E00A031F3 /* GooglePlaces.framework in Frameworks */,
+				7D6C61D621B3C14E00A031F3 /* GoogleMapsBase.framework in Frameworks */,
 				7D74FADA2194D652003BDF2D /* FirebaseDatabase.framework in Frameworks */,
 				7D74FADB2194D652003BDF2D /* leveldb-library.framework in Frameworks */,
 				7D74FAC82194D07F003BDF2D /* GoogleUtilities.framework in Frameworks */,
@@ -174,6 +262,8 @@
 			children = (
 				6A04AD9121AFAFC1006AAB7F /* SelectSearchController.swift */,
 				6A04AD9321AFB0D6006AAB7F /* SearchByPriceController.swift */,
+				7D5D5FA621B0580600F92364 /* ShowPriceListController.swift */,
+				C86699E021B1369B00333FCA /* ShowCategoryListController.swift */,
 			);
 			path = SearchPage;
 			sourceTree = "<group>";
@@ -197,6 +287,8 @@
 				7DAA21E8219C6DA600728998 /* Account.swift */,
 				7DAA21EC219C70C600728998 /* AccountData.swift */,
 				7DAA21EE219C753500728998 /* AccountTableViewCell.swift */,
+				7D6C61B721B3BC2500A031F3 /* RestaurantTableViewCell.swift */,
+				7D6C61B921B3BC9E00A031F3 /* Restaurant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,9 +397,109 @@
 			path = Icon;
 			sourceTree = "<group>";
 		};
+		7D6C61BB21B3C0EC00A031F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61BC21B3C0EC00A031F3 /* Firebase */,
+				7D6C61CB21B3C0EC00A031F3 /* GoogleMaps-2.7.0 */,
+				7D6C61CD21B3C0EC00A031F3 /* GooglePlacePicker-2.7.0 */,
+				7D6C61CE21B3C0EC00A031F3 /* GooglePlaces-2.7.0 */,
+			);
+			name = Frameworks;
+			path = "ShabuMaiJa-IOSClass/Frameworks";
+			sourceTree = "<group>";
+		};
+		7D6C61BC21B3C0EC00A031F3 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61BD21B3C0EC00A031F3 /* Analytics */,
+				7D6C61C621B3C0EC00A031F3 /* Firebase.h */,
+				7D6C61C721B3C0EC00A031F3 /* module.modulemap */,
+				7D6C61C821B3C0EC00A031F3 /* Database */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		7D6C61BD21B3C0EC00A031F3 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61BE21B3C0EC00A031F3 /* FIRAnalyticsConnector.framework */,
+				7D6C61BF21B3C0EC00A031F3 /* FirebaseAnalytics.framework */,
+				7D6C61C021B3C0EC00A031F3 /* FirebaseCore.framework */,
+				7D6C61C121B3C0EC00A031F3 /* FirebaseCoreDiagnostics.framework */,
+				7D6C61C221B3C0EC00A031F3 /* FirebaseInstanceID.framework */,
+				7D6C61C321B3C0EC00A031F3 /* GoogleAppMeasurement.framework */,
+				7D6C61C421B3C0EC00A031F3 /* GoogleUtilities.framework */,
+				7D6C61C521B3C0EC00A031F3 /* nanopb.framework */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		7D6C61C821B3C0EC00A031F3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61C921B3C0EC00A031F3 /* FirebaseDatabase.framework */,
+				7D6C61CA21B3C0EC00A031F3 /* leveldb-library.framework */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		7D6C61CB21B3C0EC00A031F3 /* GoogleMaps-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61CC21B3C0EC00A031F3 /* GoogleMapsBase.framework */,
+			);
+			path = "GoogleMaps-2.7.0";
+			sourceTree = "<group>";
+		};
+		7D6C61CD21B3C0EC00A031F3 /* GooglePlacePicker-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "GooglePlacePicker-2.7.0";
+			sourceTree = "<group>";
+		};
+		7D6C61CE21B3C0EC00A031F3 /* GooglePlaces-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61CF21B3C0EC00A031F3 /* GooglePlaces.framework */,
+			);
+			path = "GooglePlaces-2.7.0";
+			sourceTree = "<group>";
+		};
+		7D6C61D221B3C14E00A031F3 /* GoogleMaps-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61F821B3C60900A031F3 /* GoogleMaps.bundle */,
+				7D6C61D321B3C14E00A031F3 /* GoogleMapsBase.framework */,
+			);
+			path = "GoogleMaps-2.7.0";
+			sourceTree = "<group>";
+		};
+		7D6C61D421B3C14E00A031F3 /* GooglePlaces-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61D821B3C19F00A031F3 /* GooglePlaces.bundle */,
+				7D6C61D521B3C14E00A031F3 /* GooglePlaces.framework */,
+			);
+			path = "GooglePlaces-2.7.0";
+			sourceTree = "<group>";
+		};
+		7D6C61FA21B3C63500A031F3 /* GooglePlacePicker-2.7.0 */ = {
+			isa = PBXGroup;
+			children = (
+				7D6C61FD21B3C63D00A031F3 /* GooglePlacePicker.bundle */,
+				7D6C61FB21B3C63500A031F3 /* GooglePlacePicker.framework */,
+			);
+			path = "GooglePlacePicker-2.7.0";
+			sourceTree = "<group>";
+		};
 		7D74FABC2194CC94003BDF2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D6C61FA21B3C63500A031F3 /* GooglePlacePicker-2.7.0 */,
+				7D6C61D221B3C14E00A031F3 /* GoogleMaps-2.7.0 */,
+				7D6C61D421B3C14E00A031F3 /* GooglePlaces-2.7.0 */,
 				7D74FABD2194CCB0003BDF2D /* Firebase */,
 			);
 			path = Frameworks;
@@ -334,6 +526,24 @@
 		7D74FABF2194D07E003BDF2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D6C61FF21B3C67D00A031F3 /* GoogleMaps.framework */,
+				7D6C620021B3C67D00A031F3 /* GoogleMapsCore.framework */,
+				7D6C61F621B3C33500A031F3 /* UIKit.framework */,
+				7D6C61F421B3C32D00A031F3 /* SystemConfiguration.framework */,
+				7D6C61F221B3C32300A031F3 /* QuartzCore.framework */,
+				7D6C61F021B3C31E00A031F3 /* OpenGLES.framework */,
+				7D6C61E921B3C30900A031F3 /* GLKit.framework */,
+				7D6C61EA21B3C30900A031F3 /* ImageIO.framework */,
+				7D6C61EB21B3C30900A031F3 /* libc++.tbd */,
+				7D6C61E821B3C30900A031F3 /* libz.tbd */,
+				7D6C61DF21B3C2D000A031F3 /* CoreData.framework */,
+				7D6C61E121B3C2D000A031F3 /* CoreGraphics.framework */,
+				7D6C61DD21B3C2D000A031F3 /* CoreImage.framework */,
+				7D6C61DC21B3C2CF00A031F3 /* CoreLocation.framework */,
+				7D6C61E021B3C2D000A031F3 /* CoreTelephony.framework */,
+				7D6C61DE21B3C2D000A031F3 /* CoreText.framework */,
+				7D6C61DA21B3C28D00A031F3 /* Accelerate.framework */,
+				7D6C61BB21B3C0EC00A031F3 /* Frameworks */,
 				7D74FAD82194D652003BDF2D /* FirebaseDatabase.framework */,
 				7D74FAD92194D652003BDF2D /* leveldb-library.framework */,
 				7D74FAC62194D07F003BDF2D /* FIRAnalyticsConnector.framework */,
@@ -508,8 +718,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D6C61FE21B3C63D00A031F3 /* GooglePlacePicker.bundle in Resources */,
 				7D4915B921A72E06009550FD /* launch2208x1242.jpg in Resources */,
 				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
+				7D6C61F921B3C60900A031F3 /* GoogleMaps.bundle in Resources */,
+				7D6C61D921B3C19F00A031F3 /* GooglePlaces.bundle in Resources */,
 				7D4915AD21A72A06009550FD /* launch640x960.jpg in Resources */,
 				6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */,
 				C895933221AE99DF00CDF059 /* Search.storyboard in Resources */,
@@ -565,9 +778,13 @@
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 				6A04AD9221AFAFC1006AAB7F /* SelectSearchController.swift in Sources */,
 				7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */,
+				7D5D5FA721B0580600F92364 /* ShowPriceListController.swift in Sources */,
 				7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */,
+				7D6C61BA21B3BC9E00A031F3 /* Restaurant.swift in Sources */,
 				6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */,
 				7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */,
+				7D6C61B821B3BC2500A031F3 /* RestaurantTableViewCell.swift in Sources */,
+				C86699E121B1369B00333FCA /* ShowCategoryListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,8 +958,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Database",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlaces-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
@@ -767,8 +988,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Database",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlaces-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
