@@ -242,6 +242,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="NPB-tt-3xm" id="OgQ-GD-ldn"/>
+                        <segue destination="Usv-uz-du4" kind="show" identifier="goToCreateFindPage" id="Nvk-Cv-HPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LST-1x-HVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,12 +278,20 @@
             </objects>
             <point key="canvasLocation" x="38" y="-174"/>
         </scene>
+        <!--Group-->
+        <scene sceneID="dla-zq-Xe6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Group" id="Usv-uz-du4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mn-29-s0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="-255"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="filtersearch" width="256" height="256"/>
-        <image name="mapicon" width="50" height="50"/>
-        <image name="nearby" width="50" height="50"/>
-        <image name="profileicon" width="50" height="50"/>
-        <image name="promotionicon" width="50" height="50"/>
+        <image name="filtersearch" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="mapicon" width="80" height="80"/>
+        <image name="nearby" width="80" height="80"/>
+        <image name="profileicon" width="80" height="80"/>
+        <image name="promotionicon" width="80" height="80"/>
     </resources>
 </document>
