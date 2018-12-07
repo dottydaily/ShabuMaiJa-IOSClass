@@ -8,10 +8,15 @@
 
 import UIKit
 import MapKit
+import GooglePlacePicker
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate{
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    // The code snippet below shows how to create GMSPlacePickerViewController.
+    var placePickerConfig: GMSPlacePickerConfig!
+    var placePicker: GMSPlacePickerViewController!
     
     override func viewDidLoad() {
 
@@ -32,7 +37,13 @@ class MapViewController: UIViewController {
             trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
         
         self.mapView.userTrackingMode = .follow
-}
+        
+        // Place Picker instantiation
+        self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)
+        self.placePicker = GMSPlacePickerViewController(config: placePickerConfig)
+        placePicker.delegate = self
+        present(placePicker, animated: true, completion: nil)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         
@@ -49,6 +60,26 @@ class MapViewController: UIViewController {
         }
     }
 
+    // To receive the results from the place picker 'self' will need to conform to
+    // GMSPlacePickerViewControllerDelegate and implement this code.
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
+        })
+        
+        print("Place name \(place.name)")
+        print("Place address \(place.formattedAddress)")
+        print("Place attributions \(place.attributions)")
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
+    
     @IBAction func goToSelectMode(_ sender: Any) {
         performSegue(withIdentifier: "goToSelectSearch", sender: self)
     }
