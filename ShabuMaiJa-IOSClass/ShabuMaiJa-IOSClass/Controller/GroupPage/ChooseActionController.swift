@@ -1,24 +1,25 @@
 //
-//  AccountProfileController.swift
+//  ChooseActionController.swift
 //  ShabuMaiJa-IOSClass
 //
-//  Created by DottyPurkt on 16/11/2561 BE.
-//  Copyright © 2561 iOS Dev. All rights reserved.
+//  Created by Pornpat Santibuppakul on 12/13/18.
+//  Copyright © 2018 iOS Dev. All rights reserved.
 //
 
 import UIKit
 
-class AccountProfileController: UIViewController {
+class ChooseActionController: UIViewController {
+    
+    var previousViewController: UIViewController! = nil
 
-    public var name: String!
-    
-    @IBOutlet weak var accountNameLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.accountNameLabel.text = name
+    }
+    
+    @IBAction func unwindToPrevious(_ sender: Any) {
+        navigationController?.popToViewController(previousViewController, animated: true)
     }
     
     /*
