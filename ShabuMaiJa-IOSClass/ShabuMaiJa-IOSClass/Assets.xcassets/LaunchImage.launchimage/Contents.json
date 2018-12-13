@@ -13,7 +13,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "2688h",
-      "filename" : "launch2688x1242-1.jpg",
+      "filename" : "launch2688x1242.jpg",
       "minimum-system-version" : "12.0",
       "orientation" : "landscape",
       "scale" : "3x"
@@ -31,7 +31,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "1792h",
-      "filename" : "launch1792x828-1.jpg",
+      "filename" : "launch1792x828.jpg",
       "minimum-system-version" : "12.0",
       "orientation" : "landscape",
       "scale" : "2x"
@@ -58,7 +58,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "launch1242x2208-1.jpg",
+      "filename" : "launch1242x2208.jpg",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -76,7 +76,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "launch750x1334-1.jpg",
+      "filename" : "launch750x1334.jpg",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -84,7 +84,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "launch640x960-2.jpg",
+      "filename" : "launch640x960.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"

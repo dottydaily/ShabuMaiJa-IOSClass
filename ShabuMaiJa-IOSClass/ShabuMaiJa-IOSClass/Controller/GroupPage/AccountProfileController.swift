@@ -21,7 +21,6 @@ class AccountProfileController: UIViewController {
         self.accountNameLabel.text = name
     }
     
-
     /*
     // MARK: - Navigation
 
