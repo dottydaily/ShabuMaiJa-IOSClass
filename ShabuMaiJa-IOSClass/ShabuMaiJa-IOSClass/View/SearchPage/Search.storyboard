@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7B1-oE-xVr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,108 +7,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Select Search Controller-->
-        <scene sceneID="xXX-2L-IvC">
-            <objects>
-                <viewController id="7B1-oE-xVr" customClass="SelectSearchController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Gv-DI-d9w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-vZ-srB">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDp-ON-g39">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-0W-T5J">
-                                                <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
-                                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="56" id="hgt-wJ-LoV"/>
-                                                    <constraint firstAttribute="height" constant="56" id="nnU-ne-pCe"/>
-                                                </constraints>
-                                                <state key="normal" image="backicon"/>
-                                                <connections>
-                                                    <segue destination="aVT-1s-qQB" kind="unwind" unwindAction="backToMapPageWithSeg:" id="gCx-Io-Mxw"/>
-                                                </connections>
-                                            </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YSV-Tf-alg">
-                                                <rect key="frame" x="56" y="0.0" width="319" height="56"/>
-                                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.096288654890000006" blue="0.075258612799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" red="0.64705882349999999" green="1" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.096288654890000006" blue="0.075258612799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.64705882349999999" green="1" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eDp-ON-g39" secondAttribute="trailing" id="DBx-JH-10O"/>
-                                    <constraint firstItem="eDp-ON-g39" firstAttribute="top" secondItem="c2k-vZ-srB" secondAttribute="top" id="Lqi-ZR-uED"/>
-                                    <constraint firstItem="eDp-ON-g39" firstAttribute="leading" secondItem="c2k-vZ-srB" secondAttribute="leading" id="vxg-4W-fmz"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MaB-Su-bbn">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rWR-dk-j8b">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYQ-GB-1pd">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
-                                                <color key="backgroundColor" red="0.47535295050761417" green="0.33594559936794943" blue="0.10655712194175319" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" backgroundImage="searchByPrice"/>
-                                                <connections>
-                                                    <action selector="selectPrice:" destination="7B1-oE-xVr" eventType="touchUpInside" id="huM-tS-1We"/>
-                                                    <segue destination="J8h-9S-5FO" kind="show" identifier="searchSelectPrice" id="qfJ-v8-DuF"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rNm-gY-2ap">
-                                        <rect key="frame" x="0.0" y="295.5" width="375" height="295.5"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwB-yh-t1M">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
-                                                <color key="backgroundColor" red="0.30688555734243811" green="0.10854987114179278" blue="0.3819003807106599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" backgroundImage="searchByCategory"/>
-                                                <connections>
-                                                    <segue destination="pgH-aP-Ino" kind="show" identifier="searchSelectCategory" id="ja0-1o-fEe"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="MaB-Su-bbn" firstAttribute="top" secondItem="c2k-vZ-srB" secondAttribute="bottom" id="85s-gF-aaH"/>
-                            <constraint firstItem="5LJ-bA-gzH" firstAttribute="bottom" secondItem="MaB-Su-bbn" secondAttribute="bottom" id="K5F-VY-PDJ"/>
-                            <constraint firstItem="5LJ-bA-gzH" firstAttribute="trailing" secondItem="MaB-Su-bbn" secondAttribute="trailing" id="W6V-65-uHs"/>
-                            <constraint firstItem="c2k-vZ-srB" firstAttribute="top" secondItem="5LJ-bA-gzH" secondAttribute="top" id="cVe-wl-A1W"/>
-                            <constraint firstItem="c2k-vZ-srB" firstAttribute="leading" secondItem="5LJ-bA-gzH" secondAttribute="leading" id="gdf-Ys-Vg7"/>
-                            <constraint firstItem="MaB-Su-bbn" firstAttribute="leading" secondItem="5LJ-bA-gzH" secondAttribute="leading" id="vXg-wb-3Qj"/>
-                            <constraint firstItem="c2k-vZ-srB" firstAttribute="trailing" secondItem="5LJ-bA-gzH" secondAttribute="trailing" id="yd7-1y-iHw"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="5LJ-bA-gzH"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wFi-EX-NPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="aVT-1s-qQB" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-271" y="-206"/>
-        </scene>
-        <!--Search By Price-->
+        <!--SearchByPriceView-->
         <scene sceneID="ocv-Lg-fug">
             <objects>
-                <viewController id="kfs-dp-mL3" customClass="SearchByPriceController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchByPriceView" title="SearchByPriceView" id="kfs-dp-mL3" customClass="SearchByPriceController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBN-bz-gbE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,13 +103,13 @@
         <!--Show Category List Controller-->
         <scene sceneID="owl-Cm-6oI">
             <objects>
-                <viewController id="VAh-KY-p3d" customClass="ShowCategoryListController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchByCategoryView" id="VAh-KY-p3d" customClass="ShowCategoryListController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDB-sM-IqK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nxh-it-g9N">
-                                <rect key="frame" x="20" y="84" width="335" height="563"/>
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByCategoryTableViewCell" id="0lX-xR-HTR" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
@@ -293,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y40-XI-4QI">
-                                <rect key="frame" x="20" y="84" width="335" height="563"/>
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByPriceTableViewCell" id="b98-Gz-GGW" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
@@ -373,51 +278,8 @@
             </objects>
             <point key="canvasLocation" x="3153" y="-49"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="L0y-G6-krF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J8h-9S-5FO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uia-0F-u3l">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kfs-dp-mL3" kind="relationship" relationship="rootViewController" id="vvD-h6-MOL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L65-qc-v6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="692" y="-536"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ird-Xf-ukK">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pgH-aP-Ino" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FDo-OD-i7O">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VAh-KY-p3d" kind="relationship" relationship="rootViewController" id="i8n-89-nS4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RXp-xr-ev1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="692" y="179"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="backicon" width="37.5" height="37.5"/>
-        <image name="searchByCategory" width="750" height="600"/>
-        <image name="searchByPrice" width="750" height="600"/>
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
