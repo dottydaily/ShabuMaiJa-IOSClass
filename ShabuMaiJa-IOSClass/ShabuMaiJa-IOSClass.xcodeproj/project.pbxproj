@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A2183721C23C0100B79809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A2183621C23C0100B79809 /* Main.storyboard */; };
 		04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E63E3121A7D20700013B7E /* Assets.xcassets */; };
 		6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */; };
 		6A04AD9221AFAFC1006AAB7F /* SelectSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A04AD9121AFAFC1006AAB7F /* SelectSearchController.swift */; };
 		6A04AD9421AFB0D6006AAB7F /* SearchByPriceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A04AD9321AFB0D6006AAB7F /* SearchByPriceController.swift */; };
-		6A07BDFF21914F95003941DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A07BDFE21914F95003941DE /* Main.storyboard */; };
 		6A8DF94B2191711E00A59C25 /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8DF94A2191711E00A59C25 /* Tab.storyboard */; };
 		6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08521428AA800612EF2 /* AppDelegate.swift */; };
 		6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3E08721428AA800612EF2 /* MainPageController.swift */; };
@@ -102,11 +102,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A2183621C23C0100B79809 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04E63E3121A7D20700013B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6A04AD9121AFAFC1006AAB7F /* SelectSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSearchController.swift; sourceTree = "<group>"; };
 		6A04AD9321AFB0D6006AAB7F /* SearchByPriceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByPriceController.swift; sourceTree = "<group>"; };
-		6A07BDFE21914F95003941DE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6A8DF94A2191711E00A59C25 /* Tab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		6AA3E08221428AA800612EF2 /* ShabuMaiJa-IOSClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShabuMaiJa-IOSClass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3E08521428AA800612EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -569,7 +569,7 @@
 		7DCE4BAB21A742CB007E82B2 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				6A07BDFE21914F95003941DE /* Main.storyboard */,
+				04A2183621C23C0100B79809 /* Main.storyboard */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -719,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D6C61FE21B3C63D00A031F3 /* GooglePlacePicker.bundle in Resources */,
+				04A2183721C23C0100B79809 /* Main.storyboard in Resources */,
 				7D4915B921A72E06009550FD /* launch2208x1242.jpg in Resources */,
 				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
 				7D6C61F921B3C60900A031F3 /* GoogleMaps.bundle in Resources */,
@@ -732,7 +733,6 @@
 				7D4915AE21A72A06009550FD /* launch1242x2688.jpg in Resources */,
 				7DAA21E3219C2C0900728998 /* Group.storyboard in Resources */,
 				7D4915BF21A72F0C009550FD /* launch2436x1125.jpg in Resources */,
-				6A07BDFF21914F95003941DE /* Main.storyboard in Resources */,
 				7D4915B721A72BCE009550FD /* launch828x1792.jpg in Resources */,
 				7D4915AF21A72A06009550FD /* launch640x1136.jpg in Resources */,
 				6AA3E08B21428AA800612EF2 /* Test.storyboard in Resources */,

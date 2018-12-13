@@ -23,20 +23,20 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        let trackingButton = MKUserTrackingButton(mapView: self.mapView)
-        
-        // Time : Will delete this (May be)
-        // Need this to allow auto layout (If true all constrains that we add just won't matter
-        trackingButton.translatesAutoresizingMaskIntoConstraints = false
-        self.mapView.addSubview(trackingButton)
+//        let trackingButton = MKUserTrackingButton(mapView: self.mapView)
+//
+//        // Time : Will delete this (May be)
+//        // Need this to allow auto layout (If true all constrains that we add just won't matter
+//        trackingButton.translatesAutoresizingMaskIntoConstraints = false
+//        self.mapView.addSubview(trackingButton)
+////        self.mapView.addConstraints([
+////            trackingButton.centerXAnchor.constraint(equalTo: self.mapView.centerXAnchor),
+////            trackingButton.centerYAnchor.constraint(equalTo: self.mapView.centerYAnchor)])
 //        self.mapView.addConstraints([
-//            trackingButton.centerXAnchor.constraint(equalTo: self.mapView.centerXAnchor),
-//            trackingButton.centerYAnchor.constraint(equalTo: self.mapView.centerYAnchor)])
-        self.mapView.addConstraints([
-            trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
-            trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
-        
-        self.mapView.userTrackingMode = .follow
+//            trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
+//            trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
+//
+//        self.mapView.userTrackingMode = .follow
         
         // Place Picker instantiation
         self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)

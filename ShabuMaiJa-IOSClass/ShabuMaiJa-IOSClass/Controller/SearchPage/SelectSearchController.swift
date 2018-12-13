@@ -16,10 +16,6 @@ class SelectSearchController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func selectPrice(_ sender: Any) {
-        performSegue(withIdentifier: "searchSelectPrice", sender: self)
-    }
-    
     @IBAction func backToSelectSearch(seg:UIStoryboardSegue) {
         
     }
