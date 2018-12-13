@@ -16,7 +16,7 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
     
     // The code snippet below shows how to create GMSPlacePickerViewController.
     var placePickerConfig: GMSPlacePickerConfig!
-    var placePicker: GMSPlacePickerViewController!
+    var placePickerController: GMSPlacePickerViewController!
     
     override func viewDidLoad() {
 
@@ -40,13 +40,17 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
         
         // Place Picker instantiation
         self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)
-        self.placePicker = GMSPlacePickerViewController(config: placePickerConfig)
-        placePicker.delegate = self
-        present(placePicker, animated: true, completion: nil)
+        self.placePickerController = GMSPlacePickerViewController(config: placePickerConfig)
+        placePickerController.delegate = self
+        placePickerController.modalPresentationStyle = .fullScreen
+        
+        // manipulate subview
+        addChildViewController(placePickerController)
+        view.addSubview(placePickerController.view)
+        placePickerController.didMove(toParentViewController: self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
         let auth = CLLocationManager.authorizationStatus()
         
         switch auth {
@@ -63,29 +67,30 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
     // To receive the results from the place picker 'self' will need to conform to
     // GMSPlacePickerViewControllerDelegate and implement this code.
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
-        })
-        
+
         print("Place name \(place.name)")
         print("Place address \(place.formattedAddress)")
         print("Place attributions \(place.attributions)")
-    }
-    
-    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
-        // Dismiss the place picker, as it cannot dismiss itself.
-        viewController.dismiss(animated: true, completion: nil)
         
-        print("No place selected")
-    }
-    
-    @IBAction func goToSelectMode(_ sender: Any) {
-        performSegue(withIdentifier: "goToSelectSearch", sender: self)
+        self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
     }
     
     @IBAction func backToMapPage(seg: UIStoryboardSegue) {
         
     }
 
+    // for sending some data to next ViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // check if segue is a ChooseActionView
+        // Because this view have subview (GMSPlacePickerViewController)
+        // There is chance that segue will be this one instead.
+        if (segue.destination is ChooseActionController) {
+            let controller = segue.destination as! ChooseActionController
+            
+            // use for pop up back to previous view controller
+            // because we can go to ChooseActionView by multiple ways
+            controller.previousViewController = self
+        }
+    }
 }

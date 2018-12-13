@@ -38,7 +38,18 @@ class ShowCategoryListController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var controller: ChooseActionController!
+        if (segue.destination is ChooseActionController) {
+            controller = segue.destination as! ChooseActionController
+            
+            // use for pop up back to previous view controller
+            // because we can go to ChooseActionView by multiple ways
+            controller.previousViewController = self
+        }
+    
+    }
     /*
     // MARK: - Navigation
 

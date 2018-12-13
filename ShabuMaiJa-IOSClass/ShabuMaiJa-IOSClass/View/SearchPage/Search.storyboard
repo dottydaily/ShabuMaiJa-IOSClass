@@ -86,21 +86,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SHP-Cs-DoW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search By Price" id="HVG-Z1-5VP">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="jRw-bS-iGs"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="tEV-U3-egI">
-                            <connections>
-                                <segue destination="HcU-zy-sWI" kind="unwind" unwindAction="backToSelectSearchWithSeg:" id="BxO-gq-I9M"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Search By Price" id="HVG-Z1-5VP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyo-cj-BNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="HcU-zy-sWI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="-536"/>
+            <point key="canvasLocation" x="2472.8000000000002" y="-536.58170914542734"/>
         </scene>
-        <!--Show Category List Controller-->
+        <!--Search By Category-->
         <scene sceneID="owl-Cm-6oI">
             <objects>
                 <viewController storyboardIdentifier="SearchByCategoryView" id="VAh-KY-p3d" customClass="ShowCategoryListController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nxh-it-g9N">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByCategoryTableViewCell" id="0lX-xR-HTR" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
@@ -173,21 +165,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OaJ-HB-a97"/>
                     </view>
-                    <navigationItem key="navigationItem" id="x7f-xx-zah">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gl1-V6-LPF">
-                            <connections>
-                                <segue destination="GSQ-Db-GRG" kind="unwind" unwindAction="backToSelectSearchWithSeg:" id="kAr-1a-wkH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Search By Category" id="x7f-xx-zah"/>
                     <connections>
                         <outlet property="categoryTableView" destination="Nxh-it-g9N" id="8ja-8z-DS3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHq-dp-7aB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="GSQ-Db-GRG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="179"/>
+            <point key="canvasLocation" x="2472.8000000000002" y="178.56071964017991"/>
         </scene>
         <!--Show Price List Controller-->
         <scene sceneID="z3K-bP-0dS">
@@ -198,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y40-XI-4QI">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByPriceTableViewCell" id="b98-Gz-GGW" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
@@ -268,15 +253,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLi-JG-wZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="-536"/>
+            <point key="canvasLocation" x="3240.8000000000002" y="-536.58170914542734"/>
         </scene>
-        <!--Group-->
+        <!--ChooseActionView-->
         <scene sceneID="WZ5-dJ-vC2">
             <objects>
-                <viewControllerPlaceholder storyboardName="Group" id="HYA-WT-7qF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Group" referencedIdentifier="ChooseActionView" id="HYA-WT-7qF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcE-ll-RVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3153" y="-49"/>
+            <point key="canvasLocation" x="3241" y="178"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HxT-g4-Nmc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZSh-IR-92s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eZX-Hd-RvH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kfs-dp-mL3" kind="relationship" relationship="rootViewController" id="OiL-rT-squ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2A-PR-1nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.5999999999999" y="-536.58170914542734"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s1H-QZ-lhE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Flu-Ce-DTA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8T0-Vv-oTj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VAh-KY-p3d" kind="relationship" relationship="rootViewController" id="Vyq-CO-Ee0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j4E-8n-1fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533.5999999999999" y="178.56071964017991"/>
         </scene>
     </scenes>
     <resources>

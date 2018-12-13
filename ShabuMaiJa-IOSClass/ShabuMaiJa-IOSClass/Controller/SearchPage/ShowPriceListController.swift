@@ -43,7 +43,13 @@ class ShowPriceListController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ChooseActionController
+        
+        // use for pop up back to previous view controller
+        // because we can go to ChooseActionView by multiple ways
+        controller.previousViewController = self
+    }
 
     
     
