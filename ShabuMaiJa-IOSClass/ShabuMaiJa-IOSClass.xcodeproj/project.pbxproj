@@ -275,6 +275,7 @@
 			children = (
 				7DCE4BAB21A742CB007E82B2 /* MainPage */,
 				7DCE4BAC21A74407007E82B2 /* SearchPage */,
+				04A2183621C23C0100B79809 /* Main.storyboard */,
 				7DAA21E1219C2C0900728998 /* GroupPage */,
 				6A8DF949219170F400A59C25 /* LobbyPage */,
 				6AA3E08921428AA800612EF2 /* Test.storyboard */,
@@ -571,7 +572,6 @@
 		7DCE4BAB21A742CB007E82B2 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				04A2183621C23C0100B79809 /* Main.storyboard */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
