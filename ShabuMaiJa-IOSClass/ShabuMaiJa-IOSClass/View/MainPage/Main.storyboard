@@ -151,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="6849" y="-251"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="IlJ-IG-tSD">
             <objects>
-                <tabBarController id="x4G-gN-6pR" sceneMemberID="viewController">
+                <tabBarController id="x4G-gN-6pR" customClass="TabBarViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AXx-hh-D5q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,24 +182,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Z7-X3-xpL">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-CW-hxT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <connections>
-                                    <segue destination="ntg-Zt-wbE" kind="embed" id="Q1x-iO-AAJ"/>
-                                </connections>
-                            </containerView>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Z7-X3-xpL" firstAttribute="top" secondItem="nXC-Dx-Clx" secondAttribute="top" id="2yi-ao-LfA"/>
-                            <constraint firstItem="nXC-Dx-Clx" firstAttribute="bottom" secondItem="0Z7-X3-xpL" secondAttribute="bottom" id="R0e-6I-4nB"/>
-                            <constraint firstItem="nXC-Dx-Clx" firstAttribute="trailing" secondItem="0Z7-X3-xpL" secondAttribute="trailing" id="i2Z-U2-UOA"/>
-                            <constraint firstItem="0Z7-X3-xpL" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" id="yHn-bU-tSK"/>
+                            <constraint firstItem="lLf-CW-hxT" firstAttribute="top" secondItem="nXC-Dx-Clx" secondAttribute="top" id="5XG-fq-lE6"/>
+                            <constraint firstItem="nXC-Dx-Clx" firstAttribute="trailing" secondItem="lLf-CW-hxT" secondAttribute="trailing" id="dGb-aT-vgJ"/>
+                            <constraint firstItem="nXC-Dx-Clx" firstAttribute="bottom" secondItem="lLf-CW-hxT" secondAttribute="bottom" id="eg0-GA-wd9"/>
+                            <constraint firstItem="lLf-CW-hxT" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" id="oKY-h1-9Kc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nXC-Dx-Clx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jtz-fl-QAe"/>
+                    <navigationItem key="navigationItem" id="Jtz-fl-QAe">
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="GdP-eD-4yb">
+                            <connections>
+                                <action selector="autocompleteClicked:" destination="tLe-id-vgD" id="1jW-wa-wJ1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="lLf-CW-hxT" id="N6I-JW-QYn"/>
                         <segue destination="MA1-zu-0D8" kind="show" identifier="goToCreateFindPage" id="Npw-Cc-XWc"/>
                     </connections>
                 </viewController>
@@ -327,9 +331,10 @@
             <objects>
                 <viewController id="ntg-Zt-wbE" customClass="PlacePickerSubViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AtB-LX-Pef">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9hT-cc-5yT"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOL-jW-7tq" userLabel="First Responder" sceneMemberID="firstResponder"/>

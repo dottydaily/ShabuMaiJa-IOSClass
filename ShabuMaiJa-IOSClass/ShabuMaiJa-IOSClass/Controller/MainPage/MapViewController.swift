@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import GooglePlacePicker
+import GooglePlaces
 
-class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate{
+class MapViewController: UIViewController{
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -23,31 +24,52 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        let trackingButton = MKUserTrackingButton(mapView: self.mapView)
+        let trackingButton = MKUserTrackingButton(mapView: self.mapView)
 //
 //        // Time : Will delete this (May be)
 //        // Need this to allow auto layout (If true all constrains that we add just won't matter
-//        trackingButton.translatesAutoresizingMaskIntoConstraints = false
-//        self.mapView.addSubview(trackingButton)
+        trackingButton.translatesAutoresizingMaskIntoConstraints = false
+        self.mapView.addSubview(trackingButton)
 ////        self.mapView.addConstraints([
 ////            trackingButton.centerXAnchor.constraint(equalTo: self.mapView.centerXAnchor),
 ////            trackingButton.centerYAnchor.constraint(equalTo: self.mapView.centerYAnchor)])
-//        self.mapView.addConstraints([
-//            trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
-//            trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
+        self.mapView.addConstraints([
+            trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
+            trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
 //
-//        self.mapView.userTrackingMode = .follow
+        self.mapView.userTrackingMode = .follow
         
         // Place Picker instantiation
-        self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)
-        self.placePickerController = GMSPlacePickerViewController(config: placePickerConfig)
-        placePickerController.delegate = self
-        placePickerController.modalPresentationStyle = .fullScreen
+//        self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)
+//        self.placePickerController = GMSPlacePickerViewController(config: placePickerConfig)
+//        placePickerController.delegate = self
+//        placePickerController.modalPresentationStyle = .fullScreen
         
         // manipulate subview
-        addChildViewController(placePickerController)
-        view.addSubview(placePickerController.view)
-        placePickerController.didMove(toParentViewController: self)
+//        addChildViewController(placePickerController)
+//        view.addSubview(placePickerController.view)
+//        placePickerController.didMove(toParentViewController: self)
+        
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "Restaurant"
+        request.region = MKCoordinateRegion.init(center: mapView.userLocation.coordinate, span: MKCoordinateSpan.init(latitudeDelta: 1, longitudeDelta: 1))
+
+        let localSearch = MKLocalSearch(request: request)
+        localSearch.start { (response, error) in
+            guard let response = response else {
+                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                return
+            }
+
+            for item in response.mapItems {
+                print(item.name)
+                let ann = MKPointAnnotation()
+                ann.coordinate = item.placemark.coordinate
+                ann.title = item.name
+                self.mapView.addAnnotation(ann)
+            }
+        }
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -66,14 +88,14 @@ class MapViewController: UIViewController , GMSPlacePickerViewControllerDelegate
 
     // To receive the results from the place picker 'self' will need to conform to
     // GMSPlacePickerViewControllerDelegate and implement this code.
-    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-
-        print("Place name \(place.name)")
-        print("Place address \(place.formattedAddress)")
-        print("Place attributions \(place.attributions)")
-        
-        self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
-    }
+//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+//
+//        print("Place name \(place.name)")
+//        print("Place address \(place.formattedAddress)")
+//        print("Place attributions \(place.attributions)")
+//
+//        self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
+//    }
     
     @IBAction func backToMapPage(seg: UIStoryboardSegue) {
         
