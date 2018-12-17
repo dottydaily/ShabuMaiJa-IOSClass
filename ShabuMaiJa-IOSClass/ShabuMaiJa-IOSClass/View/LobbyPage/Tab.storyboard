@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -106,7 +105,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="E9s-5a-tJR" kind="show" id="IOM-MO-wxI"/>
+                                    <segue destination="E9s-5a-tJR" kind="show" id="5bN-HI-ldS"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-h5-6XD">
@@ -139,7 +138,7 @@
         <!--Review-->
         <scene sceneID="alD-vF-fix">
             <objects>
-                <viewController title="Review" id="E9s-5a-tJR" sceneMemberID="viewController">
+                <viewController title="Review" id="E9s-5a-tJR" customClass="ReviewAllController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SA6-6D-cqf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +180,7 @@
                                 <rect key="frame" x="10" y="203" width="355" height="337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileTableViewCell" id="G4U-7f-Oig" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewAllTableViewCell" id="G4U-7f-Oig" customClass="ReviewAllTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="-1" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G4U-7f-Oig" id="34F-jZ-9WE">
@@ -221,11 +220,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="rgN-Wy-wMf" id="Elr-cD-jSh"/>
-                                            <outlet property="usernameLabel" destination="94O-jL-Tm8" id="UjN-Hv-gIm"/>
+                                            <outlet property="nameLabel" destination="rgN-Wy-wMf" id="LRN-ry-XSe"/>
+                                            <outlet property="usernameLabel" destination="94O-jL-Tm8" id="FAg-Cm-BY2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="E9s-5a-tJR" id="I4f-BZ-S6H"/>
+                                    <outlet property="delegate" destination="E9s-5a-tJR" id="6T4-xi-7sy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,6 +246,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TZW-k5-OiF"/>
                     </view>
+                    <connections>
+                        <outlet property="ReviewAllTableView" destination="Nk9-P6-ak1" id="Cwv-bk-peb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWt-19-Ec9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -251,7 +257,7 @@
         <!--Review-->
         <scene sceneID="RFy-qi-jJi">
             <objects>
-                <viewController title="Review" id="R14-5W-qh9" sceneMemberID="viewController">
+                <viewController title="Review" id="R14-5W-qh9" customClass="ReviewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ii5-sE-kLb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,7 +455,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Dc5-zy-6IW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oeP-35-oNB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="thR-V7-WSV">
@@ -461,6 +466,7 @@
                         <segue destination="Nar-f9-286" kind="relationship" relationship="rootViewController" id="22P-rH-98q"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164" y="-20.239880059970016"/>
         </scene>
@@ -553,6 +559,7 @@
                             <constraint firstItem="1wf-bB-Lc8" firstAttribute="leading" secondItem="xAd-CU-FMQ" secondAttribute="leading" id="qp8-Xa-cdz"/>
                             <constraint firstAttribute="bottom" secondItem="1wf-bB-Lc8" secondAttribute="bottom" id="yUX-LZ-djv"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="zce-fl-pEY"/>
                     </view>
                     <connections>
                         <outlet property="ProfileTableView" destination="1wf-bB-Lc8" id="yee-Qe-Mga"/>
@@ -576,6 +583,6 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s3L-4e-wBu"/>
+        <segue reference="L8s-Jt-DKQ"/>
     </inferredMetricsTieBreakers>
 </document>
