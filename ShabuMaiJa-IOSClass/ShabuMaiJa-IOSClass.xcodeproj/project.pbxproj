@@ -961,7 +961,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -971,7 +971,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
@@ -991,7 +991,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -1001,7 +1001,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";

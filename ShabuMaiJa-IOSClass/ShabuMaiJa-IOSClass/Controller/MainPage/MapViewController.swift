@@ -11,91 +11,41 @@ import MapKit
 import GooglePlacePicker
 import GooglePlaces
 
-class MapViewController: UIViewController{
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    var locationManager: CLLocationManager!
+    var completer: MKLocalSearchCompleter!
+    var resultArray: [MKLocalSearchCompletion]!
     
     // The code snippet below shows how to create GMSPlacePickerViewController.
-    var placePickerConfig: GMSPlacePickerConfig!
-    var placePickerController: GMSPlacePickerViewController!
+//    var placePickerConfig: GMSPlacePickerConfig!
+//    var placePickerController: GMSPlacePickerViewController!
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
+        // Make trackingButton for tracking your current location
         let trackingButton = MKUserTrackingButton(mapView: self.mapView)
-//
+        
 //        // Time : Will delete this (May be)
 //        // Need this to allow auto layout (If true all constrains that we add just won't matter
         trackingButton.translatesAutoresizingMaskIntoConstraints = false
         self.mapView.addSubview(trackingButton)
-////        self.mapView.addConstraints([
-////            trackingButton.centerXAnchor.constraint(equalTo: self.mapView.centerXAnchor),
-////            trackingButton.centerYAnchor.constraint(equalTo: self.mapView.centerYAnchor)])
         self.mapView.addConstraints([
             trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
             trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
 //
         self.mapView.userTrackingMode = .follow
-        
-        // Place Picker instantiation
-//        self.placePickerConfig = GMSPlacePickerConfig(viewport: nil)
-//        self.placePickerController = GMSPlacePickerViewController(config: placePickerConfig)
-//        placePickerController.delegate = self
-//        placePickerController.modalPresentationStyle = .fullScreen
-        
-        // manipulate subview
-//        addChildViewController(placePickerController)
-//        view.addSubview(placePickerController.view)
-//        placePickerController.didMove(toParentViewController: self)
-        
-        let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = "Restaurant"
-        request.region = MKCoordinateRegion.init(center: mapView.userLocation.coordinate, span: MKCoordinateSpan.init(latitudeDelta: 1, longitudeDelta: 1))
-
-        let localSearch = MKLocalSearch(request: request)
-        localSearch.start { (response, error) in
-            guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-                return
-            }
-
-            for item in response.mapItems {
-                print(item.name)
-                let ann = MKPointAnnotation()
-                ann.coordinate = item.placemark.coordinate
-                ann.title = item.name
-                self.mapView.addAnnotation(ann)
-            }
-        }
-        
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        let auth = CLLocationManager.authorizationStatus()
-        
-        switch auth {
-        case .denied, .notDetermined, .restricted : // for any case that can't get location
-            let alert = UIAlertController(title: "Cannot access location", message: "Please allow", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            break
-        default:
-            break
-        }
-    }
-
-    // To receive the results from the place picker 'self' will need to conform to
-    // GMSPlacePickerViewControllerDelegate and implement this code.
-//    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
-//
-//        print("Place name \(place.name)")
-//        print("Place address \(place.formattedAddress)")
-//        print("Place attributions \(place.attributions)")
-//
-//        self.performSegue(withIdentifier: "goToCreateFindPage", sender: self)
-//    }
     
     @IBAction func backToMapPage(seg: UIStoryboardSegue) {
         
@@ -114,5 +64,88 @@ class MapViewController: UIViewController{
             // because we can go to ChooseActionView by multiple ways
             controller.previousViewController = self
         }
+    }
+    
+    @IBAction func searchButtonAction() {
+        let request = MKLocalSearchRequest()
+//        request.region = mapView.region
+        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 500, 500)
+        request.naturalLanguageQuery = "Shabu"
+        
+        let localSearch = MKLocalSearch(request: request)
+        localSearch.start { (response, error) in
+            guard let response = response else {
+                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                return
+            }
+            
+            for item in response.mapItems {
+                print(item.name)
+                let ann = MKPointAnnotation()
+                ann.coordinate = item.placemark.coordinate
+                ann.title = item.name
+                self.mapView.addAnnotation(ann)
+            }
+        }
+//        completer = MKLocalSearchCompleter()
+//        completer.delegate = self
+////        completer.region = mapView.region
+//        completer.region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 10, 10)
+//        //        completer.region = MKCoordinateRegionForMapRect(mapView.visibleMapRect)
+//        //        completer.region = MKCoordinateRegionMakeWithDistance(mapView.region.center, 500, 500)
+//        print(completer.region.center)
+//        completer.queryFragment = "Kuma Shabu"
+    }
+}
+
+//extension MapViewController: MKLocalSearchCompleterDelegate {
+//    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+//        resultArray = completer.results
+//
+//        for completion in resultArray {
+//            print("COMPLETION : \(completion.title)")
+//            let request = MKLocalSearchRequest(completion: completion)
+////            request.region = mapView.region
+//
+//            let localSearch = MKLocalSearch(request: request)
+//            localSearch.start { (response, error) in
+//                guard let response = response else {
+//                    print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+//                    return
+//                }
+//
+//                for item in response.mapItems {
+//                    print(item.name)
+//                    let ann = MKPointAnnotation()
+//                    ann.coordinate = item.placemark.coordinate
+//                    ann.title = item.name
+//                    self.mapView.addAnnotation(ann)
+//                }
+//            }
+//        }
+//    }
+//
+//    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+//        print("Error finding naja")
+//    }
+//}
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("Location: \(location)")
+            
+//            let span = MKCoordinateSpanMake(0.005, 0.005)
+//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("ERROR")
     }
 }
