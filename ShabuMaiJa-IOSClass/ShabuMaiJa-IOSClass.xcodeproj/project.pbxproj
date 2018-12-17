@@ -83,6 +83,9 @@
 		C895933221AE99DF00CDF059 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C895933121AE99DF00CDF059 /* Search.storyboard */; };
 		C8AE843221C2ACE10043EC17 /* ChooseActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE843121C2ACE10043EC17 /* ChooseActionController.swift */; };
 		E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90F5EFB21A5B1C900B01597 /* RatingController.swift */; };
+		E92D2D4721C78277007A440F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D2D4621C78277007A440F /* RoundButton.swift */; };
+		E92D2D4D21C7A833007A440F /* ShowProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D2D4C21C7A833007A440F /* ShowProfileController.swift */; };
+		E92D2D5921C7B472007A440F /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92D2D5821C7B472007A440F /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +205,9 @@
 		C895933121AE99DF00CDF059 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C8AE843121C2ACE10043EC17 /* ChooseActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseActionController.swift; sourceTree = "<group>"; };
 		E90F5EFB21A5B1C900B01597 /* RatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingController.swift; sourceTree = "<group>"; };
+		E92D2D4621C78277007A440F /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		E92D2D4C21C7A833007A440F /* ShowProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileController.swift; sourceTree = "<group>"; };
+		E92D2D5821C7B472007A440F /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +297,7 @@
 				7DAA21EE219C753500728998 /* AccountTableViewCell.swift */,
 				7D6C61B721B3BC2500A031F3 /* RestaurantTableViewCell.swift */,
 				7D6C61B921B3BC9E00A031F3 /* Restaurant.swift */,
+				E92D2D5821C7B472007A440F /* ProfileTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -600,7 +607,9 @@
 			isa = PBXGroup;
 			children = (
 				E90F5EFB21A5B1C900B01597 /* RatingController.swift */,
+				E92D2D4621C78277007A440F /* RoundButton.swift */,
 				7DCE4BB121A74C38007E82B2 /* WaitingController.swift */,
+				E92D2D4C21C7A833007A440F /* ShowProfileController.swift */,
 			);
 			path = LobbyPage;
 			sourceTree = "<group>";
@@ -771,6 +780,7 @@
 			files = (
 				7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */,
 				7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */,
+				E92D2D5921C7B472007A440F /* ProfileTableViewCell.swift in Sources */,
 				C8AE843221C2ACE10043EC17 /* ChooseActionController.swift in Sources */,
 				7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */,
 				7DAA21E9219C6DA600728998 /* Account.swift in Sources */,
@@ -778,12 +788,14 @@
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
 				6A04AD9421AFB0D6006AAB7F /* SearchByPriceController.swift in Sources */,
 				7DAA21ED219C70C600728998 /* AccountData.swift in Sources */,
+				E92D2D4721C78277007A440F /* RoundButton.swift in Sources */,
 				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 				6A04AD9221AFAFC1006AAB7F /* SelectSearchController.swift in Sources */,
 				7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */,
 				7D5D5FA721B0580600F92364 /* ShowPriceListController.swift in Sources */,
 				7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */,
+				E92D2D4D21C7A833007A440F /* ShowProfileController.swift in Sources */,
 				7D6C61BA21B3BC9E00A031F3 /* Restaurant.swift in Sources */,
 				6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */,
 				7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */,
@@ -957,7 +969,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -967,7 +979,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
@@ -987,7 +999,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -997,7 +1009,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";

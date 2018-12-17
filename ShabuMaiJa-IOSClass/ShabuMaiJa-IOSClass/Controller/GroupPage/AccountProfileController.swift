@@ -11,7 +11,7 @@ import UIKit
 class AccountProfileController: UIViewController {
 
     public var name: String!
-    
+    var previousViewController: UIViewController! = nil
     @IBOutlet weak var accountNameLabel: UILabel!
     
     override func viewDidLoad() {
@@ -19,6 +19,10 @@ class AccountProfileController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.accountNameLabel.text = name
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationController?.popToViewController(previousViewController, animated: true)
     }
     
     /*
