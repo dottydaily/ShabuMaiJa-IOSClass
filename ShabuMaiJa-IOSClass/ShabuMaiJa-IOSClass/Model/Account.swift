@@ -24,7 +24,8 @@ class Account: NSObject {
                          "Thanachai Wongthatsanekorn", "Palathip Wongyeekul", "Pichaiyut Hamasikhuntaga", "Keattisak Teerapongpipat"]
             let usernames = ["dottypurkt", "romeoalpha", "mini", "junielism", "neoxxza", "ongche", "inorin", "robinker"]
             
-            let randomIndex = Int.random(in: 0..<names.count)
+            let randomIndex = Int(arc4random_uniform(UInt32(names.count)))
+//            let randomIndex = Int.random(in: 0..<names.count)
             
             self.init(name: names[randomIndex], username: usernames[randomIndex])
         }

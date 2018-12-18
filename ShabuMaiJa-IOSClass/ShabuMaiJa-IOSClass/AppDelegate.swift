@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import GooglePlaces
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
+        GMSServices.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
+        
+        // convert by hex code from http://uicolor.xyz/#/hex-to-ui
+//        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)
         return true
     }
 
@@ -42,4 +50,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
-

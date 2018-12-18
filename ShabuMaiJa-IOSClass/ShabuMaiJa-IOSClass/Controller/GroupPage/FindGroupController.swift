@@ -16,12 +16,11 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Do any additional setup after loading the view.
         for _ in 1...8{
             self.accountList.add(account: Account(random: true))
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     // tap on table view cell
