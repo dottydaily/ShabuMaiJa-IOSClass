@@ -15,6 +15,8 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var popUpSubView: UIView!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
     
     var locationManager: CLLocationManager!
     var completer: MKLocalSearchCompleter!
@@ -31,6 +33,10 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        self.bottomButtonConstraint.constant = -100
+        button.layer.cornerRadius = 50
+        
         mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -56,6 +62,10 @@ class MapViewController: UIViewController {
         
     }
 
+    @IBAction func choosePlace(_ sender: Any) {
+        performSegue(withIdentifier: "goToCreateFindPage", sender: self)
+    }
+    
     // for sending some data to next ViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -137,13 +147,25 @@ extension MapViewController: MKMapViewDelegate {
             print("User selected an annotation's title:\(annTitle)")
         }
         
-        popUpSubVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpSubVC") as! PlaceDetailSubViewController
-        addChildViewController(popUpSubVC)
-        view.addSubview(popUpSubVC.view)
-        popUpSubVC.didMove(toParentViewController: self)
+        UIView.animate(withDuration: 0.5) {
+            self.button.alpha = 1
+            self.bottomButtonConstraint.constant = 20
+            self.view.layoutIfNeeded()
+        }
+//        popUpSubVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpSubVC") as! PlaceDetailSubViewController
+//
+//        addChildViewController(popUpSubVC)
+//        view.addSubview(popUpSubVC.view)
+//        popUpSubVC.didMove(toParentViewController: self)
         
-        if ann.isSelected {
-//            performSegue(withIdentifier: "goToCreateFindPage", sender: ann)
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect ann: MKAnnotationView) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.button.alpha = 0
+            self.bottomButtonConstraint.constant = -100
+            self.view.layoutIfNeeded()
         }
     }
 }
