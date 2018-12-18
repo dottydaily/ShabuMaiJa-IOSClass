@@ -15,19 +15,12 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var popUpSubView: UIView!
+//    @IBOutlet weak var popUpSubView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
     
     var locationManager: CLLocationManager!
-    var completer: MKLocalSearchCompleter!
-    var resultArray: [MKLocalSearchCompletion]!
-    var searchActive: Bool = false
-    var popUpSubVC: PlaceDetailSubViewController!
-    
-    // The code snippet below shows how to create GMSPlacePickerViewController.
-//    var placePickerConfig: GMSPlacePickerConfig!
-//    var placePickerController: GMSPlacePickerViewController!
+//    var popUpSubVC: PlaceDetailSubViewController!
     
     override func viewDidLoad() {
 
@@ -51,21 +44,21 @@ class MapViewController: UIViewController {
         // Make trackingButton for tracking your current location
         let trackingButton = MKUserTrackingButton(mapView: self.mapView)
         
-//        // Time : Will delete this (May be)
-//        // Need this to allow auto layout (If true all constrains that we add just won't matter
+        // Need this to allow auto layout (If true all constrains that we add just won't matter
         trackingButton.translatesAutoresizingMaskIntoConstraints = false
         self.mapView.addSubview(trackingButton)
         self.mapView.addConstraints([
             trackingButton.bottomAnchor.constraint(equalTo: self.mapView.bottomAnchor, constant: -10),
             trackingButton.rightAnchor.constraint(equalTo: self.mapView.rightAnchor, constant: -10)])
-//
         self.mapView.userTrackingMode = .follow
     }
     
+    // for mannaul unwind segue
     @IBAction func backToMapPage(seg: UIStoryboardSegue) {
         
     }
 
+    // handle choose place action button
     @IBAction func choosePlace(_ sender: Any) {
         performSegue(withIdentifier: "goToCreateFindPage", sender: self)
     }
@@ -74,45 +67,12 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // check if segue is a ChooseActionView
-        // Because this view have subview (GMSPlacePickerViewController)
-        // There is chance that segue will be this one instead.
         if (segue.destination is ChooseActionController) {
             let controller = segue.destination as! ChooseActionController
             
-            // use for pop up back to previous view controller
             // because we can go to ChooseActionView by multiple ways
             controller.previousViewController = self
         }
-    }
-    
-    @IBAction func searchButtonAction() {
-        let request = MKLocalSearchRequest()
-//        request.region = mapView.region
-        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
-        request.naturalLanguageQuery = "Shabu"
-        
-        let localSearch = MKLocalSearch(request: request)
-        localSearch.start { (response, error) in
-            guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(String(describing: error))")
-                return
-            }
-            
-            for item in response.mapItems {
-                print(item.name)
-                let ann = MKPointAnnotation()
-                ann.coordinate = item.placemark.coordinate
-                ann.title = item.name
-    
-                self.mapView.addAnnotation(ann)
-            }
-        }
-    }
-    
-    //remove all annotations
-    func removeAllAnnotation(){
-        let allAnns = self.mapView.annotations
-        self.mapView.removeAnnotations(allAnns)
     }
 }
 
@@ -125,18 +85,19 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             print("Location: \(location)")
             
-//            let span = MKCoordinateSpanMake(0.005, 0.005)
-//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-            let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
+            let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
             mapView.setRegion(region, animated: true)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("ERROR")
+        print("ERROR GET LOCATION")
     }
 }
+
 extension MapViewController: MKMapViewDelegate {
+    
+    // for make all of annotation appear (if not use this, some will be hidden when zoom out)
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "annotationView"
         var ann = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
@@ -154,28 +115,26 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
         if let annTitle = ann.annotation!.title {
             button.setTitle("Choose \"\(annTitle!)\"", for: .normal)
+            
+            // debugging log
             print("User selected an annotation's title:\(annTitle)")
         }
         
+        // pop the choose button up
         UIView.animate(withDuration: 0.5) {
             self.button.alpha = 1
             self.bottomButtonConstraint.constant = 20
-            self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()  // force view to update its layout
         }
-//        popUpSubVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpSubVC") as! PlaceDetailSubViewController
-//
-//        addChildViewController(popUpSubVC)
-//        view.addSubview(popUpSubVC.view)
-//        popUpSubVC.didMove(toParentViewController: self)
-        
     }
     
     func mapView(_ mapView: MKMapView, didDeselect ann: MKAnnotationView) {
         
+        // push the choose button down
         UIView.animate(withDuration: 0.5) {
             self.button.alpha = 0
             self.bottomButtonConstraint.constant = -100
-            self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()  // force view to update its layout
         }
     }
 }
@@ -184,7 +143,6 @@ extension MapViewController: UISearchBarDelegate {
     
     func searchFromSearchBarText(inputText text:String){
         let request = MKLocalSearchRequest()
-        //        request.region = mapView.region
         request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
         request.naturalLanguageQuery = text
         
@@ -196,7 +154,7 @@ extension MapViewController: UISearchBarDelegate {
             }
             
             for item in response.mapItems {
-                print(item.name)
+                print(item.name!)
                 let ann = MKPointAnnotation()
                 ann.coordinate = item.placemark.coordinate
                 ann.title = item.name
@@ -206,16 +164,20 @@ extension MapViewController: UISearchBarDelegate {
         }
     }
     
+    // remove all previous annotations when searching new place
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-                if searchBar.text != nil {
-                    self.removeAllAnnotation()
-                    searchFromSearchBarText(inputText: searchBar.text!)
-                }
-    
+        if searchBar.text != nil {
+            removeAllAnnotations()
+            searchFromSearchBarText(inputText: searchBar.text!)
+        }
     }
-
+    
+    // remove all annotations
+    func removeAllAnnotations(){
+        let allAnns = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnns)
+    }
 }
-
 
 // use this anywhere you want to hide keyboard (self.hideKeyboardWhenTappedAround)
 extension UIViewController{
@@ -227,6 +189,4 @@ extension UIViewController{
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
-    
-    
 }
