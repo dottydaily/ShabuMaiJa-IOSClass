@@ -27,6 +27,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -69,7 +70,7 @@ class MapViewController: UIViewController {
     @IBAction func searchButtonAction() {
         let request = MKLocalSearchRequest()
 //        request.region = mapView.region
-        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 500, 500)
+        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
         request.naturalLanguageQuery = "Shabu"
         
         let localSearch = MKLocalSearch(request: request)
@@ -84,51 +85,13 @@ class MapViewController: UIViewController {
                 let ann = MKPointAnnotation()
                 ann.coordinate = item.placemark.coordinate
                 ann.title = item.name
+                
                 self.mapView.addAnnotation(ann)
             }
         }
-//        completer = MKLocalSearchCompleter()
-//        completer.delegate = self
-////        completer.region = mapView.region
-//        completer.region = MKCoordinateRegionMakeWithDistance(mapView.centerCoordinate, 10, 10)
-//        //        completer.region = MKCoordinateRegionForMapRect(mapView.visibleMapRect)
-//        //        completer.region = MKCoordinateRegionMakeWithDistance(mapView.region.center, 500, 500)
-//        print(completer.region.center)
-//        completer.queryFragment = "Kuma Shabu"
     }
 }
 
-//extension MapViewController: MKLocalSearchCompleterDelegate {
-//    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-//        resultArray = completer.results
-//
-//        for completion in resultArray {
-//            print("COMPLETION : \(completion.title)")
-//            let request = MKLocalSearchRequest(completion: completion)
-////            request.region = mapView.region
-//
-//            let localSearch = MKLocalSearch(request: request)
-//            localSearch.start { (response, error) in
-//                guard let response = response else {
-//                    print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-//                    return
-//                }
-//
-//                for item in response.mapItems {
-//                    print(item.name)
-//                    let ann = MKPointAnnotation()
-//                    ann.coordinate = item.placemark.coordinate
-//                    ann.title = item.name
-//                    self.mapView.addAnnotation(ann)
-//                }
-//            }
-//        }
-//    }
-//
-//    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-//        print("Error finding naja")
-//    }
-//}
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         locationManager.requestLocation()
@@ -147,5 +110,20 @@ extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("ERROR")
+    }
+}
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "annotationView"
+        var ann = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if ann == nil {
+            ann = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        }
+        
+        ann?.displayPriority = .required
+        ann?.annotation = annotation
+        ann?.canShowCallout = true
+        return ann
     }
 }
