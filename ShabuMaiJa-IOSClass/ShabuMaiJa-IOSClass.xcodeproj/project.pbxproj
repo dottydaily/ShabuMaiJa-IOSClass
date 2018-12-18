@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04100A1A21C8E8B800292AC3 /* PlaceDetailSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */; };
+		04A1756421C7AF5F00DA4319 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */; };
 		04A2183721C23C0100B79809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A2183621C23C0100B79809 /* Main.storyboard */; };
 		04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E63E3121A7D20700013B7E /* Assets.xcassets */; };
 		6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */; };
@@ -109,6 +111,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailSubViewController.swift; sourceTree = "<group>"; };
+		04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04A2183621C23C0100B79809 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04E63E3121A7D20700013B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -627,6 +631,8 @@
 			isa = PBXGroup;
 			children = (
 				6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */,
+				04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */,
+				04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -793,12 +799,14 @@
 				C8AE843221C2ACE10043EC17 /* ChooseActionController.swift in Sources */,
 				7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */,
 				E92D2D5F21C7CEA3007A440F /* ReviewAllController.swift in Sources */,
+				04A1756421C7AF5F00DA4319 /* TabBarViewController.swift in Sources */,
 				7DAA21E9219C6DA600728998 /* Account.swift in Sources */,
 				6AA3E08821428AA800612EF2 /* MainPageController.swift in Sources */,
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
 				6A04AD9421AFB0D6006AAB7F /* SearchByPriceController.swift in Sources */,
 				7DAA21ED219C70C600728998 /* AccountData.swift in Sources */,
 				E92D2D4721C78277007A440F /* RoundButton.swift in Sources */,
+				04100A1A21C8E8B800292AC3 /* PlaceDetailSubViewController.swift in Sources */,
 				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				E92D2D5D21C7CE1D007A440F /* ReviewController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
@@ -992,6 +1000,7 @@
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
@@ -1022,6 +1031,7 @@
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
