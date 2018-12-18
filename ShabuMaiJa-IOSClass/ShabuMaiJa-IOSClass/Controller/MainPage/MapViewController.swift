@@ -35,7 +35,7 @@ class MapViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.bottomButtonConstraint.constant = -100
-        button.layer.cornerRadius = 50
+        button.layer.cornerRadius = 25
         
         mapView.delegate = self
         locationManager = CLLocationManager()
@@ -143,7 +143,8 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
         count += 1
-        if let annTitle = ann.annotation?.title {
+        if let annTitle = ann.annotation!.title {
+            button.setTitle("Choose \"\(annTitle!)\"", for: .normal)
             print("User selected an annotation's title:\(annTitle)")
         }
         
