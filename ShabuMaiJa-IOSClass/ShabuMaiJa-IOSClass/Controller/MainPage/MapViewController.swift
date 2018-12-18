@@ -14,6 +14,7 @@ import GooglePlaces
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var popUpSubView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
@@ -21,7 +22,7 @@ class MapViewController: UIViewController {
     var locationManager: CLLocationManager!
     var completer: MKLocalSearchCompleter!
     var resultArray: [MKLocalSearchCompletion]!
-    var count: Int = 0
+    var searchActive: Bool = false
     var popUpSubVC: PlaceDetailSubViewController!
     
     // The code snippet below shows how to create GMSPlacePickerViewController.
@@ -37,12 +38,15 @@ class MapViewController: UIViewController {
         self.bottomButtonConstraint.constant = -100
         button.layer.cornerRadius = 25
         
+        searchBar.delegate = self
         mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        
+        self.hideKeyboardWhenTappedAround()
         
         // Make trackingButton for tracking your current location
         let trackingButton = MKUserTrackingButton(mapView: self.mapView)
@@ -90,7 +94,7 @@ class MapViewController: UIViewController {
         let localSearch = MKLocalSearch(request: request)
         localSearch.start { (response, error) in
             guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(String(describing: error))")
                 return
             }
             
@@ -103,6 +107,12 @@ class MapViewController: UIViewController {
                 self.mapView.addAnnotation(ann)
             }
         }
+    }
+    
+    //remove all annotations
+    func removeAllAnnotation(){
+        let allAnns = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnns)
     }
 }
 
@@ -142,7 +152,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
-        count += 1
         if let annTitle = ann.annotation!.title {
             button.setTitle("Choose \"\(annTitle!)\"", for: .normal)
             print("User selected an annotation's title:\(annTitle)")
@@ -169,4 +178,55 @@ extension MapViewController: MKMapViewDelegate {
             self.view.layoutIfNeeded()
         }
     }
+}
+
+extension MapViewController: UISearchBarDelegate {
+    
+    func searchFromSearchBarText(inputText text:String){
+        let request = MKLocalSearchRequest()
+        //        request.region = mapView.region
+        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
+        request.naturalLanguageQuery = text
+        
+        let localSearch = MKLocalSearch(request: request)
+        localSearch.start { (response, error) in
+            guard let response = response else {
+                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+                return
+            }
+            
+            for item in response.mapItems {
+                print(item.name)
+                let ann = MKPointAnnotation()
+                ann.coordinate = item.placemark.coordinate
+                ann.title = item.name
+                
+                self.mapView.addAnnotation(ann)
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+                if searchBar.text != nil {
+                    self.removeAllAnnotation()
+                    searchFromSearchBarText(inputText: searchBar.text!)
+                }
+    
+    }
+
+}
+
+
+// use this anywhere you want to hide keyboard (self.hideKeyboardWhenTappedAround)
+extension UIViewController{
+    func hideKeyboardWhenTappedAround(){
+        let tap: UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    
 }

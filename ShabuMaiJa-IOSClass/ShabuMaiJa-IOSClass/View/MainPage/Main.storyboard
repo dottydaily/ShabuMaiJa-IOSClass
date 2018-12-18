@@ -182,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-CW-hxT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                             </mapView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91z-wF-neu">
                                 <rect key="frame" x="20" y="558" width="335" height="60"/>
@@ -196,16 +196,26 @@
                                     <action selector="choosePlace:" destination="tLe-id-vgD" eventType="touchUpInside" id="J9m-59-7ni"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-tO-S4Z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="2qQ-Oo-lvh"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cLV-tO-S4Z" firstAttribute="top" secondItem="nXC-Dx-Clx" secondAttribute="top" id="1sw-92-e5D"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="bottom" secondItem="91z-wF-neu" secondAttribute="bottom" id="2io-mI-6Om"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="trailing" secondItem="91z-wF-neu" secondAttribute="trailing" constant="20" id="5XT-WH-0uY"/>
+                            <constraint firstItem="cLV-tO-S4Z" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" id="Dew-EV-ScN"/>
                             <constraint firstItem="91z-wF-neu" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" constant="20" id="Gry-Gd-5TJ"/>
-                            <constraint firstItem="lLf-CW-hxT" firstAttribute="top" secondItem="nXC-Dx-Clx" secondAttribute="top" id="bQw-mW-CLt"/>
+                            <constraint firstItem="lLf-CW-hxT" firstAttribute="top" secondItem="cLV-tO-S4Z" secondAttribute="bottom" id="bQw-mW-CLt"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="trailing" secondItem="lLf-CW-hxT" secondAttribute="trailing" id="dGb-aT-vgJ"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="bottom" secondItem="lLf-CW-hxT" secondAttribute="bottom" id="gtR-wU-832"/>
                             <constraint firstItem="lLf-CW-hxT" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" id="oKY-h1-9Kc"/>
+                            <constraint firstItem="cLV-tO-S4Z" firstAttribute="trailing" secondItem="nXC-Dx-Clx" secondAttribute="trailing" id="w7A-a9-LDy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nXC-Dx-Clx"/>
                     </view>
@@ -220,6 +230,7 @@
                         <outlet property="bottomButtonConstraint" destination="2io-mI-6Om" id="EZJ-Lo-9Gb"/>
                         <outlet property="button" destination="91z-wF-neu" id="IIw-A1-bcv"/>
                         <outlet property="mapView" destination="lLf-CW-hxT" id="N6I-JW-QYn"/>
+                        <outlet property="searchBar" destination="cLV-tO-S4Z" id="RDZ-HL-Qrk"/>
                         <segue destination="MA1-zu-0D8" kind="show" identifier="goToCreateFindPage" id="Npw-Cc-XWc"/>
                     </connections>
                 </viewController>
