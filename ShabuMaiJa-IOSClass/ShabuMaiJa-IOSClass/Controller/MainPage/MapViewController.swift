@@ -14,9 +14,13 @@ import GooglePlaces
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var popUpSubView: UIView!
+    
     var locationManager: CLLocationManager!
     var completer: MKLocalSearchCompleter!
     var resultArray: [MKLocalSearchCompletion]!
+    var count: Int = 0
+    var popUpSubVC: PlaceDetailSubViewController!
     
     // The code snippet below shows how to create GMSPlacePickerViewController.
 //    var placePickerConfig: GMSPlacePickerConfig!
@@ -85,7 +89,7 @@ class MapViewController: UIViewController {
                 let ann = MKPointAnnotation()
                 ann.coordinate = item.placemark.coordinate
                 ann.title = item.name
-                
+    
                 self.mapView.addAnnotation(ann)
             }
         }
@@ -125,5 +129,21 @@ extension MapViewController: MKMapViewDelegate {
         ann?.annotation = annotation
         ann?.canShowCallout = true
         return ann
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
+        count += 1
+        if let annTitle = ann.annotation?.title {
+            print("User selected an annotation's title:\(annTitle)")
+        }
+        
+        popUpSubVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpSubVC") as! PlaceDetailSubViewController
+        addChildViewController(popUpSubVC)
+        view.addSubview(popUpSubVC.view)
+        popUpSubVC.didMove(toParentViewController: self)
+        
+        if ann.isSelected {
+//            performSegue(withIdentifier: "goToCreateFindPage", sender: ann)
+        }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04100A1A21C8E8B800292AC3 /* PlaceDetailSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */; };
 		04A1756421C7AF5F00DA4319 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */; };
 		04A2183721C23C0100B79809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A2183621C23C0100B79809 /* Main.storyboard */; };
 		04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E63E3121A7D20700013B7E /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailSubViewController.swift; sourceTree = "<group>"; };
 		04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04A2183621C23C0100B79809 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04E63E3121A7D20700013B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 			children = (
 				6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */,
 				04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */,
+				04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				7D74FADF2194D967003BDF2D /* SubPageController.swift in Sources */,
 				6A04AD9421AFB0D6006AAB7F /* SearchByPriceController.swift in Sources */,
 				7DAA21ED219C70C600728998 /* AccountData.swift in Sources */,
+				04100A1A21C8E8B800292AC3 /* PlaceDetailSubViewController.swift in Sources */,
 				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
 				6A04AD9221AFAFC1006AAB7F /* SelectSearchController.swift in Sources */,
