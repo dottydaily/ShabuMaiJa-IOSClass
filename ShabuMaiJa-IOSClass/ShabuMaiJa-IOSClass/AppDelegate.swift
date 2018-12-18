@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSPlacesClient.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
         GMSServices.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
-
+        
         // convert by hex code from http://uicolor.xyz/#/hex-to-ui
 //        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)
         return true
