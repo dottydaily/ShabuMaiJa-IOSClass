@@ -81,43 +81,43 @@
             </objects>
             <point key="canvasLocation" x="2212" y="527"/>
         </scene>
-        <!--View Controller-->
+        <!--Promotion View Controller-->
         <scene sceneID="gRl-Qd-T7U">
             <objects>
-                <viewController id="vk4-CH-duz" sceneMemberID="viewController">
+                <viewController id="vk4-CH-duz" customClass="PromotionViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wCG-gq-G6T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cUM-by-B9b">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="im9-r8-Bbu">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="im9-r8-Bbu" id="QAf-jD-xrr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-s8-If9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="277"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rk6-oZ-aAK">
+                                <rect key="frame" x="0.0" y="341" width="375" height="326"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cUM-by-B9b" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="bottom" id="8PW-3K-Ono"/>
-                            <constraint firstItem="cUM-by-B9b" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="Wd2-NP-qi4"/>
-                            <constraint firstItem="cUM-by-B9b" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="d8k-3S-D3a"/>
-                            <constraint firstItem="cUM-by-B9b" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="imY-VI-wEb"/>
+                            <constraint firstItem="q0n-s8-If9" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="centerY" id="8ry-GG-bZF"/>
+                            <constraint firstItem="q0n-s8-If9" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="AGw-Py-efH"/>
+                            <constraint firstItem="q0n-s8-If9" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="C8N-8i-Squ"/>
+                            <constraint firstAttribute="bottom" secondItem="rk6-oZ-aAK" secondAttribute="bottom" id="Cg1-eL-kHa"/>
+                            <constraint firstItem="rk6-oZ-aAK" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="Cs1-yB-DXw"/>
+                            <constraint firstItem="rk6-oZ-aAK" firstAttribute="top" secondItem="q0n-s8-If9" secondAttribute="bottom" id="Kl6-dO-iHa"/>
+                            <constraint firstItem="q0n-s8-If9" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="nnG-kD-T8O"/>
+                            <constraint firstAttribute="trailing" secondItem="rk6-oZ-aAK" secondAttribute="trailing" id="uft-fj-Pkg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bnn-pC-Vgc"/>
                     </view>
                     <navigationItem key="navigationItem" id="sDL-cW-e9K"/>
+                    <connections>
+                        <outlet property="img" destination="q0n-s8-If9" id="HdD-lM-2gb"/>
+                        <outlet property="img2" destination="rk6-oZ-aAK" id="2wK-0h-ddl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWT-21-5jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="-251"/>
+            <point key="canvasLocation" x="432.80000000000001" y="-251.42428785607197"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VdD-4A-aAs">

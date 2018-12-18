@@ -81,6 +81,11 @@
 		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
 		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
 		7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE4BB121A74C38007E82B2 /* WaitingController.swift */; };
+		C81CAC4B21C8EA0B00C3685E /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CAC4A21C8EA0B00C3685E /* PromotionViewController.swift */; };
+		C81CAC4E21C8ED7900C3685E /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC4C21C8ED7900C3685E /* FirebaseStorage.framework */; };
+		C81CAC4F21C8ED7900C3685E /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC4D21C8ED7900C3685E /* GTMSessionFetcher.framework */; };
+		C81CAC5221C8EDA900C3685E /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC5021C8EDA900C3685E /* FirebaseAuth.framework */; };
+		C81CAC5321C8EDA900C3685E /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC5121C8EDA900C3685E /* GTMSessionFetcher.framework */; };
 		C86699E121B1369B00333FCA /* ShowCategoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86699E021B1369B00333FCA /* ShowCategoryListController.swift */; };
 		C895933221AE99DF00CDF059 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C895933121AE99DF00CDF059 /* Search.storyboard */; };
 		C8AE843221C2ACE10043EC17 /* ChooseActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE843121C2ACE10043EC17 /* ChooseActionController.swift */; };
@@ -208,6 +213,11 @@
 		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
 		7DCE4BB121A74C38007E82B2 /* WaitingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingController.swift; sourceTree = "<group>"; };
+		C81CAC4A21C8EA0B00C3685E /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
+		C81CAC4C21C8ED7900C3685E /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage/FirebaseStorage.framework"; sourceTree = "<group>"; };
+		C81CAC4D21C8ED7900C3685E /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
+		C81CAC5021C8EDA900C3685E /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth/FirebaseAuth.framework"; sourceTree = "<group>"; };
+		C81CAC5121C8EDA900C3685E /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
 		C86699E021B1369B00333FCA /* ShowCategoryListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCategoryListController.swift; sourceTree = "<group>"; };
 		C895933121AE99DF00CDF059 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C8AE843121C2ACE10043EC17 /* ChooseActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseActionController.swift; sourceTree = "<group>"; };
@@ -225,6 +235,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81CAC5221C8EDA900C3685E /* FirebaseAuth.framework in Frameworks */,
+				C81CAC5321C8EDA900C3685E /* GTMSessionFetcher.framework in Frameworks */,
+				C81CAC4E21C8ED7900C3685E /* FirebaseStorage.framework in Frameworks */,
+				C81CAC4F21C8ED7900C3685E /* GTMSessionFetcher.framework in Frameworks */,
 				7D6C61FC21B3C63500A031F3 /* GooglePlacePicker.framework in Frameworks */,
 				7D6C620121B3C67D00A031F3 /* GoogleMaps.framework in Frameworks */,
 				7D6C620221B3C67D00A031F3 /* GoogleMapsCore.framework in Frameworks */,
@@ -546,6 +560,10 @@
 		7D74FABF2194D07E003BDF2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C81CAC5021C8EDA900C3685E /* FirebaseAuth.framework */,
+				C81CAC5121C8EDA900C3685E /* GTMSessionFetcher.framework */,
+				C81CAC4C21C8ED7900C3685E /* FirebaseStorage.framework */,
+				C81CAC4D21C8ED7900C3685E /* GTMSessionFetcher.framework */,
 				7D6C61FF21B3C67D00A031F3 /* GoogleMaps.framework */,
 				7D6C620021B3C67D00A031F3 /* GoogleMapsCore.framework */,
 				7D6C61F621B3C33500A031F3 /* UIKit.framework */,
@@ -633,6 +651,7 @@
 				6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */,
 				04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */,
 				04100A1921C8E8B800292AC3 /* PlaceDetailSubViewController.swift */,
+				C81CAC4A21C8EA0B00C3685E /* PromotionViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -820,6 +839,7 @@
 				6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */,
 				7DAA21E5219C463F00728998 /* CreateGroupController.swift in Sources */,
 				7D6C61B821B3BC2500A031F3 /* RestaurantTableViewCell.swift in Sources */,
+				C81CAC4B21C8EA0B00C3685E /* PromotionViewController.swift in Sources */,
 				C86699E121B1369B00333FCA /* ShowCategoryListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -997,6 +1017,8 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlaces-2.7.0",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1028,6 +1050,8 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GoogleMaps-2.7.0",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlaces-2.7.0",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/GooglePlacePicker-2.7.0",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage",
+					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
