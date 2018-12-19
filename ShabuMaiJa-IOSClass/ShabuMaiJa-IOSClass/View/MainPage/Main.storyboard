@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -89,30 +88,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q0n-s8-If9">
-                                <rect key="frame" x="0.0" y="64" width="375" height="277"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rk6-oZ-aAK">
-                                <rect key="frame" x="0.0" y="341" width="375" height="276"/>
-                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhP-Q9-zl5">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="872-Al-oXD">
+                                    <size key="itemSize" width="377" height="551"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="1fK-Wd-4AM" customClass="ImageCollectionViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1.5" width="377" height="551"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="551"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TiH-GL-IEP">
+                                                    <rect key="frame" x="0.0" y="50" width="377" height="451"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="TiH-GL-IEP" secondAttribute="bottom" constant="50" id="70V-rq-NzK"/>
+                                            <constraint firstItem="TiH-GL-IEP" firstAttribute="leading" secondItem="1fK-Wd-4AM" secondAttribute="leading" id="GKE-8h-Woj"/>
+                                            <constraint firstAttribute="trailing" secondItem="TiH-GL-IEP" secondAttribute="trailing" id="JIb-B6-NJi"/>
+                                            <constraint firstItem="TiH-GL-IEP" firstAttribute="top" secondItem="1fK-Wd-4AM" secondAttribute="top" constant="50" id="KPq-zY-Ttn"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="TiH-GL-IEP" id="pkt-Ww-XG4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vk4-CH-duz" id="fXO-Qw-6af"/>
+                                    <outlet property="delegate" destination="vk4-CH-duz" id="5OB-H1-P2p"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="q0n-s8-If9" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="centerY" id="8ry-GG-bZF"/>
-                            <constraint firstItem="q0n-s8-If9" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="AGw-Py-efH"/>
-                            <constraint firstItem="q0n-s8-If9" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="C8N-8i-Squ"/>
-                            <constraint firstAttribute="bottom" secondItem="rk6-oZ-aAK" secondAttribute="bottom" constant="50" id="Cg1-eL-kHa"/>
-                            <constraint firstItem="rk6-oZ-aAK" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="Cs1-yB-DXw"/>
-                            <constraint firstItem="rk6-oZ-aAK" firstAttribute="top" secondItem="q0n-s8-If9" secondAttribute="bottom" id="Kl6-dO-iHa"/>
-                            <constraint firstItem="q0n-s8-If9" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="nnG-kD-T8O"/>
-                            <constraint firstAttribute="trailing" secondItem="rk6-oZ-aAK" secondAttribute="trailing" id="uft-fj-Pkg"/>
+                            <constraint firstItem="fhP-Q9-zl5" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="bottom" id="77r-FC-JzX"/>
+                            <constraint firstItem="fhP-Q9-zl5" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="Ctm-rJ-CKM"/>
+                            <constraint firstItem="fhP-Q9-zl5" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="r1e-XB-txR"/>
+                            <constraint firstItem="fhP-Q9-zl5" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="tbt-uB-jyd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bnn-pC-Vgc"/>
                     </view>
                     <navigationItem key="navigationItem" id="sDL-cW-e9K"/>
                     <connections>
-                        <outlet property="img1" destination="q0n-s8-If9" id="OIy-Hg-Brb"/>
-                        <outlet property="img2" destination="rk6-oZ-aAK" id="J0h-nl-s1L"/>
+                        <outlet property="collectionView" destination="fhP-Q9-zl5" id="L8e-ox-f1s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWT-21-5jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
