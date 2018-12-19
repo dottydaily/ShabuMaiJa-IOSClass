@@ -11,6 +11,9 @@ import Firebase
 import GooglePlaces
 import GoogleMaps
 
+// Global Variable
+var apiKey: String! = "AIzaSyBHit-QajwkAXUjed7rml3sAXEk9dU6oaw"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        GMSPlacesClient.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
-        GMSServices.provideAPIKey("AIzaSyAnaML7dd3QOYJbb37njr1fm0yM9sXBBWY")
+        GMSPlacesClient.provideAPIKey(apiKey)
+        GMSServices.provideAPIKey(apiKey)
         
         // convert by hex code from http://uicolor.xyz/#/hex-to-ui
 //        UIApplication.shared.statusBarView?.backgroundColor = UIColor(red:1.00, green:0.58, blue:0.00, alpha:1.0)

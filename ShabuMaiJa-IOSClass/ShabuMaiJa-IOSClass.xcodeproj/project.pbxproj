@@ -81,6 +81,7 @@
 		7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21EE219C753500728998 /* AccountTableViewCell.swift */; };
 		7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA21F0219C78EB00728998 /* FindGroupController.swift */; };
 		7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE4BB121A74C38007E82B2 /* WaitingController.swift */; };
+		7DE846C721C9A1AE002ED499 /* DataJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE846C621C9A1AE002ED499 /* DataJSON.swift */; };
 		C81CAC4B21C8EA0B00C3685E /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CAC4A21C8EA0B00C3685E /* PromotionViewController.swift */; };
 		C81CAC4E21C8ED7900C3685E /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC4C21C8ED7900C3685E /* FirebaseStorage.framework */; };
 		C81CAC4F21C8ED7900C3685E /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81CAC4D21C8ED7900C3685E /* GTMSessionFetcher.framework */; };
@@ -213,6 +214,7 @@
 		7DAA21EE219C753500728998 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		7DAA21F0219C78EB00728998 /* FindGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindGroupController.swift; sourceTree = "<group>"; };
 		7DCE4BB121A74C38007E82B2 /* WaitingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingController.swift; sourceTree = "<group>"; };
+		7DE846C621C9A1AE002ED499 /* DataJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataJSON.swift; sourceTree = "<group>"; };
 		C81CAC4A21C8EA0B00C3685E /* PromotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
 		C81CAC4C21C8ED7900C3685E /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage/FirebaseStorage.framework"; sourceTree = "<group>"; };
 		C81CAC4D21C8ED7900C3685E /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "ShabuMaiJa-IOSClass/Frameworks/Firebase/Storage/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				7D6C61B921B3BC9E00A031F3 /* Restaurant.swift */,
 				E92D2D5821C7B472007A440F /* ProfileTableViewCell.swift */,
 				E92D2D6021C7CFD0007A440F /* ReviewAllTableViewCell.swift */,
+				7DE846C621C9A1AE002ED499 /* DataJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				E90F5EFC21A5B1C900B01597 /* RatingController.swift in Sources */,
 				E92D2D5D21C7CE1D007A440F /* ReviewController.swift in Sources */,
 				6AA3E08621428AA800612EF2 /* AppDelegate.swift in Sources */,
+				7DE846C721C9A1AE002ED499 /* DataJSON.swift in Sources */,
 				6A04AD9221AFAFC1006AAB7F /* SelectSearchController.swift in Sources */,
 				7DAA21EF219C753500728998 /* AccountTableViewCell.swift in Sources */,
 				7D5D5FA721B0580600F92364 /* ShowPriceListController.swift in Sources */,
@@ -1009,7 +1013,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -1021,7 +1025,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";
@@ -1041,7 +1045,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -1053,7 +1057,7 @@
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Auth",
 				);
 				INFOPLIST_FILE = "ShabuMaiJa-IOSClass/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "th.ac.ku.sci.cs.ShabuMaiJa-IOSClass";

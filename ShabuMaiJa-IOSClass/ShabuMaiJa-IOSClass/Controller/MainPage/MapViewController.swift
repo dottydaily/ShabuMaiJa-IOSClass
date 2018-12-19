@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import GooglePlacePicker
 import GooglePlaces
+import GoogleMaps
 
 class MapViewController: UIViewController {
 
@@ -85,7 +86,7 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             print("Location: \(location)")
             
-            let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
+            let region = MKCoordinateRegionMakeWithDistance(location.coordinate, 5000, 5000)
             mapView.setRegion(region, animated: true)
         }
     }
@@ -109,22 +110,25 @@ extension MapViewController: MKMapViewDelegate {
         ann?.displayPriority = .required
         ann?.annotation = annotation
         ann?.canShowCallout = true
+        
         return ann
     }
     
     func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
         if let annTitle = ann.annotation!.title {
-            button.setTitle("Choose \"\(annTitle!)\"", for: .normal)
-            
-            // debugging log
-            print("User selected an annotation's title:\(annTitle)")
-        }
-        
-        // pop the choose button up
-        UIView.animate(withDuration: 0.5) {
-            self.button.alpha = 1
-            self.bottomButtonConstraint.constant = 20
-            self.view.layoutIfNeeded()  // force view to update its layout
+            if annTitle != "My Location" {
+                button.setTitle("Choose \"\(annTitle!)\"", for: .normal)
+                
+                // debugging log
+                print("User selected an annotation's title:\(annTitle)")
+                
+                // pop the choose button up
+                UIView.animate(withDuration: 0.5) {
+                    self.button.alpha = 1
+                    self.bottomButtonConstraint.constant = 20
+                    self.view.layoutIfNeeded()  // force view to update its layout
+                }
+            }
         }
     }
     
@@ -141,27 +145,75 @@ extension MapViewController: MKMapViewDelegate {
 
 extension MapViewController: UISearchBarDelegate {
     
-    func searchFromSearchBarText(inputText text:String){
-        let request = MKLocalSearchRequest()
-        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
-        request.naturalLanguageQuery = text
-        
-        let localSearch = MKLocalSearch(request: request)
-        localSearch.start { (response, error) in
-            guard let response = response else {
-                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-                return
-            }
+    // use this to send req to google places api, and get JSON data, convert it into DataJSON Object
+    // add @escaping by xcode, still don't know what it is
+    // use this function to prevent some case that code below task.resume() is running before getting result of request
+    func getJSON(reqURL url:URL, completion: @escaping (_ data: DataJSON?)-> Void) {
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
             
-            for item in response.mapItems {
-                print(item.name!)
-                let ann = MKPointAnnotation()
-                ann.coordinate = item.placemark.coordinate
-                ann.title = item.name
-                
-                self.mapView.addAnnotation(ann)
+            do {
+                let dataGetByJSON = try JSONDecoder().decode(DataJSON.self, from: data)
+                completion(dataGetByJSON)
+            } catch let jsonError {
+                print("Error parsing : \(jsonError)")
+                completion(nil)
             }
         }
+        task.resume()
+    }
+    
+    func searchFromSearchBarText(inputText text:String){
+        
+        let lat = String(locationManager.location!.coordinate.latitude)
+        let long = String(locationManager.location!.coordinate.longitude)
+        
+        var searchText = text.replacingOccurrences(of: " ", with: "_")
+        
+        print(searchText)
+        print(lat)
+        print(long)
+        print(apiKey)
+        
+        let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
+        
+        let url = URL(string: urlString)!
+        
+        getJSON(reqURL: url) { (data) in
+            if let data = data {
+                for place in data.results {
+                    print(place!.name!)
+                    let ann = MKPointAnnotation()
+                    ann.coordinate.latitude = (place?.geometry.location.lat)!
+                    ann.coordinate.longitude = (place?.geometry.location.lng)!
+                    ann.title = place?.name
+                    self.mapView.addAnnotation(ann)
+                }
+            }
+        }
+        
+        
+        
+        
+//        let request = MKLocalSearchRequest()
+//        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
+//        request.naturalLanguageQuery = text
+//
+//        let localSearch = MKLocalSearch(request: request)
+//        localSearch.start { (response, error) in
+//            guard let response = response else {
+//                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
+//                return
+//            }
+//
+//            for item in response.mapItems {
+//                print(item.name!)
+//                let ann = MKPointAnnotation()
+//                ann.coordinate = item.placemark.coordinate
+//                ann.title = item.name
+//                self.mapView.addAnnotation(ann)
+//            }
+//        }
     }
     
     // remove all previous annotations when searching new place
@@ -169,6 +221,7 @@ extension MapViewController: UISearchBarDelegate {
         if searchBar.text != nil {
             removeAllAnnotations()
             searchFromSearchBarText(inputText: searchBar.text!)
+            self.dismissKeyboard()
         }
     }
     
@@ -180,7 +233,7 @@ extension MapViewController: UISearchBarDelegate {
 }
 
 // use this anywhere you want to hide keyboard (self.hideKeyboardWhenTappedAround)
-extension UIViewController{
+extension UIViewController {
     func hideKeyboardWhenTappedAround(){
         let tap: UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
