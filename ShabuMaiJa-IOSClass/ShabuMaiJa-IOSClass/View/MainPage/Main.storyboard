@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="277"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rk6-oZ-aAK">
-                                <rect key="frame" x="0.0" y="341" width="375" height="326"/>
+                                <rect key="frame" x="0.0" y="341" width="375" height="276"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,7 +101,7 @@
                             <constraint firstItem="q0n-s8-If9" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="centerY" id="8ry-GG-bZF"/>
                             <constraint firstItem="q0n-s8-If9" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="AGw-Py-efH"/>
                             <constraint firstItem="q0n-s8-If9" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="C8N-8i-Squ"/>
-                            <constraint firstAttribute="bottom" secondItem="rk6-oZ-aAK" secondAttribute="bottom" id="Cg1-eL-kHa"/>
+                            <constraint firstAttribute="bottom" secondItem="rk6-oZ-aAK" secondAttribute="bottom" constant="50" id="Cg1-eL-kHa"/>
                             <constraint firstItem="rk6-oZ-aAK" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="Cs1-yB-DXw"/>
                             <constraint firstItem="rk6-oZ-aAK" firstAttribute="top" secondItem="q0n-s8-If9" secondAttribute="bottom" id="Kl6-dO-iHa"/>
                             <constraint firstItem="q0n-s8-If9" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="nnG-kD-T8O"/>
@@ -111,8 +111,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="sDL-cW-e9K"/>
                     <connections>
-                        <outlet property="img" destination="q0n-s8-If9" id="HdD-lM-2gb"/>
-                        <outlet property="img2" destination="rk6-oZ-aAK" id="2wK-0h-ddl"/>
+                        <outlet property="img1" destination="q0n-s8-If9" id="OIy-Hg-Brb"/>
+                        <outlet property="img2" destination="rk6-oZ-aAK" id="J0h-nl-s1L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWT-21-5jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -351,11 +351,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mapicon" width="50" height="50"/>
-        <image name="nearby" width="50" height="50"/>
-        <image name="profileicon" width="50" height="50"/>
-        <image name="promotionicon" width="50" height="50"/>
-        <image name="searchByCategory" width="375" height="300"/>
-        <image name="searchByPrice" width="375" height="300"/>
+        <image name="mapicon" width="80" height="80"/>
+        <image name="nearby" width="80" height="80"/>
+        <image name="profileicon" width="80" height="80"/>
+        <image name="promotionicon" width="80" height="80"/>
+        <image name="searchByCategory" width="750" height="600"/>
+        <image name="searchByPrice" width="750" height="600"/>
     </resources>
 </document>
