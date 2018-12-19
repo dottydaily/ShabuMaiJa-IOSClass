@@ -8,12 +8,12 @@
 
 class Restaurant: NSObject {
     
+    var placeId: String
     var name: String
-    var reviewScore: Float
     var latitude: Double
     var longtitude: Double
-    var placeId: String
     var address: String
+    var reviewScore: Float
     var isOpen: Bool
     var iconURL: String
     
@@ -24,7 +24,12 @@ class Restaurant: NSObject {
         self.longtitude = place.geometry.location.lng!
         self.placeId = place.place_id!
         self.address = place.vicinity!
-        self.isOpen = (place.opening_hours?.open_now)!
+        if place.opening_hours != nil {
+            self.isOpen = (place.opening_hours?.open_now)!
+        } else {
+            self.isOpen = false
+        }
+        
         self.iconURL = (place.icon)!
     }
     
@@ -37,5 +42,9 @@ class Restaurant: NSObject {
         self.address = "NO DATA"
         self.isOpen = false
         self.iconURL = "NO DATA"
+    }
+    
+    func print() -> String {
+        return ""
     }
 }

@@ -20,6 +20,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
     
+    var choosedRestaurant: Restaurant? = nil
+    
     var locationManager: CLLocationManager!
 //    var popUpSubVC: PlaceDetailSubViewController!
     
@@ -72,6 +74,7 @@ class MapViewController: UIViewController {
             
             // because we can go to ChooseActionView by multiple ways
             controller.previousViewController = self
+            controller.choosedRestaurant = choosedRestaurant
         }
     }
 }
@@ -127,6 +130,12 @@ extension MapViewController: MKMapViewDelegate {
                     self.bottomButtonConstraint.constant = 20
                     self.view.layoutIfNeeded()  // force view to update its layout
                 }
+                
+                // PROBLEM
+                let annPoint = ann.annotation as! MKPointAnnotation
+                choosedRestaurant = annPoint.restaurantDetail
+                print(choosedRestaurant?.placeId)
+                print(choosedRestaurant?.name)
             }
         }
     }
@@ -139,6 +148,9 @@ extension MapViewController: MKMapViewDelegate {
             self.bottomButtonConstraint.constant = -100
             self.view.layoutIfNeeded()  // force view to update its layout
         }
+        
+        let annPoint = ann.annotation as! MKPointAnnotation
+        choosedRestaurant = nil
     }
 }
 

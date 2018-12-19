@@ -11,11 +11,18 @@ import UIKit
 class ChooseActionController: UIViewController {
     
     var previousViewController: UIViewController! = nil
+    var choosedRestaurant: Restaurant! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(choosedRestaurant.placeId)
+        print(choosedRestaurant.name)
+        
+        if !database.hasPlace(placeId: choosedRestaurant.placeId) {
+            database.addPlace(restaurant: choosedRestaurant)
+        }
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
