@@ -20,7 +20,7 @@ class PromotionViewController: UIViewController {
     
     
     var imageArr = [UIImage(named: "star")]
-    let maxProgress:Float = 1.0
+    let maxProgress:Float = 3.0
     var currentProgress:Float = 0.0
     
     var database: Database?
@@ -39,16 +39,16 @@ class PromotionViewController: UIViewController {
         collectionView.isPagingEnabled = true
         
         // Progress
-        view.bringSubview(toFront: progressBar)
-        progressBar.setProgress(currentProgress, animated: true)
+        //view.bringSubview(toFront: progressBar)
+        //progressBar.setProgress(currentProgress, animated: true)
         
-        DispatchQueue.main.async(execute: {self.progressBar.setProgress(Float(self.imageArr.count)/self.maxProgress, animated: true)})
+        //Bug wai ma update na ja
         
         //Waiting for image then reload collection view data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             self.collectionView.reloadData()
             UIView.animate(withDuration: 0.5) {
-                self.progressBar.alpha = 0
+               // self.progressBar.alpha = 0
             }
         }
         
