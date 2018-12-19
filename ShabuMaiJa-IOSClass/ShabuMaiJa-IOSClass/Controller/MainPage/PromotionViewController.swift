@@ -12,18 +12,19 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 
+
 class PromotionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
     var imageArr = [UIImage(named: "star")]
+    let maxProgress:Float = 1.0
+    var currentProgress:Float = 0.0
+    
     var database: Database?
     var storage: Storage?
-    var picArray: [UIImage]?
-    var image: UIImage?
-    @IBOutlet  var img2: UIImageView!
-    @IBOutlet weak var img1: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,18 @@ class PromotionViewController: UIViewController {
         // One cell at a single time
         collectionView.isPagingEnabled = true
         
+        // Progress
+        view.bringSubview(toFront: progressBar)
+        progressBar.setProgress(currentProgress, animated: true)
+        
+        DispatchQueue.main.async(execute: {self.progressBar.setProgress(Float(self.imageArr.count)/self.maxProgress, animated: true)})
+        
         //Waiting for image then reload collection view data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3){
             self.collectionView.reloadData()
+            UIView.animate(withDuration: 0.5) {
+                self.progressBar.alpha = 0
+            }
         }
         
     }
@@ -101,3 +111,5 @@ extension PromotionViewController: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
+
+
