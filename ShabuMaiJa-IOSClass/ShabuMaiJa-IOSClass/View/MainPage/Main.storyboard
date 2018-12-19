@@ -183,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-CW-hxT">
-                                <rect key="frame" x="0.0" y="76" width="375" height="542"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                             </mapView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91z-wF-neu">
                                 <rect key="frame" x="20" y="558" width="335" height="60"/>
@@ -198,7 +198,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" placeholder="Find Restaurant" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-tO-S4Z">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="2qQ-Oo-lvh"/>
                                 </constraints>
@@ -208,7 +208,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cLV-tO-S4Z" firstAttribute="top" secondItem="2Yl-qW-NLz" secondAttribute="top" constant="20" id="1sw-92-e5D"/>
+                            <constraint firstItem="cLV-tO-S4Z" firstAttribute="top" secondItem="nXC-Dx-Clx" secondAttribute="top" id="1sw-92-e5D"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="bottom" secondItem="91z-wF-neu" secondAttribute="bottom" id="2io-mI-6Om"/>
                             <constraint firstItem="nXC-Dx-Clx" firstAttribute="trailing" secondItem="91z-wF-neu" secondAttribute="trailing" constant="20" id="5XT-WH-0uY"/>
                             <constraint firstItem="cLV-tO-S4Z" firstAttribute="leading" secondItem="nXC-Dx-Clx" secondAttribute="leading" id="Dew-EV-ScN"/>
