@@ -28,7 +28,6 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         self.bottomButtonConstraint.constant = -100
         button.layer.cornerRadius = 25
         
@@ -182,18 +181,21 @@ extension MapViewController: UISearchBarDelegate {
         getJSON(reqURL: url) { (data) in
             if let data = data {
                 for place in data.results {
+                    let restaurant = Restaurant(place: place!)
+                    
                     print(place!.name!)
+                    
                     let ann = MKPointAnnotation()
                     ann.coordinate.latitude = (place?.geometry.location.lat)!
                     ann.coordinate.longitude = (place?.geometry.location.lng)!
                     ann.title = place?.name
+                    ann.placeId = (place?.place_id)!
+                    ann.restaurantDetail = restaurant
+                    
                     self.mapView.addAnnotation(ann)
                 }
             }
         }
-        
-        
-        
         
 //        let request = MKLocalSearchRequest()
 //        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
@@ -229,6 +231,32 @@ extension MapViewController: UISearchBarDelegate {
     func removeAllAnnotations(){
         let allAnns = self.mapView.annotations
         self.mapView.removeAnnotations(allAnns)
+    }
+}
+
+extension MKPointAnnotation {
+    
+    struct Holder {
+        static var _placeId = ""
+        static var _restaurantDetail = Restaurant()
+    }
+    
+    var placeId: String {
+        get {
+            return Holder._placeId
+        }
+        set (newPlaceId) {
+            Holder._placeId = newPlaceId
+        }
+    }
+    
+    var restaurantDetail: Restaurant {
+        get {
+            return Holder._restaurantDetail
+        }
+        set (newRestaurant) {
+            Holder._restaurantDetail = newRestaurant
+        }
     }
 }
 

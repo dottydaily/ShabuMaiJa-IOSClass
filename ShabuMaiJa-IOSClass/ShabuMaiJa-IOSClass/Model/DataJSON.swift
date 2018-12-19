@@ -9,7 +9,7 @@
 import Foundation
 
 class DataJSON: Decodable {
-    struct Result: Decodable {
+    struct Place: Decodable {
         struct Geometry: Decodable {
             struct Location: Decodable {
                 var lat: Double?
@@ -28,8 +28,7 @@ class DataJSON: Decodable {
         struct OpeningHours: Decodable {
             var open_now: Bool
         }
-        
-
+    
         struct Photo: Decodable {
             var height: Int
             var html_attributions: [String?]
@@ -72,6 +71,6 @@ class DataJSON: Decodable {
     }
     
     var html_attributions: [String?]
-    var results: [Result?]
+    var results: [Place?]
     var status: String
 }
