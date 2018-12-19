@@ -12,6 +12,7 @@ class ShowProfileController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var ProfileTableView: UITableView!
     var accountList: AccountData = AccountData()
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -19,11 +19,6 @@ class PromotionViewController: UIViewController {
     var image: UIImage?
     @IBOutlet  var img2: UIImageView!
     @IBOutlet weak var img1: UIImageView!
-   
-    
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +27,6 @@ class PromotionViewController: UIViewController {
         database = Database.database()
         storage = Storage.storage()
         self.downloadImages(folderPath: "images", success: {(image) in print(image)}, failure: {(error) in print(error)})
-        
-    
-    
     }
     
     func downloadImages(folderPath:String,success:@escaping (_ image:UIImage)->(),failure:@escaping (_ error:Error)->()){

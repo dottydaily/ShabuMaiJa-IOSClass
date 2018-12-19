@@ -35,6 +35,7 @@ class MapViewController: UIViewController {
         
         searchBar.delegate = self
         mapView.delegate = self
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -188,6 +189,8 @@ extension MapViewController: UISearchBarDelegate {
         
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
         
+        print(urlString)
+        
         let url = URL(string: urlString)!
         
         getJSON(reqURL: url) { (data) in
@@ -208,26 +211,6 @@ extension MapViewController: UISearchBarDelegate {
                 }
             }
         }
-        
-//        let request = MKLocalSearchRequest()
-//        request.region = MKCoordinateRegionMakeWithDistance((locationManager.location?.coordinate)!, 5000, 5000)
-//        request.naturalLanguageQuery = text
-//
-//        let localSearch = MKLocalSearch(request: request)
-//        localSearch.start { (response, error) in
-//            guard let response = response else {
-//                print("There was an error searching for: \(request.naturalLanguageQuery) error: \(error)")
-//                return
-//            }
-//
-//            for item in response.mapItems {
-//                print(item.name!)
-//                let ann = MKPointAnnotation()
-//                ann.coordinate = item.placemark.coordinate
-//                ann.title = item.name
-//                self.mapView.addAnnotation(ann)
-//            }
-//        }
     }
     
     // remove all previous annotations when searching new place

@@ -17,12 +17,17 @@ class ChooseActionController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(choosedRestaurant.placeId)
-        print(choosedRestaurant.name)
-        
-        if !database.hasPlace(placeId: choosedRestaurant.placeId) {
-            database.addPlace(restaurant: choosedRestaurant)
+        if choosedRestaurant != nil {
+            print(choosedRestaurant.placeId)
+            print(choosedRestaurant.name)
+            
+            if !database.hasPlace(placeId: choosedRestaurant.placeId) {
+                database.addPlace(restaurant: choosedRestaurant)
+            }
         }
+        
+        
+        
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
