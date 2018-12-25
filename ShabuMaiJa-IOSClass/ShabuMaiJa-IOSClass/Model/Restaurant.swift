@@ -44,7 +44,7 @@ class Restaurant: NSObject {
         self.iconURL = "NO DATA"
     }
     
-    func print() -> String {
-        return ""
+    override var description: String {
+        return "placeId : "+placeId + "\nname : "+name
     }
 }

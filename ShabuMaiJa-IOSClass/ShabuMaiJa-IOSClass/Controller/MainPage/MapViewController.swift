@@ -21,6 +21,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
     
     var choosedRestaurant: Restaurant? = nil
+    var ourPlaceAnnotations: [MKRestaurantAnnotation] = []
     
     var locationManager: CLLocationManager!
 //    var popUpSubVC: PlaceDetailSubViewController!
@@ -131,12 +132,12 @@ extension MapViewController: MKMapViewDelegate {
                     self.bottomButtonConstraint.constant = 20
                     self.view.layoutIfNeeded()  // force view to update its layout
                 }
-                
-                // PROBLEM
-                let annPoint = ann.annotation as! MKPointAnnotation
+            
+                let annPoint = ann.annotation as! MKRestaurantAnnotation
                 choosedRestaurant = annPoint.restaurantDetail
-                print(choosedRestaurant?.placeId)
-                print(choosedRestaurant?.name)
+                
+                print(choosedRestaurant)
+            
             }
         }
     }
@@ -150,7 +151,6 @@ extension MapViewController: MKMapViewDelegate {
             self.view.layoutIfNeeded()  // force view to update its layout
         }
         
-        let annPoint = ann.annotation as! MKPointAnnotation
         choosedRestaurant = nil
     }
 }
@@ -159,7 +159,7 @@ extension MapViewController: UISearchBarDelegate {
     
     // use this to send req to google places api, and get JSON data, convert it into DataJSON Object
     // add @escaping by xcode, still don't know what it is
-    // use this function to prevent some case that code below task.resume() is running before getting result of request
+    // use this function to prevent some case that code below task.resume() is running before getting all of result of request
     func getJSON(reqURL url:URL, completion: @escaping (_ data: DataJSON?)-> Void) {
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
@@ -198,17 +198,28 @@ extension MapViewController: UISearchBarDelegate {
                 for place in data.results {
                     let restaurant = Restaurant(place: place!)
                     
-                    print(place!.name!)
+                    print("&&&&&&&& This restaurant is : " + restaurant.name)
+                    print("--------")
+                    print("Place name --> "+place!.name!)
                     
-                    let ann = MKPointAnnotation()
+                    let ann = MKRestaurantAnnotation()
                     ann.coordinate.latitude = (place?.geometry.location.lat)!
                     ann.coordinate.longitude = (place?.geometry.location.lng)!
                     ann.title = place?.name
                     ann.placeId = (place?.place_id)!
                     ann.restaurantDetail = restaurant
                     
+                    print("Annotation name --> "+ann.title!)
+                    print("Object RestaurantDetail name --> "+ann.restaurantDetail.name)
+                    
                     self.mapView.addAnnotation(ann)
+                    self.ourPlaceAnnotations.append(ann)
                 }
+            }
+            
+            print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
+            for balloon in self.ourPlaceAnnotations {
+                print("ourPlaceAnnotations : " + balloon.restaurantDetail.name)
             }
         }
     }
@@ -226,32 +237,6 @@ extension MapViewController: UISearchBarDelegate {
     func removeAllAnnotations(){
         let allAnns = self.mapView.annotations
         self.mapView.removeAnnotations(allAnns)
-    }
-}
-
-extension MKPointAnnotation {
-    
-    struct Holder {
-        static var _placeId = ""
-        static var _restaurantDetail = Restaurant()
-    }
-    
-    var placeId: String {
-        get {
-            return Holder._placeId
-        }
-        set (newPlaceId) {
-            Holder._placeId = newPlaceId
-        }
-    }
-    
-    var restaurantDetail: Restaurant {
-        get {
-            return Holder._restaurantDetail
-        }
-        set (newRestaurant) {
-            Holder._restaurantDetail = newRestaurant
-        }
     }
 }
 

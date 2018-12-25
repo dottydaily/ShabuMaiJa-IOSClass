@@ -48,7 +48,7 @@ class DataJSON: Decodable {
         var opening_hours: OpeningHours?
         var photos: [Photo?]?
         var place_id: String?
-        var plus_code: PlusCode
+        var plus_code: PlusCode?
         var rating: Float
         var reference: String
         var scope: String
