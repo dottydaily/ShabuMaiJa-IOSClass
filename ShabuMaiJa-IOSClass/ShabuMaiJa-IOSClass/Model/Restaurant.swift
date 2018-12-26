@@ -16,6 +16,8 @@ class Restaurant: NSObject {
     var reviewScore: Float
     var isOpen: Bool
     var iconURL: String
+    var minPrice: Double
+    var maxPrice: Double
     
     init(place: DataJSON.Place) {
         self.name = place.name!
@@ -31,6 +33,9 @@ class Restaurant: NSObject {
         }
         
         self.iconURL = (place.icon)!
+        
+        self.minPrice = 0
+        self.maxPrice = 99999
     }
     
     override init() {
@@ -42,6 +47,9 @@ class Restaurant: NSObject {
         self.address = "NO DATA"
         self.isOpen = false
         self.iconURL = "NO DATA"
+        
+        self.minPrice = 0
+        self.maxPrice = 99999
     }
     
     override var description: String {

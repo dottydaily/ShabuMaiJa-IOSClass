@@ -236,7 +236,7 @@
                                     <action selector="choosePlace:" destination="tLe-id-vgD" eventType="touchUpInside" id="J9m-59-7ni"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Find Restaurant" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-tO-S4Z">
+                            <searchBar contentMode="redraw" placeholder="Find Restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-tO-S4Z">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="2qQ-Oo-lvh"/>

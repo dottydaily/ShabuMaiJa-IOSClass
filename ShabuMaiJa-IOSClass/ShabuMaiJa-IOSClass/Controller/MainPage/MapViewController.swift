@@ -16,7 +16,6 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
-//    @IBOutlet weak var popUpSubView: UIView!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var bottomButtonConstraint: NSLayoutConstraint!
     
@@ -24,25 +23,31 @@ class MapViewController: UIViewController {
     var ourPlaceAnnotations: [MKRestaurantAnnotation] = []
     
     var locationManager: CLLocationManager!
-//    var popUpSubVC: PlaceDetailSubViewController!
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        /////////////////////////////////////////////////////
+        // Do any additional setup after loading the view. //
+        /////////////////////////////////////////////////////
+        
+        // set up constraint for choosed place 'button'
         self.bottomButtonConstraint.constant = -100
         button.layer.cornerRadius = 25
         
-        searchBar.delegate = self
-        mapView.delegate = self
+        // set delegate to this view
+        searchBar.delegate = self   // to manage what to do with search bar
+        mapView.delegate = self     // to manage what to do with annotation on mapview
         
+        // request and get current location
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        // implements in extension, forcing keyboard to hide itself when tap outside of it
         self.hideKeyboardWhenTappedAround()
         
         // Make trackingButton for tracking your current location
@@ -67,25 +72,25 @@ class MapViewController: UIViewController {
         performSegue(withIdentifier: "goToCreateFindPage", sender: self)
     }
     
-    // for sending some data to next ViewController
+    // for setup some data to next ChooseActionViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ChooseActionController
         
-        // check if segue is a ChooseActionView
-        if (segue.destination is ChooseActionController) {
-            let controller = segue.destination as! ChooseActionController
-            
-            // because we can go to ChooseActionView by multiple ways
-            controller.previousViewController = self
-            controller.choosedRestaurant = choosedRestaurant
+        // send this view controller to ChooseActionView for its manual unwind segue
+        // because we can go to ChooseActionView by multiple ways
+        controller.previousViewController = self
+        controller.choosedRestaurant = choosedRestaurant
         }
     }
-}
 
 extension MapViewController: CLLocationManagerDelegate {
+    
+    // to confirm that we will get this location for sure.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         locationManager.requestLocation()
     }
     
+    // make mapview follow device's location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("Location: \(location)")
@@ -95,6 +100,7 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
+    // handle error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("ERROR GET LOCATION")
     }
@@ -118,6 +124,7 @@ extension MapViewController: MKMapViewDelegate {
         return ann
     }
     
+    // handle action when select
     func mapView(_ mapView: MKMapView, didSelect ann: MKAnnotationView) {
         if let annTitle = ann.annotation!.title {
             if annTitle != "My Location" {
@@ -142,6 +149,7 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    // handle action when deselect
     func mapView(_ mapView: MKMapView, didDeselect ann: MKAnnotationView) {
         
         // push the choose button down
@@ -175,20 +183,20 @@ extension MapViewController: UISearchBarDelegate {
         task.resume()
     }
     
+    // handle action when submit search by search bar
     func searchFromSearchBarText(inputText text:String){
         
         let lat = String(locationManager.location!.coordinate.latitude)
         let long = String(locationManager.location!.coordinate.longitude)
-        
-        var searchText = text.replacingOccurrences(of: " ", with: "_")
-        
-        print(searchText)
-        print(lat)
-        print(long)
-        print(apiKey)
+        let searchText = text.replacingOccurrences(of: " ", with: "_")
         
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
         
+        // debugging log
+        print(lat)
+        print(long)
+        print(searchText)
+        print(apiKey)
         print(urlString)
         
         let url = URL(string: urlString)!
