@@ -223,6 +223,7 @@ extension MapViewController: UISearchBarDelegate {
                     self.mapView.addAnnotation(ann)
                     self.ourPlaceAnnotations.append(ann)
                 }
+                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
             }
             
             print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
