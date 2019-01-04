@@ -11,6 +11,7 @@
 		04A1756421C7AF5F00DA4319 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */; };
 		04A2183721C23C0100B79809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A2183621C23C0100B79809 /* Main.storyboard */; };
 		04A89DC821D10A8A00FC25BB /* MKRestaurantAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A89DC721D10A8A00FC25BB /* MKRestaurantAnnotation.swift */; };
+		04E5942921DFC2750070564F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E5942821DFC2750070564F /* ViewController.swift */; };
 		04E63E3221A7D20800013B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E63E3121A7D20700013B7E /* Assets.xcassets */; };
 		450BC3AB21CA1FC400F7243E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450BC3AA21CA1FC400F7243E /* DBManager.swift */; };
 		6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */; };
@@ -124,6 +125,7 @@
 		04A1756321C7AF5F00DA4319 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		04A2183621C23C0100B79809 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		04A89DC721D10A8A00FC25BB /* MKRestaurantAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKRestaurantAnnotation.swift; sourceTree = "<group>"; };
+		04E5942821DFC2750070564F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04E63E3121A7D20700013B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		450BC3AA21CA1FC400F7243E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		6A04AD8E21AFAE78006AAB7F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		6A07BE002191554C003941DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04E5942821DFC2750070564F /* ViewController.swift */,
 				7DCE4BAB21A742CB007E82B2 /* MainPage */,
 				7DCE4BAC21A74407007E82B2 /* SearchPage */,
 				7DAA21E1219C2C0900728998 /* GroupPage */,
@@ -850,6 +853,7 @@
 				7D5D5FA721B0580600F92364 /* ShowPriceListController.swift in Sources */,
 				7DAA21F1219C78EB00728998 /* FindGroupController.swift in Sources */,
 				E92D2D4D21C7A833007A440F /* ShowProfileController.swift in Sources */,
+				04E5942921DFC2750070564F /* ViewController.swift in Sources */,
 				7D6C61BA21B3BC9E00A031F3 /* Restaurant.swift in Sources */,
 				E92D2D6121C7CFD0007A440F /* ReviewAllTableViewCell.swift in Sources */,
 				6A04AD8F21AFAE78006AAB7F /* MapViewController.swift in Sources */,

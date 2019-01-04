@@ -189,7 +189,7 @@ extension MapViewController: UISearchBarDelegate {
         let lat = String(locationManager.location!.coordinate.latitude)
         let long = String(locationManager.location!.coordinate.longitude)
         let searchText = text.replacingOccurrences(of: " ", with: "_")
-        
+        let sv = displaySpinner(onView: self.view)
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
         
         // debugging log
@@ -224,6 +224,7 @@ extension MapViewController: UISearchBarDelegate {
                     self.ourPlaceAnnotations.append(ann)
                 }
                 self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                self.removeSpinner(spinner: sv)
             }
             
             print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
@@ -249,15 +250,3 @@ extension MapViewController: UISearchBarDelegate {
     }
 }
 
-// use this anywhere you want to hide keyboard (self.hideKeyboardWhenTappedAround)
-extension UIViewController {
-    
-    func hideKeyboardWhenTappedAround(){
-        let tap: UITapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dismissKeyboard(){
-        view.endEditing(true)
-    }
-}

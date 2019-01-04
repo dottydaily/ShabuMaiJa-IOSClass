@@ -43,8 +43,19 @@ class PromotionViewController: UIViewController {
         storage = Storage.storage()
         self.downloadImages(folderPath: "images", success: {(image) in print(image)}, failure: {(error) in print(error)})
         
-    
-    
+        
+        // One cell at a single time
+        collectionView.isPagingEnabled = true
+        
+      
+        
+        let sv = displaySpinner(onView: self.view)
+        //Waiting for image then reload collection view data
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            self.collectionView.reloadData()
+            self.removeSpinner(spinner: sv)
+        }
+        
     }
     
     func downloadImages(folderPath:String,success:@escaping (_ image:UIImage)->(),failure:@escaping (_ error:Error)->()){
