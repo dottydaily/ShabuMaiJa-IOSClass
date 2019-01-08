@@ -13,6 +13,7 @@ import GoogleMaps
 
 // Global Variable
 var apiKey: String! = "AIzaSyBHit-QajwkAXUjed7rml3sAXEk9dU6oaw"
+var database: DBManager = DBManager()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

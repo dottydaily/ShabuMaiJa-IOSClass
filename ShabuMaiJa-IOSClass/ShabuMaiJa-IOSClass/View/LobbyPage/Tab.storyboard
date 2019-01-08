@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +47,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-m5-Yd5">
-                                <rect key="frame" x="10" y="203" width="355" height="337"/>
+                                <rect key="frame" x="10" y="202.5" width="355" height="337.5"/>
                                 <connections>
                                     <segue destination="7JO-w0-nXe" kind="embed" id="s3L-4e-wBu"/>
                                 </connections>
@@ -109,7 +110,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-h5-6XD">
-                                <rect key="frame" x="10" y="203" width="355" height="337"/>
+                                <rect key="frame" x="10" y="202.5" width="355" height="337.5"/>
                                 <connections>
                                     <segue destination="7JO-w0-nXe" kind="embed" id="L8s-Jt-DKQ"/>
                                 </connections>
@@ -269,7 +270,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFQ-8M-WFj">
-                                <rect key="frame" x="154.5" y="144" width="79" height="20.5"/>
+                                <rect key="frame" x="154.5" y="144" width="78.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -294,27 +295,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-gF-mQV">
-                                <rect key="frame" x="145" y="209.5" width="125" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-gF-mQV" customClass="RatingController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
+                                <rect key="frame" x="145" y="209.5" width="185" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SN-Z6-X1v">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                         <state key="normal" image="star"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abs-dr-HRe">
-                                        <rect key="frame" x="25" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="37" y="0.0" width="37" height="37"/>
                                         <state key="normal" image="star"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QG-BT-aPv">
-                                        <rect key="frame" x="50" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="74" y="0.0" width="37" height="37"/>
                                         <state key="normal" image="star"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-Aq-GEY">
-                                        <rect key="frame" x="75" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="111" y="0.0" width="37" height="37"/>
                                         <state key="normal" image="star"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMh-Ic-PEL">
-                                        <rect key="frame" x="100" y="0.0" width="25" height="25"/>
+                                        <rect key="frame" x="148" y="0.0" width="37" height="37"/>
                                         <state key="normal" image="star"/>
                                     </button>
                                 </subviews>
@@ -379,7 +380,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYp-Ov-xGo">
-                                <rect key="frame" x="10" y="203" width="355" height="338"/>
+                                <rect key="frame" x="10" y="203" width="355" height="337.5"/>
                                 <connections>
                                     <segue destination="7JO-w0-nXe" kind="embed" id="myy-S9-C5D"/>
                                 </connections>
@@ -428,7 +429,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCu-4z-aNy">
-                                <rect key="frame" x="10" y="203" width="355" height="338"/>
+                                <rect key="frame" x="10" y="203" width="355" height="337.5"/>
                                 <connections>
                                     <segue destination="7JO-w0-nXe" kind="embed" id="lBr-oI-yok"/>
                                 </connections>
@@ -493,11 +494,11 @@
             <objects>
                 <viewController id="7JO-w0-nXe" customClass="ShowProfileController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAd-CU-FMQ">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="337"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="337.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1wf-bB-Lc8">
-                                <rect key="frame" x="0.0" y="0.0" width="355" height="337"/>
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="337.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileTableViewCell" id="9Ci-Jf-W4X" customClass="ProfileTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
@@ -579,7 +580,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star" width="25" height="25"/>
+        <image name="star" width="37.5" height="37.5"/>
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>

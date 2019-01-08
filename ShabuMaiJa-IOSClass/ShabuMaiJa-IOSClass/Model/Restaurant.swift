@@ -8,14 +8,16 @@
 
 class Restaurant: NSObject {
     
+    var placeId: String
     var name: String
-    var reviewScore: Float
     var latitude: Double
     var longtitude: Double
-    var placeId: String
     var address: String
+    var reviewScore: Float
     var isOpen: Bool
     var iconURL: String
+    var minPrice: Double
+    var maxPrice: Double
     
     init(place: DataJSON.Place) {
         self.name = place.name!
@@ -24,8 +26,16 @@ class Restaurant: NSObject {
         self.longtitude = place.geometry.location.lng!
         self.placeId = place.place_id!
         self.address = place.vicinity!
-        self.isOpen = (place.opening_hours?.open_now)!
+        if place.opening_hours != nil {
+            self.isOpen = (place.opening_hours?.open_now)!
+        } else {
+            self.isOpen = false
+        }
+        
         self.iconURL = (place.icon)!
+        
+        self.minPrice = 0
+        self.maxPrice = 99999
     }
     
     override init() {
@@ -37,5 +47,12 @@ class Restaurant: NSObject {
         self.address = "NO DATA"
         self.isOpen = false
         self.iconURL = "NO DATA"
+        
+        self.minPrice = 0
+        self.maxPrice = 99999
+    }
+    
+    override var description: String {
+        return "placeId : "+placeId + "\nname : "+name
     }
 }

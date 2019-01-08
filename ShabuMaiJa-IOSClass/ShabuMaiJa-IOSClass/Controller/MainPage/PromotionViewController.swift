@@ -12,7 +12,17 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 
+
 class PromotionViewController: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
+    
+    var imageArr = [UIImage(named: "star")]
+    let maxProgress:Float = 3.0
+    var currentProgress:Float = 0.0
+    
     var database: Database?
     var storage: Storage?
     var picArray: [UIImage]?
@@ -86,6 +96,38 @@ class PromotionViewController: UIViewController {
 //            img2.setNeedsDisplay()
 //        }
 
+extension PromotionViewController: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageArr.count - 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ImageCollectionViewCell
+        cell?.image.image = imageArr[indexPath.row + 1]
+        return cell!
     }
 }
+
+extension PromotionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = UIScreen.main.bounds
+        return CGSize(width: size.width, height: size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
 
