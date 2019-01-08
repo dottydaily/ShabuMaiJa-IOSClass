@@ -10,6 +10,8 @@ import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,30 @@ class RestaurantTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+  
+    func set(restaurant: Restaurant) {
+        let min = restaurant.minPrice
+        let stringPrice : String = String(format:"%f",min)
+        self.nameLabel.text = restaurant.name
+        self.priceLabel.text = stringPrice
+    }
+    var restaurantName: String {
+        set(name) {
+            self.nameLabel.text = name
+        }
+        get {
+            return self.nameLabel.text!
+        }
+    }
+    
+    var restaurantPrice: String {
+        set(type) {
+            self.priceLabel.text = type
+        }
+        get {
+            return self.priceLabel.text!
+        }
     }
 
 }

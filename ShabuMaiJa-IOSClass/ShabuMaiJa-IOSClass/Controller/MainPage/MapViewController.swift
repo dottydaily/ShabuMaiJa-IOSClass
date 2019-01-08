@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
 
         super.viewDidLoad()
         
-        database.getPlaceByPrice(minPrice: 400, maxPrice: 1000)
+        //database.getPlaceByPrice(minPrice: 400, maxPrice: 1000)
         
         /////////////////////////////////////////////////////
         // Do any additional setup after loading the view. //
@@ -82,6 +82,7 @@ class MapViewController: UIViewController {
         // because we can go to ChooseActionView by multiple ways
         controller.previousViewController = self
         controller.choosedRestaurant = choosedRestaurant
+        
         }
     }
 

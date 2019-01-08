@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,6 +87,10 @@
                         <viewLayoutGuide key="safeArea" id="SHP-Cs-DoW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search By Price" id="HVG-Z1-5VP"/>
+                    <connections>
+                        <outlet property="maxPrice" destination="97h-t5-DXE" id="aga-wM-LMW"/>
+                        <outlet property="minPrice" destination="2oi-NV-2tc" id="0G4-7V-kws"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyo-cj-BNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +190,7 @@
                                 <rect key="frame" x="20" y="84" width="335" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByPriceTableViewCell" id="b98-Gz-GGW" customClass="AccountTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantByPriceTableViewCell" id="b98-Gz-GGW" customClass="RestaurantTableViewCell" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="-1" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b98-Gz-GGW" id="BoD-Fo-eS7">
@@ -201,16 +205,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q6b-Aw-qsr">
-                                                    <rect key="frame" x="60" y="4" width="56" height="36"/>
+                                                    <rect key="frame" x="60" y="4" width="48" height="36"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUF-3g-JjG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="21.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-OV-sx7">
-                                                            <rect key="frame" x="0.0" y="21.5" width="56" height="14.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ah-OV-sx7">
+                                                            <rect key="frame" x="0.0" y="21.5" width="48" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -226,15 +230,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="zUF-3g-JjG" id="3Ao-pr-tpI"/>
-                                            <outlet property="usernameLabel" destination="6ah-OV-sx7" id="8NK-AV-ZPg"/>
+                                            <outlet property="nameLabel" destination="zUF-3g-JjG" id="fxG-eJ-QDQ"/>
+                                            <outlet property="priceLabel" destination="6ah-OV-sx7" id="vIV-Qd-UoQ"/>
                                             <segue destination="HYA-WT-7qF" kind="show" id="abO-P2-SnI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Txa-Y5-LtE" id="cmH-6e-YlG"/>
-                                    <outlet property="delegate" destination="Txa-Y5-LtE" id="GhR-gD-U1a"/>
+                                    <outlet property="dataSource" destination="Txa-Y5-LtE" id="ix0-Ft-5oz"/>
+                                    <outlet property="delegate" destination="Txa-Y5-LtE" id="zEP-gw-e68"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -248,7 +252,7 @@
                         <viewLayoutGuide key="safeArea" id="bxR-Cf-GbZ"/>
                     </view>
                     <connections>
-                        <outlet property="restaurantTableView" destination="Y40-XI-4QI" id="QsO-Kz-s6W"/>
+                        <outlet property="restaurantTableView" destination="Y40-XI-4QI" id="03A-K0-tai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLi-JG-wZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,7 +308,7 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i62-ek-7Mv"/>
+        <segue reference="abO-P2-SnI"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34137055837563457" green="0.34137055837563457" blue="0.34137055837563457" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
