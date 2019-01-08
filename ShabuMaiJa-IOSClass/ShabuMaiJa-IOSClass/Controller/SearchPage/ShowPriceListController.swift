@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ShowPriceListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShowPriceListController: UIViewController {
     
-    var accountList: AccountData = AccountData()
+    var restaurantList: [Restaurant] = []
     
     @IBOutlet weak var restaurantTableView: UITableView!
     
@@ -18,11 +18,25 @@ class ShowPriceListController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        for _ in 1...20{
-            self.accountList.add(account: Account(random: true))
-        }
+//        for _ in 1...20{
+//            self.accountList.add(account: Account(random: true))
+//        }
+        // do some magic here
+        
+        
     }
     
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ChooseActionController
+        
+        // use for pop up back to previous view controller
+        // because we can go to ChooseActionView by multiple ways
+        controller.previousViewController = self
+    }
+}
+extension ShowPriceListController : UITableViewDelegate, UITableViewDataSource {
     // tap on table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -33,36 +47,13 @@ class ShowPriceListController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.accountList.total()
+        return self.restaurantList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! AccountTableViewCell
-        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
-        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! AccountTableViewCell
+//        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
+//        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
+//        return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! ChooseActionController
-        
-        // use for pop up back to previous view controller
-        // because we can go to ChooseActionView by multiple ways
-        controller.previousViewController = self
-    }
-
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
