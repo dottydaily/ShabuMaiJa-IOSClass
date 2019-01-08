@@ -10,6 +10,8 @@ import UIKit
 
 class SearchByPriceController: UIViewController {
     
+    @IBOutlet weak var minPrice: UITextField!
+    @IBOutlet weak var maxPrice: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,5 +29,11 @@ class SearchByPriceController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ShowPriceListController
+        controller.previousViewController = self
+        controller.min = Double(minPrice.text!)!
+        controller.max = Double(maxPrice.text!)!
+    }
 
 }
