@@ -13,11 +13,14 @@ class ChooseActionController: UIViewController {
     
     var previousViewController: UIViewController! = nil
     var choosedRestaurant: Restaurant! = nil
-    @IBOutlet weak var restaurantPicture: UIImageView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var addressLabel: UITextView!
     
+    var imageArr : [UIImage] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,29 +31,50 @@ class ChooseActionController: UIViewController {
         print("Start loading image from url")
         
         DispatchQueue.main.async {
-            GMSPlacesClient.shared().lookUpPhotos(forPlaceID: self.choosedRestaurant.placeId) { (photos, err) in
-                if let err = err {
-                    print("can't get image from this place")
-                } else {
-                    if let firstPhoto = photos?.results.first {
-                        GMSPlacesClient.shared().loadPlacePhoto(firstPhoto, callback: { (photo, err) in
-                            if let err = err {
-                                print("already get image but can't load it")
-                            } else {
-                                self.restaurantPicture.contentMode = .scaleToFill
-                                self.restaurantPicture.image = photo
-                            }
-                        })
-                    } else {
-                        self.restaurantPicture.image = #imageLiteral(resourceName: "warning")
-                    }
-                }
+            self.downloadImages()
+        }
+        
+        // One cell at a single time
+        collectionView.isPagingEnabled = true
+        
+        let sv = displaySpinner(onView: self.view, alpha: 1)
+        
+        
+        //Waiting for image then reload collection view data
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            for image in self.imageArr{
+                print(image)
             }
+            self.collectionView.reloadData()
+            self.removeSpinner(spinner: sv)
         }
         
         nameLabel.text = choosedRestaurant.name
         ratingLabel.text = String(choosedRestaurant.reviewScore)
         addressLabel.text = choosedRestaurant.address
+    }
+    
+    func downloadImages(){
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: self.choosedRestaurant.placeId) { (photos, err) in
+            if let err = err {
+                print("can't get image from this place : \(err)")
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    for pic in (photos?.results)!{
+                        GMSPlacesClient.shared().loadPlacePhoto(pic, callback: {
+                            (photo, error) -> Void in
+                            if let error = error {
+                                print("Error Cant show image : \(error)")
+                            } else {
+                                self.imageArr.append(photo!)
+                            }
+                        }
+                    )}
+                } else {
+                    self.imageArr.append(#imageLiteral(resourceName: "warning"))
+                }
+            }
+        }
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
@@ -77,4 +101,38 @@ class ChooseActionController: UIViewController {
     }
     */
 
+}
+
+extension ChooseActionController: UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imageArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopDetailCell", for: indexPath) as? ShopdetailCollectionViewCell
+        cell?.image.image = imageArr[indexPath.row]
+        return cell!
+    }
+}
+
+extension ChooseActionController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = UIScreen.main.bounds
+        return CGSize(width: size.width, height: size.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

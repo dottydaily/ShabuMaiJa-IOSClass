@@ -89,14 +89,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="WWW-e4-uTP">
-                                <rect key="frame" x="0.0" y="608" width="375" height="11"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="kvO-hP-aMU"/>
-                                </constraints>
-                                <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </progressView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fhP-Q9-zl5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,9 +132,6 @@
                         <constraints>
                             <constraint firstItem="fhP-Q9-zl5" firstAttribute="bottom" secondItem="bnn-pC-Vgc" secondAttribute="bottom" id="77r-FC-JzX"/>
                             <constraint firstItem="fhP-Q9-zl5" firstAttribute="top" secondItem="bnn-pC-Vgc" secondAttribute="top" id="Ctm-rJ-CKM"/>
-                            <constraint firstItem="WWW-e4-uTP" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="FAx-SE-niY"/>
-                            <constraint firstItem="bnn-pC-Vgc" firstAttribute="bottom" secondItem="WWW-e4-uTP" secondAttribute="bottom" id="n9n-g0-O8X"/>
-                            <constraint firstItem="bnn-pC-Vgc" firstAttribute="trailing" secondItem="WWW-e4-uTP" secondAttribute="trailing" id="oom-ME-hYN"/>
                             <constraint firstItem="fhP-Q9-zl5" firstAttribute="trailing" secondItem="bnn-pC-Vgc" secondAttribute="trailing" id="r1e-XB-txR"/>
                             <constraint firstItem="fhP-Q9-zl5" firstAttribute="leading" secondItem="bnn-pC-Vgc" secondAttribute="leading" id="tbt-uB-jyd"/>
                         </constraints>
@@ -151,7 +140,6 @@
                     <navigationItem key="navigationItem" id="sDL-cW-e9K"/>
                     <connections>
                         <outlet property="collectionView" destination="fhP-Q9-zl5" id="L8e-ox-f1s"/>
-                        <outlet property="progressBar" destination="WWW-e4-uTP" id="QcQ-IB-jJv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWT-21-5jm" userLabel="First Responder" sceneMemberID="firstResponder"/>

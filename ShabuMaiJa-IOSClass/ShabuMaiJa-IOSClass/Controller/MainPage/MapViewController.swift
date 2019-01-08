@@ -189,7 +189,7 @@ extension MapViewController: UISearchBarDelegate {
         let lat = String(locationManager.location!.coordinate.latitude)
         let long = String(locationManager.location!.coordinate.longitude)
         let searchText = text.replacingOccurrences(of: " ", with: "_")
-        let sv = displaySpinner(onView: self.view)
+        let sv = displaySpinner(onView: self.view, alpha: 0.6)
         let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
         
         // debugging log
