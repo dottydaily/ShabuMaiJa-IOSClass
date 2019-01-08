@@ -43,7 +43,7 @@ class DBManager {
             , "Latitude": restaurant.latitude, "Longitude": restaurant.longtitude
             , "Address": restaurant.address, "ReviewScore": restaurant.reviewScore
             , "isOpen": restaurant.isOpen, "IconURL": restaurant.iconURL
-            , "MinPrice": restaurant.minPrice, "MaxPrice": restaurant.maxPrice]
+            , "MinPrice": restaurant.minPrice]
         )
         
         return nodeAtPlaceList
@@ -89,18 +89,34 @@ class DBManager {
     func getPlaceByPrice(minPrice: Double, maxPrice: Double) -> [Restaurant] {
         var restaurantList: [Restaurant] = []
         ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
-            let places = snapshot.value as! NSDictionary
-            
-//            for place in places {
-//                if place["MinPrice"] {
-//
-//                }
-//            }
+            for child in snapshot.children {
+                let childDataSnapshot = child as! DataSnapshot
+                let values = childDataSnapshot.value as! NSDictionary
+                let selectedPrice = values["MinPrice"] as! Double
+                
+                if minPrice ... maxPrice ~= selectedPrice {
+                    let placeId = values["PlaceId"] as! String
+                    let name = values["Name"] as! String
+                    let latitude = values["Latitude"] as! Double
+                    let longtitude = values["Longitude"] as! Double
+                    let address = values["Address"] as! String
+                    let reviewScore = values["ReviewScore"] as! Float
+                    let isOpen = values["isOpen"] as! Bool
+                    let iconURL = values["IconURL"] as! String
+                    let minPrice = values["MinPrice"] as! Double
+                    
+                    let restaurant = Restaurant.init(placeId: placeId, name: name, latitude: latitude, longtitude: longtitude, address: address, reviewScore: reviewScore, isOpen: isOpen, iconURL: iconURL, minPrice: minPrice)
+                    restaurantList.append(restaurant)
+                    
+                    print(restaurant)
+                }
+            }
         }
         
         return restaurantList
     }
     
+    // use for update some change in firebase database
     func emergencyMethod() {
         ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
             for item in snapshot.children {

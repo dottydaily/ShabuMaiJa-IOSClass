@@ -28,6 +28,8 @@ class MapViewController: UIViewController {
 
         super.viewDidLoad()
         
+        database.getPlaceByPrice(minPrice: 400, maxPrice: 1000)
+        
         /////////////////////////////////////////////////////
         // Do any additional setup after loading the view. //
         /////////////////////////////////////////////////////
