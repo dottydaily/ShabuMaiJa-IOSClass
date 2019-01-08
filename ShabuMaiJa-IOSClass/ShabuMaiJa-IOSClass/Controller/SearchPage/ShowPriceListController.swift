@@ -22,8 +22,6 @@ class ShowPriceListController: UIViewController {
 //            self.accountList.add(account: Account(random: true))
 //        }
         // do some magic here
-        
-        
     }
     
     
@@ -51,9 +49,9 @@ extension ShowPriceListController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! AccountTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! AccountTableViewCell
 //        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
 //        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
-//        return cell
+        return cell
     }
 }

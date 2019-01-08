@@ -30,11 +30,6 @@ class PromotionViewController: UIViewController {
     @IBOutlet  var img2: UIImageView!
     @IBOutlet weak var img1: UIImageView!
    
-    
-    
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -106,7 +101,8 @@ class PromotionViewController: UIViewController {
 //            img2.image = picArray![1]
 //            img2.setNeedsDisplay()
 //        }
-
+    }
+}
 extension PromotionViewController: UICollectionViewDelegate,UICollectionViewDataSource {
     
     

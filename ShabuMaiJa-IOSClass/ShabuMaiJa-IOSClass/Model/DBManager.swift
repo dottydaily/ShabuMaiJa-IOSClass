@@ -11,8 +11,8 @@ import Firebase
 import FirebaseDatabase
 
 class DBManager {
-    var database: Database!
-    var ref: DatabaseReference
+    fileprivate var database: Database!
+    fileprivate var ref: DatabaseReference
     
     init() {
         database = Database.database()
@@ -84,5 +84,30 @@ class DBManager {
         }
         
         return returnValue
+    }
+    
+    func getPlaceByPrice(minPrice: Double, maxPrice: Double) -> [Restaurant] {
+        var restaurantList: [Restaurant] = []
+        ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
+            let places = snapshot.value as! NSDictionary
+            
+//            for place in places {
+//                if place["MinPrice"] {
+//
+//                }
+//            }
+        }
+        
+        return restaurantList
+    }
+    
+    func emergencyMethod() {
+        ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
+            for item in snapshot.children {
+                var child = item as! DataSnapshot
+                print(child.ref)
+                child.ref.updateChildValues(["MinPrice" : Int.random(in: 100 ..< 700)])
+            }
+        }
     }
 }
