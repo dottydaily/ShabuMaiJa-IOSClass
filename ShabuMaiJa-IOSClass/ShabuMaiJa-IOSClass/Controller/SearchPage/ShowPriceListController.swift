@@ -14,6 +14,7 @@ class ShowPriceListController: UIViewController {
     var restaurantList: [Restaurant] = []
     var min : Double = 0
     var max : Double = 0
+    //var ref: DatabaseReference
     
   
     @IBOutlet weak var restaurantTableView: UITableView!
@@ -21,21 +22,22 @@ class ShowPriceListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let sv = displaySpinner(onView: self.view)
+        database.getPlaceByPrice(minPrice: min, maxPrice: max, completion: { (restaurants) in
+            self.restaurantList = restaurants
+        })
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            database.getPlaceByPrice(minPrice: 100, maxPrice: 500, completion: { (restaurants) in
-                self.restaurantList = restaurants
-            })
+    
             self.restaurantTableView.reloadData()
-            print(self.restaurantList)
+//            self.removeSpinner(spinner: self.view)
         }
+        
         
         // Do any additional setup after loading the view.
 //        for _ in 1...20{
 //            self.accountList.add(account: Account(random: true))
 //        }
         // do some magic here
-        print("--------\n")
-        print(restaurantList.count)
         
     }
     
@@ -66,7 +68,7 @@ extension ShowPriceListController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! RestaurantTableViewCell
         let min = restaurantList[indexPath.row].minPrice
-        let stringPrice : String = String(format:"%f",min)
+        let stringPrice : String = String(format:"%0.1f",min)
         cell.nameLabel.text = restaurantList[indexPath.row].name
         cell.priceLabel.text = stringPrice
         return cell

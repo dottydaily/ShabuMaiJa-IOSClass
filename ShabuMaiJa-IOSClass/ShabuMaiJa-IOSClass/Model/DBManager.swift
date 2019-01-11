@@ -87,9 +87,10 @@ class DBManager {
     }
     
     func getPlaceByPrice(minPrice: Double, maxPrice: Double, completion:@escaping (_ restaurantlist: [Restaurant]) -> Void) {
-        var restaurantList: [Restaurant] = []
         
+ 
         DispatchQueue.main.async {
+            var restaurantList: [Restaurant] = []
             self.ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
                 for child in snapshot.children {
                     let childDataSnapshot = child as! DataSnapshot
@@ -109,15 +110,15 @@ class DBManager {
                         
                         let restaurant = Restaurant.init(placeId: placeId, name: name, latitude: latitude, longtitude: longtitude, address: address, reviewScore: reviewScore, isOpen: isOpen, iconURL: iconURL, minPrice: minPrice)
                         restaurantList.append(restaurant)
-                        
-                        print(restaurant)
+                    
                     }
                 }
+                completion(restaurantList)
             }
         }
-        
-        completion(restaurantList)
     }
+    
+    
     
     // use for update some change in firebase database
     func emergencyMethod() {
