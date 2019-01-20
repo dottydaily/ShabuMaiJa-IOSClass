@@ -22,14 +22,14 @@ class ShowPriceListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let sv = displaySpinner(onView: self.view)
+        let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByPrice(minPrice: min, maxPrice: max, completion: { (restaurants) in
             self.restaurantList = restaurants
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
     
             self.restaurantTableView.reloadData()
-//            self.removeSpinner(spinner: self.view)
+            self.removeSpinner(spinner: sv)
         }
         
         
