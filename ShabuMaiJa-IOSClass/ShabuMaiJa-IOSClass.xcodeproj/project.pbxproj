@@ -315,7 +315,6 @@
 		6A07BE002191554C003941DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04E5942821DFC2750070564F /* ViewController.swift */,
 				7DCE4BAB21A742CB007E82B2 /* MainPage */,
 				7DCE4BAC21A74407007E82B2 /* SearchPage */,
 				7DAA21E1219C2C0900728998 /* GroupPage */,
@@ -348,6 +347,7 @@
 		6A07BE022191555D003941DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04E5942821DFC2750070564F /* ViewController.swift */,
 				7DCE4BB021A74490007E82B2 /* MainPage */,
 				6A04AD9021AFAFC1006AAB7F /* SearchPage */,
 				7DCE4BAE21A74481007E82B2 /* GroupPage */,

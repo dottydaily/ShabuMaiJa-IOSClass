@@ -26,7 +26,7 @@ class DataJSON: Decodable {
         }
         
         struct OpeningHours: Decodable {
-            var open_now: Bool
+            var open_now: Bool?
         }
     
         struct Photo: Decodable {
@@ -63,7 +63,7 @@ class DataJSON: Decodable {
     }
     
     func printResults() {
-        for result in results {
+        for result in results! {
             print("place id : \(result?.place_id!)")
             print("place name : \(result?.name!)")
             print("place address : \(result?.vicinity!)")
@@ -71,6 +71,6 @@ class DataJSON: Decodable {
     }
     
     var html_attributions: [String?]
-    var results: [Place?]
+    var results: [Place?]?
     var status: String
 }

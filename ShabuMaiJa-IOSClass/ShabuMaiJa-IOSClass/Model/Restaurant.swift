@@ -25,7 +25,7 @@ class Restaurant: NSObject {
         self.longtitude = place.geometry.location.lng!
         self.placeId = place.place_id!
         self.address = place.vicinity!
-        if place.opening_hours != nil {
+        if place.opening_hours != nil && place.opening_hours?.open_now != nil{
             self.isOpen = (place.opening_hours?.open_now)!
         } else {
             self.isOpen = false

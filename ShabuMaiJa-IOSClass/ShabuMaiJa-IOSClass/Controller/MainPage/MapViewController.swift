@@ -113,18 +113,25 @@ extension MapViewController: MKMapViewDelegate {
     
     // for make all of annotation appear (if not use this, some will be hidden when zoom out)
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseIdentifier = "annotationView"
-        var ann = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        // need to do
+        // check if annotation is MKRestaurantAnnotation
         
-        if ann == nil {
-            ann = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        if annotation is MKRestaurantAnnotation {
+            let reuseIdentifier = "annotationView"
+            var ann = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+            
+            if ann == nil {
+                ann = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            }
+            
+            ann?.displayPriority = .required
+            ann?.annotation = annotation
+            ann?.canShowCallout = true
+            
+            return ann
+        } else {
+            return nil
         }
-        
-        ann?.displayPriority = .required
-        ann?.annotation = annotation
-        ann?.canShowCallout = true
-        
-        return ann
     }
     
     // handle action when select
@@ -188,51 +195,67 @@ extension MapViewController: UISearchBarDelegate {
     
     // handle action when submit search by search bar
     func searchFromSearchBarText(inputText text:String){
-        
-        let lat = String(locationManager.location!.coordinate.latitude)
-        let long = String(locationManager.location!.coordinate.longitude)
-        let searchText = text.replacingOccurrences(of: " ", with: "_")
-        let sv = displaySpinner(onView: self.view, alpha: 0.6)
-        let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
-        
-        // debugging log
-        print(lat)
-        print(long)
-        print(searchText)
-        print(apiKey)
-        print(urlString)
-        
-        let url = URL(string: urlString)!
-        
-        getJSON(reqURL: url) { (data) in
-            if let data = data {
-                for place in data.results {
-                    let restaurant = Restaurant(place: place!)
-                    
-                    print("&&&&&&&& This restaurant is : " + restaurant.name)
-                    print("--------")
-                    print("Place name --> "+place!.name!)
-                    
-                    let ann = MKRestaurantAnnotation()
-                    ann.coordinate.latitude = (place?.geometry.location.lat)!
-                    ann.coordinate.longitude = (place?.geometry.location.lng)!
-                    ann.title = place?.name
-                    ann.placeId = (place?.place_id)!
-                    ann.restaurantDetail = restaurant
-                    
-                    print("Annotation name --> "+ann.title!)
-                    print("Object RestaurantDetail name --> "+ann.restaurantDetail.name)
-                    
-                    self.mapView.addAnnotation(ann)
-                    self.ourPlaceAnnotations.append(ann)
-                }
-                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-                self.removeSpinner(spinner: sv)
-            }
+        if(text == "" ){
+            sendAlertUtil(Title: "Invalid Input", Description: "Please enter " )
+        }else{
+            let lat = String(locationManager.location!.coordinate.latitude)
+            let long = String(locationManager.location!.coordinate.longitude)
+            let searchText = text.replacingOccurrences(of: " ", with: "_")
+            let sv = displaySpinner(onView: self.view, alpha: 0.6)
+            var urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
+
+//            let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword="
+
+            // need to do
+            // url.appendPathComponent(ภาษาไทย)
             
-            print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
-            for balloon in self.ourPlaceAnnotations {
-                print("ourPlaceAnnotations : " + balloon.restaurantDetail.name)
+            // debugging log
+            print(lat)
+            print(long)
+            print(searchText)
+            print(apiKey)
+            print(urlString)
+            
+            urlString = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+            
+            
+            var url = URL(string: urlString)!
+            
+            print(url.absoluteString)
+//
+           
+            getJSON(reqURL: url) { (data) in
+                if let data = data {
+                    for place in data.results! {
+                        let restaurant = Restaurant(place: place!)
+                        
+                        print("&&&&&&&& This restaurant is : " + restaurant.name)
+                        print("--------")
+                        print("Place name --> "+place!.name!)
+                        
+                        let ann = MKRestaurantAnnotation()
+                        ann.coordinate.latitude = (place?.geometry.location.lat)!
+                        ann.coordinate.longitude = (place?.geometry.location.lng)!
+                        ann.title = place?.name
+                        ann.placeId = (place?.place_id)!
+                        ann.restaurantDetail = restaurant
+                        
+                        print("Annotation name --> "+ann.title!)
+                        print("Object RestaurantDetail name --> "+ann.restaurantDetail.name)
+                        
+                        
+                        self.mapView.addAnnotation(ann)
+                        self.ourPlaceAnnotations.append(ann)
+                    }
+                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                    self.removeSpinner(spinner: sv)
+                }
+                
+                print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
+                for balloon in self.ourPlaceAnnotations {
+                    print("ourPlaceAnnotations : " + balloon.restaurantDetail.name)
+                }
+                
             }
         }
     }

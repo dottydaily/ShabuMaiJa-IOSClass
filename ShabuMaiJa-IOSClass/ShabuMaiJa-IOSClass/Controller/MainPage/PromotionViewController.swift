@@ -24,7 +24,9 @@ class PromotionViewController: UIViewController {
     var database: Database?
     var storage: Storage?
     var image: UIImage?
-   
+    var totalImage = 0
+    var isLoaded = false
+
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,41 +34,84 @@ class PromotionViewController: UIViewController {
         // Do any additional setup after loading the view.
         database = Database.database()
         storage = Storage.storage()
-        self.downloadImages(folderPath: "images", success: {(image) in print(image)}, failure: {(error) in print(error)})
         
         
         // One cell at a single time
         collectionView.isPagingEnabled = true
-        
-        let sv = displaySpinner(onView: self.view, alpha: 0.6)
-        //Waiting for image then reload collection view data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            self.collectionView.reloadData()
-            self.removeSpinner(spinner: sv)
-        }
+       
+
         
     }
     
-    func downloadImages(folderPath:String,success:@escaping (_ image:UIImage)->(),failure:@escaping (_ error:Error)->()){
-        
-        var resStr: String
-        
-        resStr = ""
-        for i in 0 ..< 3{
-            // Create a reference with an initial file path and name
-            resStr = String(i)
-            let reference = Storage.storage().reference(withPath: "\(folderPath)/\(resStr).png")
-            reference.getData(maxSize: (2 * 1024 * 1024)) { (data, error) in
-                if let _error = error{
-                    print(_error)
-                    failure(_error)
-                } else {
-                    
-                    let myImage:UIImage! = UIImage(data: data! as Data)
-                    self.imageArr.append(myImage)
+    override func viewDidAppear(_ animated: Bool) {
+        if(!isLoaded){
+            downloadAllImage()
+        }
+    }
+    
+    
+    func downloadAllImage() {
+        imageArr = []
+        let sv = displaySpinner(onView: self.view, alpha: 0.6)
+
+        self.getData(folderPath: "images", success: {
+            self.collectionView.reloadData()
+            self.removeSpinner(spinner: sv)
+            self.isLoaded = true
+        }, failure: { (err) in
+            self.removeSpinner(spinner: sv)
+            self.sendAlertUtil(Title: "Cant Load Data", Description: "Reload Data")
+        }) {
+            self.removeSpinner(spinner: sv)
+            self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
+                alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
+                    self.downloadAllImage()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+    }
+    
+    func getData(folderPath:String,
+                        success:@escaping ()->(),
+                        failure:@escaping (_ error:Error)->(),
+                        notYet:@escaping ()->()){
+        database?.reference().child("NecessaryData").observeSingleEvent(of: .value, with: { (snapshot) in
+            let datas = snapshot.value as! NSDictionary
+            self.totalImage = datas["PromotionViewImageCount"] as! Int
+            
+            print(self.totalImage)
+            var resStr: String
+            
+            resStr = ""
+            for i in 0 ..< self.totalImage{
+                // Create a reference with an initial file path and name
+                resStr = String(i)
+                let reference = Storage.storage().reference(withPath: "\(folderPath)/\(resStr).png")
+                reference.getData(maxSize: (2 * 1024 * 1024)) { (data, error) in
+                    if let _error = error{
+                        print(_error)
+                        failure(_error)
+                    } else {
+                        
+                        let myImage:UIImage! = UIImage(data: data! as Data)
+                        self.imageArr.append(myImage)
+                        print(self.imageArr.count)
+                    }
+                    if (self.imageArr.count==self.totalImage) {
+                       success()
+                    }else{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                            if(self.imageArr.count < self.totalImage){
+                                notYet()
+                            }
+                            
+                        }
+                    }
                 }
             }
-        }
+        })
         
     }
 }
