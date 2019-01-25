@@ -91,14 +91,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="162.5" height="30"/>
                                                 <state key="normal" title="Create"/>
                                                 <connections>
-                                                    <segue destination="rJG-OF-ehf" kind="show" id="MFK-EC-NZT"/>
+                                                    <action selector="handleCreateButton:" destination="C4i-Nf-Yur" eventType="touchUpInside" id="GHU-n0-vxn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIs-XX-223">
                                                 <rect key="frame" x="172.5" y="0.0" width="162.5" height="30"/>
                                                 <state key="normal" title="Find"/>
                                                 <connections>
-                                                    <segue destination="JX8-9Z-mfg" kind="show" id="8JK-nh-rxc"/>
+                                                    <segue destination="JX8-9Z-mfg" kind="show" identifier="" id="8JK-nh-rxc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -168,6 +168,7 @@
                         <outlet property="collectionView" destination="QY6-Bs-00z" id="zNe-7W-VoN"/>
                         <outlet property="nameLabel" destination="cNN-hK-C0h" id="vT6-7F-RlT"/>
                         <outlet property="ratingLabel" destination="kah-3e-CKQ" id="OGP-I0-tPV"/>
+                        <segue destination="rJG-OF-ehf" kind="show" identifier="goToCreatePage" id="rPQ-gE-OYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPE-ut-eWM" userLabel="First Responder" sceneMemberID="firstResponder"/>

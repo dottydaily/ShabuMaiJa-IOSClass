@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import FirebaseAuth
 
 class ChooseActionController: UIViewController {
     
@@ -20,6 +21,7 @@ class ChooseActionController: UIViewController {
     @IBOutlet weak var addressLabel: UITextView!
     
     var imageArr : [UIImage] = []
+    var handle: AuthStateDidChangeListenerHandle? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,31 @@ class ChooseActionController: UIViewController {
         addressLabel.text = choosedRestaurant.address
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+        }
+    }
+    
+    @IBAction func handleCreateButton(_ sender: Any) {
+        print("\n\nPREPARING BEFORE GO TO CREATE GROUP")
+        if Auth.auth().currentUser == nil {
+            print("nil need to login")
+            // create subview that let user signin or signup
+            let popUpVC = UIStoryboard(name: "AuthenticateUser", bundle: nil).instantiateViewController(withIdentifier: "SignUpPopUpID") as! AuthenticateUserViewController
+            self.navigationController?.navigationBar.isHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+            self.addChildViewController(popUpVC)
+            popUpVC.view.frame = self.view.frame
+            popUpVC.modalPresentationStyle = .popover
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParentViewController: self)
+        } else {
+            print(Auth.auth().currentUser?.email)
+            performSegue(withIdentifier: "goToCreatePage", sender: self)
+        }
+    }
+    
     func downloadImages(){
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: self.choosedRestaurant.placeId) { (photos, err) in
             if let err = err {
@@ -69,7 +96,7 @@ class ChooseActionController: UIViewController {
                                 self.imageArr.append(photo!)
                             }
                         }
-                    )}
+                        )}
                 } else {
                     self.imageArr.append(#imageLiteral(resourceName: "warning"))
                 }

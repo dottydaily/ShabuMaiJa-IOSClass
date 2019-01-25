@@ -28,6 +28,8 @@
 		7D0A26EF219DF55F0090360A /* usericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A26EE219DF55E0090360A /* usericon.png */; };
 		7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F0219E071F0090360A /* GroupDetailController.swift */; };
 		7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A26F2219E0FC10090360A /* AccountProfileController.swift */; };
+		7D10C04A21FB627D00831864 /* AuthenticateUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D10C04921FB627D00831864 /* AuthenticateUser.storyboard */; };
+		7D10C04C21FB680E00831864 /* AuthenticateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D10C04B21FB680E00831864 /* AuthenticateUserViewController.swift */; };
 		7D4915AD21A72A06009550FD /* launch640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915A821A72A06009550FD /* launch640x960.jpg */; };
 		7D4915AE21A72A06009550FD /* launch1242x2688.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915A921A72A06009550FD /* launch1242x2688.jpg */; };
 		7D4915AF21A72A06009550FD /* launch640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D4915AA21A72A06009550FD /* launch640x1136.jpg */; };
@@ -149,6 +151,8 @@
 		7D0A26EE219DF55E0090360A /* usericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = usericon.png; path = ../../../../Etc/usericon.png; sourceTree = "<group>"; };
 		7D0A26F0219E071F0090360A /* GroupDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailController.swift; sourceTree = "<group>"; };
 		7D0A26F2219E0FC10090360A /* AccountProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfileController.swift; sourceTree = "<group>"; };
+		7D10C04921FB627D00831864 /* AuthenticateUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticateUser.storyboard; sourceTree = "<group>"; };
+		7D10C04B21FB680E00831864 /* AuthenticateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateUserViewController.swift; sourceTree = "<group>"; };
 		7D4915A821A72A06009550FD /* launch640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch640x960.jpg; sourceTree = "<group>"; };
 		7D4915A921A72A06009550FD /* launch1242x2688.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch1242x2688.jpg; sourceTree = "<group>"; };
 		7D4915AA21A72A06009550FD /* launch640x1136.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch640x1136.jpg; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				6A8DF949219170F400A59C25 /* LobbyPage */,
 				6AA3E08921428AA800612EF2 /* Test.storyboard */,
 				6AA3E08E21428AA800612EF2 /* LaunchScreen.storyboard */,
+				7D10C04921FB627D00831864 /* AuthenticateUser.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				7DCE4BAF21A74486007E82B2 /* LobbyPage */,
 				6AA3E08721428AA800612EF2 /* MainPageController.swift */,
 				7D74FADE2194D967003BDF2D /* SubPageController.swift */,
+				7D10C04B21FB680E00831864 /* AuthenticateUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 				7D6C61FE21B3C63D00A031F3 /* GooglePlacePicker.bundle in Resources */,
 				04A2183721C23C0100B79809 /* Main.storyboard in Resources */,
 				7D4915B921A72E06009550FD /* launch2208x1242.jpg in Resources */,
+				7D10C04A21FB627D00831864 /* AuthenticateUser.storyboard in Resources */,
 				7D0A26EF219DF55F0090360A /* usericon.png in Resources */,
 				7D6C61F921B3C60900A031F3 /* GoogleMaps.bundle in Resources */,
 				7D6C61D921B3C19F00A031F3 /* GooglePlaces.bundle in Resources */,
@@ -834,6 +841,7 @@
 				7D0A26F1219E071F0090360A /* GroupDetailController.swift in Sources */,
 				7DCE4BB221A74C38007E82B2 /* WaitingController.swift in Sources */,
 				C81CAC5721CA476500C3685E /* ImageCollectionViewCell.swift in Sources */,
+				7D10C04C21FB680E00831864 /* AuthenticateUserViewController.swift in Sources */,
 				E92D2D5921C7B472007A440F /* ProfileTableViewCell.swift in Sources */,
 				C8AE843221C2ACE10043EC17 /* ChooseActionController.swift in Sources */,
 				7D0A26F3219E0FC10090360A /* AccountProfileController.swift in Sources */,
@@ -1033,7 +1041,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",
@@ -1065,7 +1073,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T4GT5GFBT8;
+				DEVELOPMENT_TEAM = 89ST658N5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShabuMaiJa-IOSClass/Frameworks/Firebase/Analytics",

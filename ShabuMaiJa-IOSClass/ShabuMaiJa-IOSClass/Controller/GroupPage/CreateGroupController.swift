@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CreateGroupController: UIViewController {
     
@@ -15,6 +16,7 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var peopleStepper: UIStepper!
     
     var peopleNumber = 1
+    let handle: AuthStateDidChangeListenerHandle? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,17 @@ class CreateGroupController: UIViewController {
     
     @IBAction func stepperChanged(_ sender: UIStepper) {
         self.peopleTextField.text = String(Int(peopleStepper.value))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        
+//        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("back to chooseAction")
+//        Auth.auth().removeStateDidChangeListener(handle!)
     }
     
     /*
