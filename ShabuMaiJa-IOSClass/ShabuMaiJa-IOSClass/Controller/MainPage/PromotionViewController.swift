@@ -26,6 +26,7 @@ class PromotionViewController: UIViewController {
     var image: UIImage?
     var totalImage = 0
     var isLoaded = false
+    var isFailed = false
 
    
     override func viewDidLoad() {
@@ -52,6 +53,7 @@ class PromotionViewController: UIViewController {
     
     func downloadAllImage() {
         imageArr = []
+        isFailed = false
         let sv = displaySpinner(onView: self.view, alpha: 0.6)
 
         self.getData(folderPath: "images", success: {
@@ -62,12 +64,13 @@ class PromotionViewController: UIViewController {
             self.removeSpinner(spinner: sv)
             self.sendAlertUtil(Title: "Cant Load Data", Description: "Reload Data")
         }) {
+            self.imageArr = []
             self.removeSpinner(spinner: sv)
             self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
                 alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
                     self.downloadAllImage()
                 }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             })
         }
@@ -92,6 +95,7 @@ class PromotionViewController: UIViewController {
                 reference.getData(maxSize: (2 * 1024 * 1024)) { (data, error) in
                     if let _error = error{
                         print(_error)
+                        self.isFailed = true
                         failure(_error)
                     } else {
                         
@@ -99,14 +103,17 @@ class PromotionViewController: UIViewController {
                         self.imageArr.append(myImage)
                         print(self.imageArr.count)
                     }
-                    if (self.imageArr.count==self.totalImage) {
-                       success()
-                    }else{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 10){
-                            if(self.imageArr.count < self.totalImage){
-                                notYet()
+                    
+                    // if we done our loop
+                    if i == self.totalImage-1 {
+                        if (self.imageArr.count==self.totalImage) {
+                            success()
+                        }else{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                                if(self.imageArr.count < self.totalImage && !self.isFailed){
+                                    notYet()
+                                }
                             }
-                            
                         }
                     }
                 }

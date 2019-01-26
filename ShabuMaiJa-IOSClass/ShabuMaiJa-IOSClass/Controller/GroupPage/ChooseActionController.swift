@@ -21,6 +21,9 @@ class ChooseActionController: UIViewController {
     @IBOutlet weak var addressLabel: UITextView!
     
     var imageArr : [UIImage] = []
+    var totalImage :Int = 0
+    var isLoaded = false
+    var isFailed = false
     var handle: AuthStateDidChangeListenerHandle? = nil
 
     override func viewDidLoad() {
@@ -32,25 +35,14 @@ class ChooseActionController: UIViewController {
         
         print("Start loading image from url")
         
-        DispatchQueue.main.async {
-            self.downloadImages()
-        }
+       
         
         // One cell at a single time
         collectionView.isPagingEnabled = true
         
-        let sv = displaySpinner(onView: self.view, alpha: 1)
         
         
-        //Waiting for image then reload collection view data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            for image in self.imageArr{
-                print(image)
-            }
-            self.collectionView.reloadData()
-            self.removeSpinner(spinner: sv)
-        }
-        
+        //Waiting for image then reload collection view
         nameLabel.text = choosedRestaurant.name
         ratingLabel.text = String(choosedRestaurant.reviewScore)
         addressLabel.text = choosedRestaurant.address
@@ -59,6 +51,9 @@ class ChooseActionController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             
+        }
+        if (!isLoaded){
+            downloadImage()
         }
     }
     
@@ -81,24 +76,77 @@ class ChooseActionController: UIViewController {
         }
     }
     
-    func downloadImages(){
+    func downloadImage(){
+        imageArr = []
+        totalImage = 0
+        isFailed = false
+        let sv = self.displaySpinner(onView: self.view, alpha: 1)
+        
+        getData(success: {
+            self.removeSpinner(spinner: sv)
+            self.collectionView.reloadData()
+            self.isLoaded = true
+        }) {
+            print("\n\n\nQWHUIHEQUIEUIWQEYWIQEIUQTRYUQTRYWQTRUIWQRTIUQRIQURTIQUTRTRIR\n\n\n")
+            self.imageArr = []
+            self.removeSpinner(spinner: sv)
+            self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
+                alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
+                    self.downloadImage()
+                }))
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+
+    }
+    func getData(success:@escaping () ->() ,
+                 failure:@escaping () ->()){
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: self.choosedRestaurant.placeId) { (photos, err) in
+            
             if let err = err {
                 print("can't get image from this place : \(err)")
             } else {
+                self.totalImage = (photos?.results.count)!
+                print("----------------")
+                print(self.totalImage)
                 if let firstPhoto = photos?.results.first {
                     for pic in (photos?.results)!{
                         GMSPlacesClient.shared().loadPlacePhoto(pic, callback: {
                             (photo, error) -> Void in
                             if let error = error {
+                                self.isFailed = true
                                 print("Error Cant show image : \(error)")
                             } else {
                                 self.imageArr.append(photo!)
                             }
-                        }
-                        )}
+                            
+                            if pic == photos?.results.last {
+                                // will do if at last round
+                                if self.imageArr.count == self.totalImage{
+                                    print("\n\n\n\nSuccess Data : imageArrayList :\(self.imageArr.count), totalImage :\(self.totalImage)\n\n\n\n")
+                                    success()
+                                }
+                                else{ // otherwise
+                                    print("\n\n\n OH MY GOD IT's FAILED\n\n\n")
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                                        if(self.imageArr.count < self.totalImage && !self.isFailed){
+                                            print("\n\n\nFAILED LOADING DATA : \(self.choosedRestaurant.name)\n\n\n")
+                                            failure()
+                                        }
+                                        else {
+                                            success()
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                    }
                 } else {
                     self.imageArr.append(#imageLiteral(resourceName: "warning"))
+                    self.totalImage = self.imageArr.count
+                    success()
                 }
             }
         }
