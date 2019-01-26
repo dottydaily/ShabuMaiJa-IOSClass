@@ -12,6 +12,8 @@ class GroupDetailController: UIViewController {
     
     public var ownerName:String!
     public var ownerUsername:String!
+    var isPressJoin = false
+    var isPressViewDetail = false
 
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var groupOwnerName: UILabel!
@@ -28,10 +30,34 @@ class GroupDetailController: UIViewController {
         self.groupOwnerUsername.text = ownerUsername
     }
     
+    @IBAction func handleJoinButton(_ sender: Any) {
+        isPressJoin = true
+        performSegue(withIdentifier: "goToWaitingPage", sender: self)
+    }
+    
+    @IBAction func handleViewDetailButton(_ sender: Any) {
+        isPressViewDetail = true
+        performSegue(withIdentifier: "goToViewProfile", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! AccountProfileController
+        if isPressJoin {
+            let controller = segue.destination as! WaitingParticipantController
+            
+        } else if isPressViewDetail {
+            let controller = segue.destination as! AccountProfileController
+            
+            controller.name = ownerName
+        }
+//        let controller = segue.destination
+//        if controller is AccountProfileController {
+//            // do something
+//            controller.name = ownerName
+//        } else { // is FindGroupController
+//            // do something
+//        }
         
-        controller.name = ownerName
+        
     }
     /*
     // MARK: - Navigation

@@ -204,7 +204,7 @@
         <!--Map View Controller-->
         <scene sceneID="ryQ-nN-rxU">
             <objects>
-                <viewController id="tLe-id-vgD" customClass="MapViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewID" id="tLe-id-vgD" customClass="MapViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Yl-qW-NLz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

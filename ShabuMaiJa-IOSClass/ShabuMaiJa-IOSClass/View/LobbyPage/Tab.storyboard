@@ -31,10 +31,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJP-ru-bne" customClass="RoundButton" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
-                                <rect key="frame" x="166" y="570" width="43" height="30"/>
+                                <rect key="frame" x="50" y="570" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.23267926484929558" green="0.61737916987272734" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="ju4-oN-Aep"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Eating">
+                                <state key="normal" title="Eat">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -57,18 +60,24 @@
                         <constraints>
                             <constraint firstItem="FZ6-Cx-Ztz" firstAttribute="bottom" secondItem="NJP-ru-bne" secondAttribute="bottom" constant="67" id="0IY-a4-HqZ"/>
                             <constraint firstItem="FZ6-Cx-Ztz" firstAttribute="trailing" secondItem="4n9-LI-RlS" secondAttribute="trailing" constant="80" id="0xw-Nd-S18"/>
+                            <constraint firstItem="NJP-ru-bne" firstAttribute="leading" secondItem="FZ6-Cx-Ztz" secondAttribute="leading" constant="50" id="8ux-tj-4HJ"/>
                             <constraint firstItem="kwR-7Q-XPG" firstAttribute="top" secondItem="FZ6-Cx-Ztz" secondAttribute="top" constant="100" id="AOp-bf-JH0"/>
                             <constraint firstItem="kmB-m5-Yd5" firstAttribute="top" secondItem="kwR-7Q-XPG" secondAttribute="bottom" constant="18" id="FF5-Cw-qAh"/>
                             <constraint firstItem="kmB-m5-Yd5" firstAttribute="leading" secondItem="FZ6-Cx-Ztz" secondAttribute="leading" constant="10" id="Fa4-QE-RNk"/>
                             <constraint firstItem="FZ6-Cx-Ztz" firstAttribute="trailing" secondItem="kmB-m5-Yd5" secondAttribute="trailing" constant="10" id="Ipw-zb-bfs"/>
                             <constraint firstItem="kwR-7Q-XPG" firstAttribute="leading" secondItem="FZ6-Cx-Ztz" secondAttribute="leading" constant="50" id="Sms-4i-xpd"/>
                             <constraint firstItem="4n9-LI-RlS" firstAttribute="top" secondItem="FZ6-Cx-Ztz" secondAttribute="top" constant="100" id="V0D-Ns-acH"/>
-                            <constraint firstItem="NJP-ru-bne" firstAttribute="centerX" secondItem="yJ7-4x-ARe" secondAttribute="centerX" id="fQN-s1-q8T"/>
                             <constraint firstItem="NJP-ru-bne" firstAttribute="top" secondItem="kmB-m5-Yd5" secondAttribute="bottom" constant="30" id="whR-35-vbS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FZ6-Cx-Ztz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Waiting" id="qc6-YD-jUF"/>
+                    <navigationItem key="navigationItem" title="Waiting" id="qc6-YD-jUF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="OqM-rf-2MU">
+                            <connections>
+                                <action selector="unwindToPrevious:" destination="Nar-f9-286" id="fFL-dd-bTA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBF-NB-d0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,7 +86,7 @@
         <!--Eating-->
         <scene sceneID="oCF-EY-avy">
             <objects>
-                <viewController title="Eating" id="U35-WW-FwJ" sceneMemberID="viewController">
+                <viewController title="Eating" id="U35-WW-FwJ" customClass="EatingHostController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nJq-x6-PUy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,9 +104,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yx-Ci-BYK" customClass="RoundButton" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
-                                <rect key="frame" x="157" y="570" width="61" height="30"/>
+                                <rect key="frame" x="265" y="570" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.23267926480000001" green="0.61737916989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Finishing">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="hAo-I7-nsq"/>
+                                </constraints>
+                                <state key="normal" title="Finish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -122,7 +134,7 @@
                             <constraint firstItem="1wA-Tr-eqV" firstAttribute="leading" secondItem="UQx-Cg-j7i" secondAttribute="leading" constant="50" id="1ZK-d8-xdE"/>
                             <constraint firstItem="1yx-Ci-BYK" firstAttribute="top" secondItem="Vdh-h5-6XD" secondAttribute="bottom" constant="30" id="20v-cp-mkG"/>
                             <constraint firstItem="UQx-Cg-j7i" firstAttribute="trailing" secondItem="Vdh-h5-6XD" secondAttribute="trailing" constant="10" id="F3u-UN-6sa"/>
-                            <constraint firstItem="1yx-Ci-BYK" firstAttribute="centerX" secondItem="nJq-x6-PUy" secondAttribute="centerX" id="R8v-Dp-fTv"/>
+                            <constraint firstItem="UQx-Cg-j7i" firstAttribute="trailing" secondItem="1yx-Ci-BYK" secondAttribute="trailing" constant="50" id="UzM-hh-Mde"/>
                             <constraint firstItem="Vdh-h5-6XD" firstAttribute="leading" secondItem="UQx-Cg-j7i" secondAttribute="leading" constant="10" id="fvt-y5-BfW"/>
                             <constraint firstItem="pJX-qS-UaK" firstAttribute="top" secondItem="UQx-Cg-j7i" secondAttribute="top" constant="100" id="gh4-FA-Cpe"/>
                             <constraint firstItem="Vdh-h5-6XD" firstAttribute="top" secondItem="1wA-Tr-eqV" secondAttribute="bottom" constant="18" id="piS-cq-Y7l"/>
@@ -151,8 +163,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmP-On-LXP" customClass="RoundButton" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
-                                <rect key="frame" x="70" y="570" width="44" height="30"/>
+                                <rect key="frame" x="70" y="570" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.23267926480000001" green="0.61737916989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Nsc-ji-146"/>
+                                </constraints>
                                 <state key="normal" title="Select">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -166,8 +181,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62i-QZ-fCS" customClass="RoundButton" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
-                                <rect key="frame" x="256" y="570" width="49" height="30"/>
+                                <rect key="frame" x="245" y="570" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.23267926480000001" green="0.61737916989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="gkF-K1-9NV"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -321,8 +339,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-Pk-nGc" customClass="RoundButton" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target">
-                                <rect key="frame" x="276" y="522" width="49" height="30"/>
+                                <rect key="frame" x="265" y="522" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.23267926480000001" green="0.61737916989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="yej-60-Gvh"/>
+                                </constraints>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -362,7 +383,7 @@
         <!--WaitingParticipant-->
         <scene sceneID="skh-TA-V7e">
             <objects>
-                <viewController title="WaitingParticipant" id="8pa-Ov-ugI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WaitingParticipantID" title="WaitingParticipant" id="8pa-Ov-ugI" customClass="WaitingParticipantController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jUQ-XY-HGA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,7 +420,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MDP-dJ-1zp"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Waiting" id="un2-ml-7ZU"/>
+                    <navigationItem key="navigationItem" title="Waiting" id="un2-ml-7ZU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="fWh-h8-acN">
+                            <connections>
+                                <action selector="unwindToPrevious:" destination="8pa-Ov-ugI" id="23V-PH-aut"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="zta-yI-jbT" kind="show" id="K6x-vj-sZw"/>
                     </connections>
@@ -411,7 +438,7 @@
         <!--Eating-->
         <scene sceneID="1u2-l4-mKG">
             <objects>
-                <viewController title="Eating" id="zta-yI-jbT" sceneMemberID="viewController">
+                <viewController title="Eating" id="zta-yI-jbT" customClass="EatingParticipantController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q4b-2Y-AdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,6 +483,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Dc5-zy-6IW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oeP-35-oNB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="thR-V7-WSV">
@@ -467,7 +495,6 @@
                         <segue destination="Nar-f9-286" kind="relationship" relationship="rootViewController" id="22P-rH-98q"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164" y="-20.239880059970016"/>
         </scene>
@@ -584,6 +611,6 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L8s-Jt-DKQ"/>
+        <segue reference="myy-S9-C5D"/>
     </inferredMetricsTieBreakers>
 </document>

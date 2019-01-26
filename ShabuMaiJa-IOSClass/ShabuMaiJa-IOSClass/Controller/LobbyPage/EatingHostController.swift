@@ -1,27 +1,22 @@
 //
-//  WaitingController.swift
+//  EatingHostController.swift
 //  ShabuMaiJa-IOSClass
 //
-//  Created by DottyPurkt on 23/11/2561 BE.
-//  Copyright © 2561 iOS Dev. All rights reserved.
+//  Created by Pornpat Santibuppakul on 1/26/19.
+//  Copyright © 2019 iOS Dev. All rights reserved.
 //
 
 import UIKit
 
-class WaitingController: UIViewController {
+class EatingHostController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
-//        self.navigationController?.isNavigationBarHidden = true
     }
     
-    @IBAction func unwindToPrevious(_ sender: Any) {
-       self.navigationController?.popToRootViewController(animated: true)
-    }
-    
-    
+
     /*
     // MARK: - Navigation
 

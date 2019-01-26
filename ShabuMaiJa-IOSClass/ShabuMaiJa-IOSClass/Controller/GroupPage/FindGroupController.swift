@@ -9,7 +9,6 @@
 import UIKit
 
 class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     var accountList: AccountData = AccountData()
     
     @IBOutlet weak var accountTableView: UITableView!

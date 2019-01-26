@@ -14,7 +14,6 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var peopleTextField: UITextField!
     @IBOutlet weak var peopleStepper: UIStepper!
-    
     var peopleNumber = 1
     let handle: AuthStateDidChangeListenerHandle? = nil
     

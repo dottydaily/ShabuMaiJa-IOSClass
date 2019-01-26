@@ -400,7 +400,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="View Detail"/>
                                                                 <connections>
-                                                                    <segue destination="7Uk-dm-F1e" kind="show" id="08v-Vf-GDm"/>
+                                                                    <action selector="handleViewDetailButton:" destination="4j0-v7-a0z" eventType="touchUpInside" id="Su3-bd-YL8"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -428,6 +428,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REZ-6H-5JL">
                                         <rect key="frame" x="0.0" y="493" width="295" height="30"/>
                                         <state key="normal" title="Join"/>
+                                        <connections>
+                                            <action selector="handleJoinButton:" destination="4j0-v7-a0z" eventType="touchUpInside" id="Mfb-fW-xl3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -445,11 +448,21 @@
                         <outlet property="detailTextView" destination="A3t-Jy-dk1" id="4TL-2V-MbO"/>
                         <outlet property="groupOwnerName" destination="9Bk-Tn-FFw" id="0uq-rf-yOd"/>
                         <outlet property="groupOwnerUsername" destination="YUw-o8-cIV" id="kvx-0w-z1a"/>
+                        <segue destination="qIA-49-fwu" kind="show" identifier="goToWaitingPage" id="ryL-af-cYy"/>
+                        <segue destination="7Uk-dm-F1e" kind="show" identifier="goToViewProfile" id="SGE-Up-HhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD6-3Q-oAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5303.1999999999998" y="224.4377811094453"/>
+        </scene>
+        <!--WaitingParticipantID-->
+        <scene sceneID="0xj-m6-mHd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tab" referencedIdentifier="WaitingParticipantID" id="qIA-49-fwu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMh-yf-E2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5967" y="198"/>
         </scene>
         <!--Account Profile-->
         <scene sceneID="A5E-t2-b6M">

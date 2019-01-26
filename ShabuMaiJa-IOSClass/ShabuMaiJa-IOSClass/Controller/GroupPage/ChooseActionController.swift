@@ -164,6 +164,12 @@ class ChooseActionController: UIViewController {
         } else { // is FindGroupController
             // do something
         }
+        
+            
+            // use for pop up back to previous view controller
+            // because we can go to ChooseActionView by multiple ways
+        
+        
     }
     
     /*
