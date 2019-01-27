@@ -198,11 +198,12 @@ extension MapViewController: UISearchBarDelegate {
         if(text == "" ){
             sendAlertUtil(Title: "Invalid Input", Description: "Please enter " )
         }else{
+            ourPlaceAnnotations = []
             let lat = String(locationManager.location!.coordinate.latitude)
             let long = String(locationManager.location!.coordinate.longitude)
             let searchText = text.replacingOccurrences(of: " ", with: "_")
             let sv = displaySpinner(onView: self.view, alpha: 0.6)
-            var urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
+            var urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=1800&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
 
 //            let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword="
 
@@ -247,8 +248,22 @@ extension MapViewController: UISearchBarDelegate {
                         self.mapView.addAnnotation(ann)
                         self.ourPlaceAnnotations.append(ann)
                     }
-                    self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-                    self.removeSpinner(spinner: sv)
+                    if self.ourPlaceAnnotations.count == data.results!.count {
+                        self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                        self.removeSpinner(spinner: sv)
+                    }else{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            print("\(self.ourPlaceAnnotations.count) , \(data.results!.count)")
+                            if self.ourPlaceAnnotations.count == data.results!.count {
+                                self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+                                self.removeSpinner(spinner: sv)
+                            }else{
+                                self.removeSpinner(spinner: sv)
+                                self.sendAlertUtil(Title: "Cant Load", Description: "Check Connection")
+                            }
+                        })
+                    }
+                    
                 }
                 
                 print("######## CHECIKING OUR PLACE ANNOTATIONS #######")

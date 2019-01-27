@@ -87,7 +87,6 @@ class ChooseActionController: UIViewController {
             self.collectionView.reloadData()
             self.isLoaded = true
         }) {
-            print("\n\n\nQWHUIHEQUIEUIWQEYWIQEIUQTRYUQTRYWQTRUIWQRTIUQRIQURTIQUTRTRIR\n\n\n")
             self.imageArr = []
             self.removeSpinner(spinner: sv)
             self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
@@ -106,7 +105,9 @@ class ChooseActionController: UIViewController {
             
             if let err = err {
                 print("can't get image from this place : \(err)")
+                failure()
             } else {
+                self.imageArr = []
                 self.totalImage = (photos?.results.count)!
                 print("----------------")
                 print(self.totalImage)
@@ -119,23 +120,26 @@ class ChooseActionController: UIViewController {
                                 print("Error Cant show image : \(error)")
                             } else {
                                 self.imageArr.append(photo!)
+                                print("-----------------\n Loaded Image :\(self.imageArr.count)")
                             }
                             
                             if pic == photos?.results.last {
+                                print("\n\n Start Checking \n\n")
                                 // will do if at last round
                                 if self.imageArr.count == self.totalImage{
                                     print("\n\n\n\nSuccess Data : imageArrayList :\(self.imageArr.count), totalImage :\(self.totalImage)\n\n\n\n")
                                     success()
                                 }
                                 else{ // otherwise
-                                    print("\n\n\n OH MY GOD IT's FAILED\n\n\n")
+                                    print("\n\n\n OH MY GOD.IT GONNA BE FAILED!?\n\n\n")
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                                         if(self.imageArr.count < self.totalImage && !self.isFailed){
                                             print("\n\n\nFAILED LOADING DATA : \(self.choosedRestaurant.name)\n\n\n")
                                             failure()
                                         }
                                         else {
+                                            print("\n\n\n\n\n Final success \n\n\n")
                                             success()
                                         }
                                     }
