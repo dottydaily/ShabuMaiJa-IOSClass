@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Authenticate User View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="R27-sJ-Ahk">
             <objects>
-                <viewController storyboardIdentifier="SignUpPopUpID" id="zRg-jz-LER" customClass="AuthenticateUserViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpPopUpID" id="zRg-jz-LER" customClass="SignUpViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BCM-XK-NBQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,6 +137,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="Odc-47-vT2" kind="unwind" unwindAction="backToSignInPageWithSeg:" id="Ue8-N7-hfK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -176,19 +179,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJU-lV-0Bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Odc-47-vT2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1599.2" y="340.47976011994007"/>
+            <point key="canvasLocation" x="-817" y="340"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="xrS-X5-oWV">
             <objects>
-                <viewController id="Fog-KG-RP1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInPopUpID" id="Fog-KG-RP1" customClass="SignInViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tOc-qQ-4wj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="avH-JR-t5f">
-                                <rect key="frame" x="20" y="239" width="335" height="170"/>
+                                <rect key="frame" x="20" y="120" width="335" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-HS-3dC">
                                         <rect key="frame" x="20" y="0.0" width="295" height="30"/>
@@ -253,6 +257,7 @@
                                                     <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="handleSignInButton:" destination="Fog-KG-RP1" eventType="touchUpInside" id="Xse-1C-yTr"/>
                                                     <action selector="handleSignUpButton:" destination="zRg-jz-LER" eventType="touchUpInside" id="oJt-NX-UEe"/>
                                                 </connections>
                                             </button>
@@ -264,6 +269,9 @@
                                                 <state key="normal" title="Cancel">
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handleCancelButton:" destination="Fog-KG-RP1" eventType="touchUpInside" id="6SY-vV-X4Y"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -275,20 +283,52 @@
                                     <constraint firstAttribute="trailing" secondItem="ixz-kT-ivl" secondAttribute="trailing" constant="20" id="jt8-gZ-ac7"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tlz-Sy-eib">
+                                <rect key="frame" x="40" y="340" width="295" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or if you don't have an account." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8G-4d-tuk">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="g6g-qp-UWP"/>
+                                            <constraint firstAttribute="height" constant="30" id="i2i-bU-9tU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-KK-ucM">
+                                        <rect key="frame" x="230" y="0.0" width="65" height="30"/>
+                                        <state key="normal" title="Sign up">
+                                            <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handleSignUpButton:" destination="zRg-jz-LER" eventType="touchUpInside" id="UV9-he-hw4"/>
+                                            <segue destination="zRg-jz-LER" kind="show" id="5aT-xg-Ib4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96077778841739658" green="0.94036507323237051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qaK-Pp-srN" firstAttribute="bottom" secondItem="avH-JR-t5f" secondAttribute="bottom" constant="258" id="6BS-DI-Cdh"/>
+                            <constraint firstItem="qaK-Pp-srN" firstAttribute="trailing" secondItem="Tlz-Sy-eib" secondAttribute="trailing" constant="40" id="3a8-4y-1in"/>
+                            <constraint firstItem="qaK-Pp-srN" firstAttribute="centerY" secondItem="avH-JR-t5f" secondAttribute="bottom" id="6BS-DI-Cdh"/>
                             <constraint firstItem="qaK-Pp-srN" firstAttribute="trailing" secondItem="avH-JR-t5f" secondAttribute="trailing" constant="20" id="VOf-tg-KLc"/>
+                            <constraint firstItem="Tlz-Sy-eib" firstAttribute="leading" secondItem="qaK-Pp-srN" secondAttribute="leading" constant="40" id="eHN-bA-60U"/>
                             <constraint firstItem="avH-JR-t5f" firstAttribute="leading" secondItem="qaK-Pp-srN" secondAttribute="leading" constant="20" id="fPn-TR-m8G"/>
-                            <constraint firstItem="avH-JR-t5f" firstAttribute="top" secondItem="qaK-Pp-srN" secondAttribute="top" constant="219" id="iAi-RU-aAd"/>
+                            <constraint firstItem="avH-JR-t5f" firstAttribute="top" secondItem="qaK-Pp-srN" secondAttribute="top" constant="100" id="iAi-RU-aAd"/>
+                            <constraint firstItem="Tlz-Sy-eib" firstAttribute="top" secondItem="qaK-Pp-srN" secondAttribute="centerY" constant="50" id="t6T-MO-GfV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qaK-Pp-srN"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="02f-aa-Ttt" id="m73-54-Zlu"/>
+                        <outlet property="passwordTextField" destination="fWa-gK-Fsx" id="EMp-ok-xiJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srL-Tk-Uyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-742" y="340"/>
+            <point key="canvasLocation" x="-1518" y="340"/>
         </scene>
     </scenes>
     <resources>

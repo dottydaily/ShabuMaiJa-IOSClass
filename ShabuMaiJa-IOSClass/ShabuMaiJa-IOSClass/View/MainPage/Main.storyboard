@@ -162,17 +162,80 @@
             </objects>
             <point key="canvasLocation" x="5239" y="-251"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="ADN-5e-Bci">
             <objects>
-                <viewController id="BF7-PJ-CfO" sceneMemberID="viewController">
+                <viewController id="BF7-PJ-CfO" customClass="ProfileViewController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n8T-cI-vvq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Rzt-Sw-vAG">
+                                <rect key="frame" x="20" y="84" width="335" height="514"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="l7P-cx-t5u">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usericon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jIE-13-QT4">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Val-kC-WIO"/>
+                                                    <constraint firstAttribute="width" constant="80" id="g7G-Ba-B1S"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mRn-nz-Jfb">
+                                                <rect key="frame" x="100" y="0.0" width="235" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycR-DY-wvI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="58.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URx-qr-onB">
+                                                        <rect key="frame" x="0.0" y="58.5" width="235" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jIE-13-QT4" firstAttribute="leading" secondItem="l7P-cx-t5u" secondAttribute="leading" id="Z91-oV-89p"/>
+                                            <constraint firstItem="jIE-13-QT4" firstAttribute="centerY" secondItem="l7P-cx-t5u" secondAttribute="centerY" id="fWA-kJ-t4E"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This box contain account detail (not done)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="unt-4X-hu1">
+                                        <rect key="frame" x="0.0" y="120" width="335" height="275"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPb-81-tKH">
+                                        <rect key="frame" x="0.0" y="435" width="335" height="79"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KZV-YQ-1DX" firstAttribute="bottom" secondItem="Rzt-Sw-vAG" secondAttribute="bottom" constant="20" id="Pip-pm-xyl"/>
+                            <constraint firstItem="Rzt-Sw-vAG" firstAttribute="leading" secondItem="KZV-YQ-1DX" secondAttribute="leading" constant="20" id="Wc2-Uy-sGo"/>
+                            <constraint firstItem="Rzt-Sw-vAG" firstAttribute="top" secondItem="KZV-YQ-1DX" secondAttribute="top" constant="20" id="k0t-bp-dTi"/>
+                            <constraint firstItem="KZV-YQ-1DX" firstAttribute="trailing" secondItem="Rzt-Sw-vAG" secondAttribute="trailing" constant="20" id="qgT-JH-DO4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KZV-YQ-1DX"/>
                     </view>
                     <navigationItem key="navigationItem" id="yJV-gh-9VV"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="URx-qr-onB" id="8EX-ra-L6z"/>
+                        <outlet property="fullNameLabel" destination="ycR-DY-wvI" id="j27-0Q-inv"/>
+                        <outlet property="signInButton" destination="TPb-81-tKH" id="y16-Zv-jCC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phc-eH-pb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -384,5 +447,6 @@
         <image name="promotionicon" width="50" height="50"/>
         <image name="searchByCategory" width="375" height="300"/>
         <image name="searchByPrice" width="375" height="300"/>
+        <image name="usericon.png" width="2240" height="2240"/>
     </resources>
 </document>

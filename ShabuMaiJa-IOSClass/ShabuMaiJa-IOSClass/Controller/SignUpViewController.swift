@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class AuthenticateUserViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -21,7 +21,6 @@ class AuthenticateUserViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     @IBAction func handleSignUpButton(_ sender: Any) {
         if (nameTextField.text?.isEmpty)! || (usernameTextField.text?.isEmpty)! || (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
             
