@@ -202,7 +202,6 @@ extension MapViewController: UISearchBarDelegate {
             let lat = String(locationManager.location!.coordinate.latitude)
             let long = String(locationManager.location!.coordinate.longitude)
             let searchText = text.replacingOccurrences(of: " ", with: "_")
-            let sv = displaySpinner(onView: self.view, alpha: 0.6)
             var urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=1800&language=th&type=restaurant&keyword=\(searchText)&key=\(apiKey!)"
 
 //            let urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(long)&radius=5000&language=th&type=restaurant&keyword="
@@ -226,6 +225,7 @@ extension MapViewController: UISearchBarDelegate {
 //
            
             getJSON(reqURL: url) { (data) in
+                let sv = self.displaySpinner(onView: self.view, alpha: 0.6)
                 if let data = data {
                     for place in data.results! {
                         let restaurant = Restaurant(place: place!)
@@ -264,6 +264,10 @@ extension MapViewController: UISearchBarDelegate {
                         })
                     }
                     
+                }
+                if data!.results?.count == 0{
+                    self.removeSpinner(spinner: sv)
+                    self.sendAlertUtil(Title: "Error", Description: "No Place Found")
                 }
                 
                 print("######## CHECIKING OUR PLACE ANNOTATIONS #######")
