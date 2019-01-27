@@ -12,6 +12,7 @@ class RestaurantTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var bahtLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +29,7 @@ class RestaurantTableViewCell: UITableViewCell {
         let stringPrice : String = String(format:"%f",min)
         self.nameLabel.text = restaurant.name
         self.priceLabel.text = stringPrice
+        self.bahtLabel.text = "Baht"
     }
     var restaurantName: String {
         set(name) {

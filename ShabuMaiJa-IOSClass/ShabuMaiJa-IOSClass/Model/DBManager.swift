@@ -118,6 +118,48 @@ class DBManager {
         }
     }
     
+    func getPlaceByCategory(category: String, completion:@escaping (_ restaurantlist: [Restaurant]) -> Void) {
+        
+        
+        DispatchQueue.main.async {
+            var restaurantList: [Restaurant] = []
+            self.ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
+                for child in snapshot.children {
+                    let childDataSnapshot = child as! DataSnapshot
+                    let values = childDataSnapshot.value as! NSDictionary
+                    if childDataSnapshot.hasChild("Category") {
+                        let selectedCategory = values["Category"] as! String
+                        
+                        if category == selectedCategory {
+                            let placeId = values["PlaceId"] as! String
+                            let name = values["Name"] as! String
+                            let latitude = values["Latitude"] as! Double
+                            let longtitude = values["Longitude"] as! Double
+                            let address = values["Address"] as! String
+                            let reviewScore = values["ReviewScore"] as! Float
+                            let isOpen = values["isOpen"] as! Bool
+                            let iconURL = values["IconURL"] as! String
+                            let minPrice = values["MinPrice"] as! Double
+                            
+                            
+                            let restaurant = Restaurant.init(placeId: placeId, name: name, latitude: latitude, longtitude: longtitude, address: address, reviewScore: reviewScore, isOpen: isOpen, iconURL: iconURL, minPrice: minPrice)
+                            restaurantList.append(restaurant)
+                            print(restaurantList.count)
+                            
+                        }
+                    }
+                    else {
+                        continue
+                    }
+                    
+                    
+                    
+                }
+                completion(restaurantList)
+            }
+        }
+    }
+    
     
     
     // use for update some change in firebase database

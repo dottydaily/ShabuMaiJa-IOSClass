@@ -68,7 +68,7 @@ extension ShowPriceListController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantByPriceTableViewCell", for: indexPath) as! RestaurantTableViewCell
         let min = restaurantList[indexPath.row].minPrice
-        let stringPrice : String = String(format:"%0.1f",min)
+        let stringPrice : String = String(format:"%0.0f",min)
         cell.nameLabel.text = restaurantList[indexPath.row].name
         cell.priceLabel.text = stringPrice
         return cell
