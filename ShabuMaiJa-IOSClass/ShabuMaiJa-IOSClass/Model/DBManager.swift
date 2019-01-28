@@ -118,6 +118,67 @@ class DBManager {
         }
     }
     
+    func getLobbyFromHost(HostUserID: String,placeID: String,username: String, status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
+    
+        var accountList: [Account] = []
+        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)/Participant"
+        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
+            for child in snapshot1.children {
+                let childDataSnapshot = child as! DataSnapshot
+                let values = childDataSnapshot.value as! NSDictionary
+                let email = values["Email"] as! String
+                self.ref.child("UserList").observeSingleEvent(of: .value){ (snapshot3) in
+                    for child in snapshot3.children{
+                        let childDataSnapshot3 = child as! DataSnapshot
+                        let values3 = childDataSnapshot3.value as! NSDictionary
+                        let selectedUsername = values3["Username"] as! String
+                        if username == selectedUsername {
+                            let nameHost = values3["Name"] as! String
+                            let accountHost = Account.init(name: nameHost, username: username, email: "", password: "")
+                            accountList.append(accountHost)
+                        }
+                    }
+                    
+                }
+                self.ref.child("UserList/\(email)").observeSingleEvent(of: .value){(snapshot2) in
+                    for child in snapshot2.children{
+                        let childDataSnapshot2 = child as! DataSnapshot
+                        let values2 = childDataSnapshot2.value as! NSDictionary
+                        let name = values2["Name"] as! String
+                        let username = values2["Username"] as! String
+                        let account = Account.init(name: name, username: username, email: email, password: "")
+                        accountList.append(account)
+                    }
+                }
+            }
+            completion(accountList)
+        }
+    }
+    
+    func getLobbyFromParticipant(HostUserID: String,placeID: String,username: String, status: String, completion:@escaping (_ status: String) -> Void) {
+        
+        var accountList: [Account] = []
+        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)"
+        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
+            for child in snapshot1.children {
+                let childDataSnapshot = child as! DataSnapshot
+                let values = childDataSnapshot.value as! NSDictionary
+                let email = values["Email"] as! String
+                self.ref.child("UserList/\(email)").observeSingleEvent(of: .value){(snapshot2) in
+                    for child in snapshot2.children{
+                        let childDataSnapshot2 = child as! DataSnapshot
+                        let values2 = childDataSnapshot2.value as! NSDictionary
+                        let name = values2["Name"] as! String
+                        let username = values2["Username"] as! String
+                        let account = Account.init(name: name, username: username, email: email, password: "")
+                        accountList.append(account)
+                    }
+                }
+            }
+            completion(accountList)
+        }
+    }
+    
     func getPlaceByCategory(category: String, completion:@escaping (_ restaurantlist: [Restaurant]) -> Void) {
         
         
