@@ -13,13 +13,13 @@ class Account: NSObject {
     var name: String
     var username: String
     var email: String
-    var password: String
+    var rating: Float
     
-    init(name: String, username: String, email: String, password: String) {
+    init(name: String, username: String, email: String, rating: Float) {
         self.name = name
         self.username = username
         self.email = email
-        self.password = password
+        self.rating = rating
     }
     
     convenience init(random: Bool = false) {
@@ -35,10 +35,10 @@ class Account: NSObject {
             let selectedUsername = usernames[randomIndex]
             let selectedEmail = selectedUsername + "@gmail.com"
     
-            self.init(name: selectedName, username: selectedUsername, email: selectedEmail, password: "1234")
+            self.init(name: selectedName, username: selectedUsername, email: selectedEmail, rating: 5.0)
         }
         else {
-            self.init(name: "AccountDefaultName", username: "AccountDefaultType", email: "AccountDefaultEmail", password: "AccountDefaultPassword")
+            self.init(name: "AccountDefaultName", username: "AccountDefaultType", email: "AccountDefaultEmail", rating: 0.0)
         }
     }
 }

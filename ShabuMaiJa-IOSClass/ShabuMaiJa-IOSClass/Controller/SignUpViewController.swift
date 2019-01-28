@@ -30,22 +30,31 @@ class SignUpViewController: UIViewController {
                 self.present(alert, animated: true)
             }
         } else {
-            let currentUser = Account(name: nameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
+            let currentUser = Account(name: nameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, rating: 5.0)
+            
+            let sv = displaySpinner(onView: self.view, alpha: 0.6)
             
             print("Trying to SignUp")
-            Auth.auth().createUser(withEmail: currentUser.email, password: currentUser.password) { (authResult, error) in
+            Auth.auth().createUser(withEmail: currentUser.email, password: passwordTextField.text!) { (authResult, error) in
                 
                 if let _error = error {
                     print("CAN'T CREATE USER : \(_error)")
+                    self.sendAlertUtil(Title: "Error sign up", Description: "Please fill valid information")
+                    self.removeSpinner(spinner: sv)
                 }
                 else if let result = authResult {
                     if result.user == nil {
                         
                     } else {
-                        print("CURRENT USER : \(result.user.displayName!)")
+                        print("CURRENT USER : \(currentUser.username) -> \(currentUser.name)")
                         print("CURRENT EMAIL : \(result.user.email!)")
                         
-                        self.view.removeFromSuperview()
+                        database.createUser(user: currentUser, completion: { (user) in
+                            if let user = user {
+                                self.view.removeFromSuperview()
+                                self.removeSpinner(spinner: sv)
+                            }
+                        })
                     }
                 }
                 

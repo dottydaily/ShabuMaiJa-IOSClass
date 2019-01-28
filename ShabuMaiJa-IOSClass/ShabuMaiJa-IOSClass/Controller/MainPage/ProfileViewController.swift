@@ -24,23 +24,58 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if Auth.auth().currentUser != nil {
-            emailLabel.text = Auth.auth().currentUser?.email!
-            signInButton.setTitle("Sign Out", for: .normal)
-        } else {
-            fullNameLabel.text = "Guest"
-            emailLabel.text = "Please sign in."
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            // what to do
+            if auth.currentUser != nil {
+                self.emailLabel.text = Auth.auth().currentUser?.email!
+                self.signInButton.setTitle("Sign Out", for: .normal)
+            } else {
+                self.fullNameLabel.text = "Guest"
+                self.emailLabel.text = "Please sign in."
+                self.signInButton.setTitle("Sign In", for: .normal)
+            }
         })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    @IBAction func handleSignInSignOutButton(_ sender: Any) {
+        // if already sign in, this button should do sign out
+        if Auth.auth().currentUser != nil {
+            self.sendAlertWithHandler(Title: "Confirm Sign Out", Description: "Are you sure?") { (alert) in
+                
+                // add action of Sign in button
+                alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (action) in
+                    do {
+                        try Auth.auth().signOut()
+                    } catch {
+                        self.sendAlertUtil(Title: "Something went wrong", Description: "Please try again later.")
+                    }
+                }))
+                
+                // add action of Cancel button
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        } else {
+            let popUpVC = UIStoryboard(name: "AuthenticateUser", bundle: nil).instantiateViewController(withIdentifier: "SignInPopUpID") as! SignInViewController
+            
+            popUpVC.previousController = self
+            self.navigationController?.navigationBar.isHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+            self.addChildViewController(popUpVC)
+            popUpVC.view.frame = self.view.frame
+            popUpVC.modalPresentationStyle = .popover
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParentViewController: self)
+        }
     }
 
     /*

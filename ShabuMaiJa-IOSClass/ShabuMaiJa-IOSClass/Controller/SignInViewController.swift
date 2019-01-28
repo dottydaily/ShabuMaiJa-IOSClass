@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController {
     
@@ -22,6 +23,24 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func handleSignInButton(_ sender: Any) {
+        let sv = self.displaySpinner(onView: self.view, alpha: 0.6)
+        
+        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+            self.sendAlertUtil(Title: "Can't sign in", Description: "Please fill all of your information.")
+            self.removeSpinner(spinner: sv)
+        } else {
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
+                if let error = error {
+                    self.removeSpinner(spinner: sv)
+                    self.sendAlertUtil(Title: "Something went wrong", Description: "Please try again later.")
+                    print(error)
+                } else {
+                    self.removeSpinner(spinner: sv)
+                    print(result)
+                    self.handleCancelButton(self)
+                }
+            }
+        }
     }
     @IBAction func handleCancelButton(_ sender: Any) {
         

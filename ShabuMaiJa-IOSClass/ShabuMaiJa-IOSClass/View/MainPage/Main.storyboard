@@ -217,6 +217,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="handleSignInSignOutButton:" destination="BF7-PJ-CfO" eventType="touchUpInside" id="ABU-bE-cVB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -441,12 +444,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mapicon" width="50" height="50"/>
-        <image name="nearby" width="50" height="50"/>
-        <image name="profileicon" width="50" height="50"/>
-        <image name="promotionicon" width="50" height="50"/>
-        <image name="searchByCategory" width="375" height="300"/>
-        <image name="searchByPrice" width="375" height="300"/>
+        <image name="mapicon" width="80" height="80"/>
+        <image name="nearby" width="80" height="80"/>
+        <image name="profileicon" width="80" height="80"/>
+        <image name="promotionicon" width="80" height="80"/>
+        <image name="searchByCategory" width="750" height="600"/>
+        <image name="searchByPrice" width="750" height="600"/>
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
 </document>
