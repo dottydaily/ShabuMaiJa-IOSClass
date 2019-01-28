@@ -87,11 +87,15 @@ class ChooseActionController: UIViewController {
             self.collectionView.reloadData()
             self.isLoaded = true
         }) {
-            self.imageArr = []
             self.removeSpinner(spinner: sv)
             self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
                 alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
-                    self.downloadImage()
+                    if(self.imageArr.count == self.totalImage){
+                        self.isLoaded = true
+                        self.collectionView.reloadData()
+                    }else{
+                        self.downloadImage()
+                    }
                 }))
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
@@ -123,7 +127,7 @@ class ChooseActionController: UIViewController {
                                 print("-----------------\n Loaded Image :\(self.imageArr.count)")
                             }
                             
-                            if pic == photos?.results.last {
+                            if let lastPhoto = photos?.results.last {
                                 print("\n\n Start Checking \n\n")
                                 // will do if at last round
                                 if self.imageArr.count == self.totalImage{
