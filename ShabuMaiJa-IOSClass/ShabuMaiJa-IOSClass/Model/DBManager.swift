@@ -118,70 +118,95 @@ class DBManager {
         }
     }
     
-    func getLobbyFromHost(HostUserID: String,placeID: String,username: String, status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
+    func getUserListFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
     
         var accountList: [Account] = []
         let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)/Participant"
+        self.ref.child("UserList/\(HostUserID)").observeSingleEvent(of: .value){ (snapshot3) in // get info of host
+                let childDataSnapshot3 = snapshot3
+                let values3 = childDataSnapshot3.value as! NSDictionary
+                let nameHost = values3["Name"] as! String
+                let emailHost = values3["Email"] as! String
+                let accountHost = Account.init(name: nameHost, username: HostUserID, email: emailHost, password: "")
+                accountList.append(accountHost)
+            
+        }
         self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
             for child in snapshot1.children {
                 let childDataSnapshot = child as! DataSnapshot
-                let values = childDataSnapshot.value as! NSDictionary
-                let email = values["Email"] as! String
-                self.ref.child("UserList").observeSingleEvent(of: .value){ (snapshot3) in
-                    for child in snapshot3.children{
-                        let childDataSnapshot3 = child as! DataSnapshot
-                        let values3 = childDataSnapshot3.value as! NSDictionary
-                        let selectedUsername = values3["Username"] as! String
-                        if username == selectedUsername {
-                            let nameHost = values3["Name"] as! String
-                            let accountHost = Account.init(name: nameHost, username: username, email: "", password: "")
-                            accountList.append(accountHost)
-                        }
-                    }
-                    
-                }
-                self.ref.child("UserList/\(email)").observeSingleEvent(of: .value){(snapshot2) in
-                    for child in snapshot2.children{
-                        let childDataSnapshot2 = child as! DataSnapshot
+                let username = childDataSnapshot.key
+                self.ref.child("UserList/\(username)").observeSingleEvent(of: .value){(snapshot2) in // get info of all participant
+                        let childDataSnapshot2 = snapshot2
                         let values2 = childDataSnapshot2.value as! NSDictionary
                         let name = values2["Name"] as! String
-                        let username = values2["Username"] as! String
+                        let email = values2["Email"] as! String
                         let account = Account.init(name: name, username: username, email: email, password: "")
                         accountList.append(account)
-                    }
                 }
             }
             completion(accountList)
         }
     }
     
-    func getLobbyFromParticipant(HostUserID: String,placeID: String,username: String, status: String, completion:@escaping (_ status: String) -> Void) {
+    func checkStatusFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ currentS: String) -> Void) {
         
-        var accountList: [Account] = []
-        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)"
-        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
-            for child in snapshot1.children {
-                let childDataSnapshot = child as! DataSnapshot
-                let values = childDataSnapshot.value as! NSDictionary
-                let email = values["Email"] as! String
-                self.ref.child("UserList/\(email)").observeSingleEvent(of: .value){(snapshot2) in
-                    for child in snapshot2.children{
-                        let childDataSnapshot2 = child as! DataSnapshot
-                        let values2 = childDataSnapshot2.value as! NSDictionary
-                        let name = values2["Name"] as! String
-                        let username = values2["Username"] as! String
-                        let account = Account.init(name: name, username: username, email: email, password: "")
-                        accountList.append(account)
-                    }
-                }
-            }
-            completion(accountList)
-        }
-    }
-    
+        var currentS: String = ""
+        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)/Status"
+        self.ref.child(stringPath).observe(.value, with: {(snapshot) in
+            currentS = snapshot.value as! String
+           
+        })
+         completion(currentS)
+      }
+//    func getLobbyFromParticipant(placeID: String,username: String, status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
+//        var accountList: [Account] = []
+//        let stringPath : String = "LobbyList/\(placeID)"
+//        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
+//            for child in snapshot1.children {
+//                let childDataSnapshot = child as! DataSnapshot
+//                let hostUsername = childDataSnapshot.key // get host username
+//                let values = childDataSnapshot.value as! NSDictionary
+//                self.ref.child("LobbyList/\(placeID)/\(hostUsername)/Participant").observeSingleEvent(of: .value) { (snapshot3) in
+//                    for child in snapshot3.children{
+//                        let childDataSnapshot3 = child as! DataSnapshot
+//                        let participantUsername = childDataSnapshot3.key
+////                        let values3 = childDataSnapshot3.value as! NSDictionary
+//                        if participantUsername == username{  // check username of participant that in lobby or not
+//                            self.ref.child("UserList/").observeSingleEvent(of: .value){ (snapshot4) in
+//                                for child in snapshot4.children{
+//                                    let childDataSnapshot4 = child as! DataSnapshot
+//                                    let usernameHost = childDataSnapshot4.key
+//                                    if usernameHost == hostUsername {
+//                                        let nameHost = values3["Name"] as! String
+//                                        let emailHost = values3["Email"] as! String
+//                                        let accountHost = Account.init(name: nameHost, username: usernameHost, email: emailHost, password: "")
+//                                        accountList.append(accountHost)
+//                                    }
+//                                }
+//
+//                            }
+//                            self.ref.child("LobbyList/\(placeID)/\(hostUsername)/Participant").observeSingleEvent(of: .value) { (snapshot2) in
+//                                for child in snapshot2.children {
+//                                    let childDataSnapshot2 = child as! DataSnapshot
+//                                    let username = childDataSnapshot2.key
+//                                    self.ref.child("UserList/\(username)").observeSingleEvent(of: .value){(snapshot4) in // get info of all participant
+//                                        let childDataSnapshot4 = snapshot4
+//                                        let values4 = childDataSnapshot4.value as! NSDictionary
+//                                        let name = values4["Name"] as! String
+//                                        let email = values4["Email"] as! String
+//                                        let account = Account.init(name: name, username: username, email: email, password: "")
+//                                        accountList.append(account)
+//                                    }
+//                                }
+//                            }
+//                }
+//            completion(accountList)
+//        }
+//    }
+//
     func getPlaceByCategory(category: String, completion:@escaping (_ restaurantlist: [Restaurant]) -> Void) {
-        
-        
+
+
         DispatchQueue.main.async {
             var restaurantList: [Restaurant] = []
             self.ref.child("PlaceList").observeSingleEvent(of: .value) { (snapshot) in
@@ -190,7 +215,7 @@ class DBManager {
                     let values = childDataSnapshot.value as! NSDictionary
                     if childDataSnapshot.hasChild("Category") {
                         let selectedCategory = values["Category"] as! String
-                        
+
                         if category == selectedCategory {
                             let placeId = values["PlaceId"] as! String
                             let name = values["Name"] as! String
@@ -201,20 +226,20 @@ class DBManager {
                             let isOpen = values["isOpen"] as! Bool
                             let iconURL = values["IconURL"] as! String
                             let minPrice = values["MinPrice"] as! Double
-                            
-                            
+
+
                             let restaurant = Restaurant.init(placeId: placeId, name: name, latitude: latitude, longtitude: longtitude, address: address, reviewScore: reviewScore, isOpen: isOpen, iconURL: iconURL, minPrice: minPrice)
                             restaurantList.append(restaurant)
                             print(restaurantList.count)
-                            
+
                         }
                     }
                     else {
                         continue
                     }
-                    
-                    
-                    
+
+
+
                 }
                 completion(restaurantList)
             }

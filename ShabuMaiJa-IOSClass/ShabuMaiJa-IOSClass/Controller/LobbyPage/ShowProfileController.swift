@@ -9,7 +9,7 @@
 import UIKit
 
 class ShowProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+    var hostUserID: String!
     @IBOutlet weak var ProfileTableView: UITableView!
     var accountList: AccountData = AccountData()
     

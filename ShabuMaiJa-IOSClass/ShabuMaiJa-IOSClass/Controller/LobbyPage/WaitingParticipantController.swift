@@ -9,16 +9,31 @@
 import UIKit
 
 class WaitingParticipantController: UIViewController {
+    var hostUserID: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        database.checkStatusFromLobby(HostUserID: <#T##String#>, placeID: <#T##String#>, status: <#T##String#>) { (status) in
+            if status == "Eat" {
+                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
+            }
+        }
+        
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // dejavu
+        let controller = segue.destination as! EatingParticipantController
+        controller.hostUserID = self.hostUserID
+        let controllerTable = segue.destination as! ShowProfileController
+        controllerTable.hostUserID = self.hostUserID
+    }
     /*
     // MARK: - Navigation
 
