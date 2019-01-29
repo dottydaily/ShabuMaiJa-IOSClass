@@ -49,10 +49,17 @@ class SignUpViewController: UIViewController {
                         print("CURRENT USER : \(currentUser.username) -> \(currentUser.name)")
                         print("CURRENT EMAIL : \(result.user.email!)")
                         
-                        database.createUser(user: currentUser, completion: { (user) in
-                            if let user = user {
-                                self.removeSpinner(spinner: sv)
+                        let changeUpdateUserRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                        
+                        // need to do : update profile
+                        // ref : https://firebase.google.com/docs/reference/swift/firebaseauth/api/reference/Classes/User#createprofilechangerequest
+                        
+                        
+                        database.createUser(user: currentUser, completion: { (resultUser) in
+                            if let resultUser = resultUser {
                                 
+                                
+                                self.removeSpinner(spinner: sv)
                                 self.performSegue(withIdentifier: "backToSignInPage", sender: self)
                             }
                         })

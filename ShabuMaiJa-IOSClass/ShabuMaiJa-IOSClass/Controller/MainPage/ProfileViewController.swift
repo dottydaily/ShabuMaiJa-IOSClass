@@ -30,8 +30,12 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if auth.currentUser != nil {
+                let sv = self.displaySpinner(onView: self.view, alpha: 0.6)
+                
                 self.emailLabel.text = Auth.auth().currentUser?.email!
                 self.signInButton.setTitle("Sign Out", for: .normal)
+                
+                
             } else {
                 self.fullNameLabel.text = "Guest"
                 self.emailLabel.text = "Please sign in."
