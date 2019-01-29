@@ -54,7 +54,9 @@ class SignInViewController: UIViewController {
     
     // for mannaul unwind segue
     @IBAction func backToSignInPage(seg: UIStoryboardSegue) {
-        
+        if Auth.auth().currentUser != nil {
+            handleCancelButton(self)
+        }
     }
     
     /*

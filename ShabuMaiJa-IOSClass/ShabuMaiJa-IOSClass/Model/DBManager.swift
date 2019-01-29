@@ -119,7 +119,7 @@ class DBManager {
     }
     
     func createUser(user: Account, completion: @escaping (_ user: Account?)->Void) {
-        ref.child("UserList/\(user.email)").setValue(["Name":user.name, "Username":user.username, "Email":user.email, "Rating":user.rating])
+        ref.child("UserList/\(user.username)").setValue(["Name":user.name, "Username":user.username, "Email":user.email, "Rating":user.rating])
         
         completion(user)
     }

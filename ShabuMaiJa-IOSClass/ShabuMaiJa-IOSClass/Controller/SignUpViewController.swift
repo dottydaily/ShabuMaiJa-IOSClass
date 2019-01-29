@@ -51,8 +51,9 @@ class SignUpViewController: UIViewController {
                         
                         database.createUser(user: currentUser, completion: { (user) in
                             if let user = user {
-                                self.view.removeFromSuperview()
                                 self.removeSpinner(spinner: sv)
+                                
+                                self.performSegue(withIdentifier: "backToSignInPage", sender: self)
                             }
                         })
                     }

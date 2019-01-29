@@ -138,7 +138,7 @@
                                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="Odc-47-vT2" kind="unwind" unwindAction="backToSignInPageWithSeg:" id="Ue8-N7-hfK"/>
+                                                    <segue destination="Odc-47-vT2" kind="unwind" identifier="backToSignInPage" unwindAction="backToSignInPageWithSeg:" id="Ue8-N7-hfK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
