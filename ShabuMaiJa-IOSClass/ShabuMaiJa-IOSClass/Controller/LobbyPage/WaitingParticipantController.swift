@@ -9,17 +9,23 @@
 import UIKit
 
 class WaitingParticipantController: UIViewController {
-    var hostUserID: String!
 
+    @IBOutlet weak var participantTableSubView: UIView!
+    
+    var choosedLobby: Lobby! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        database.checkStatusFromLobby(HostUserID: <#T##String#>, placeID: <#T##String#>, status: <#T##String#>) { (status) in
-//            if status == "Eat" {
-//                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
-//            }
-//        }
+//        let popUpVC = UIStoryboard(name: "Tab", bundle: nil).instantiateViewController(withIdentifier: "ShowProfileID") as! ShowProfileController
+//        popUpVC.hostUserID = self.hostUserID
+//
+//        self.addChildViewController(popUpVC)
+//        popUpVC.view.frame = participantTableSubView.frame
+//        popUpVC.modalPresentationStyle = .none
+//        self.view.addSubview(popUpVC.view)
+//        popUpVC.didMove(toParentViewController: self)
         
     }
     
@@ -28,11 +34,11 @@ class WaitingParticipantController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // dejavu
-        let controller = segue.destination as! EatingParticipantController
-        controller.hostUserID = self.hostUserID
-        let controllerTable = segue.destination as! ShowProfileController
-        controllerTable.hostUserID = self.hostUserID
+        if segue.identifier == "waitingParticipantSubView" {
+            let subVC = segue.destination as! ShowProfileController
+            subVC.choosedLobby = choosedLobby
+            subVC.loadUser()
+        }
     }
     /*
     // MARK: - Navigation

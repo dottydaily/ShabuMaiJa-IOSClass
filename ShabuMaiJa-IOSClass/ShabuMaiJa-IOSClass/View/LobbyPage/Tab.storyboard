@@ -403,7 +403,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYp-Ov-xGo">
                                 <rect key="frame" x="10" y="203" width="355" height="337.5"/>
                                 <connections>
-                                    <segue destination="7JO-w0-nXe" kind="embed" id="myy-S9-C5D"/>
+                                    <segue destination="7JO-w0-nXe" kind="embed" identifier="waitingParticipantSubView" id="myy-S9-C5D"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -428,6 +428,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="participantTableSubView" destination="TYp-Ov-xGo" id="21t-rP-gRw"/>
                         <segue destination="zta-yI-jbT" kind="show" identifier="toEatingParticipant" id="m4I-eM-jeY"/>
                     </connections>
                 </viewController>
@@ -519,7 +520,7 @@
         <!--Show Profile Controller-->
         <scene sceneID="jb7-JD-aCh">
             <objects>
-                <viewController id="7JO-w0-nXe" customClass="ShowProfileController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowProfileID" id="7JO-w0-nXe" customClass="ShowProfileController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAd-CU-FMQ">
                         <rect key="frame" x="0.0" y="0.0" width="355" height="337.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,7 +591,7 @@
                         <viewLayoutGuide key="safeArea" id="zce-fl-pEY"/>
                     </view>
                     <connections>
-                        <outlet property="ProfileTableView" destination="1wf-bB-Lc8" id="yee-Qe-Mga"/>
+                        <outlet property="profileTableView" destination="1wf-bB-Lc8" id="yee-Qe-Mga"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5U-fX-4xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,6 +612,6 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s3L-4e-wBu"/>
+        <segue reference="myy-S9-C5D"/>
     </inferredMetricsTieBreakers>
 </document>

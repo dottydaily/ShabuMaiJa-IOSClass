@@ -19,7 +19,7 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Do any additional setup after loading the view.
         let sv = displaySpinner(onView: self.view, alpha: 0.6)
-        database.getLobbyToShowInTable(placeId: choosedRestaurant.placeId,completion: { (account) in
+        database.getLobbyList(placeId: choosedRestaurant.placeId,completion: { (account) in
             print("IN FIND GROUP PAGE : \(account.count)")
             
             self.accountList = account

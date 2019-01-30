@@ -13,13 +13,13 @@ class GroupDetailController: UIViewController {
     public var ownerId:String!
     public var ownerName:String!
     public var ownerUsername:String!
-    var isPressJoin = false
-    var isPressViewDetail = false
 
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var groupOwnerName: UILabel!
     @IBOutlet weak var groupOwnerUsername: UILabel!
     @IBOutlet weak var amountPeople: UILabel!
+    
+    var choosedLobby: Lobby? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,38 +35,37 @@ class GroupDetailController: UIViewController {
             print(lobby.lobbyDescription)
             self.amountPeople.text = "\(lobby.currentPeople)/\(lobby.totalPeople)"
             self.detailTextView.text = lobby.lobbyDescription
+            
+            self.choosedLobby = lobby
         }
     }
     
     @IBAction func handleJoinButton(_ sender: Any) {
-        isPressJoin = true
-        performSegue(withIdentifier: "goToWaitingPage", sender: self)
+        database.addParticipantLobby(placeId: placeId, hostId: ownerId, userId: (Auth.auth().currentUser?.uid)!) { (isError) in
+            if isError {
+                self.sendAlertUtil(Title: "Can't join this lobby.", Description: "Participant reach lobby's limit.")
+                database.getLobby(placeId: self.placeId, hostId: self.ownerId) { (lobby) in
+                    print(lobby.lobbyDescription)
+                    self.amountPeople.text = "\(lobby.currentPeople)/\(lobby.totalPeople)"
+                    self.detailTextView.text = lobby.lobbyDescription
+                }
+            } else {
+                self.performSegue(withIdentifier: "goToWaitingPage", sender: self)
+            }
+        }
+        
     }
     
     @IBAction func handleViewDetailButton(_ sender: Any) {
-        isPressViewDetail = true
         performSegue(withIdentifier: "goToViewProfile", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if isPressJoin {
+        if segue.identifier == "goToWaitingPage" {
             let controller = segue.destination as! WaitingParticipantController
+            controller.choosedLobby = choosedLobby
             
-        } else if isPressViewDetail {
-            let controller = segue.destination as! AccountProfileController
-            
-            controller.name = ownerName
         }
-        
-//        let controller = segue.destination
-//        if controller is AccountProfileController {
-//            // do something
-//            controller.name = ownerName
-//        } else { // is FindGroupController
-//            // do something
-//        }
-        
-        
     }
     /*
     // MARK: - Navigation

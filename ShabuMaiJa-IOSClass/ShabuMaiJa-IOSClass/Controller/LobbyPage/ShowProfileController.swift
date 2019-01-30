@@ -9,8 +9,10 @@
 import UIKit
 
 class ShowProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var hostUserID: String!
-    @IBOutlet weak var ProfileTableView: UITableView!
+    
+    @IBOutlet weak var profileTableView: UITableView!
+    
+    var choosedLobby: Lobby! = nil
     var accountList: AccountData = AccountData()
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,6 +28,13 @@ class ShowProfileController: UIViewController, UITableViewDelegate, UITableViewD
         cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
         cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
         return cell
+    }
+    
+    func loadUser() {
+        database.getUserListFromLobby(placeID: choosedLobby.placeId, hostID: choosedLobby.hostId) { (users) in
+            self.accountList = users
+            self.profileTableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
