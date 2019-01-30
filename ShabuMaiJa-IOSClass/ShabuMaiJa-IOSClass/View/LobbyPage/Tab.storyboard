@@ -118,7 +118,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="E9s-5a-tJR" kind="show" id="5bN-HI-ldS"/>
+                                    <segue destination="E9s-5a-tJR" kind="show" identifier="toReviewUser" id="5bN-HI-ldS"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-h5-6XD">
@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWt-19-Ec9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584.8000000000002" y="-20.239880059970016"/>
+            <point key="canvasLocation" x="2791" y="-20"/>
         </scene>
         <!--Review-->
         <scene sceneID="RFy-qi-jJi">
@@ -459,7 +459,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCu-4z-aNy">
                                 <rect key="frame" x="10" y="203" width="355" height="337.5"/>
                                 <connections>
-                                    <segue destination="7JO-w0-nXe" kind="embed" id="lBr-oI-yok"/>
+                                    <segue destination="7JO-w0-nXe" kind="embed" identifier="eatingParticipantSubView" id="lBr-oI-yok"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -476,6 +476,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P8H-9p-ge8"/>
                     </view>
+                    <connections>
+                        <segue destination="E9s-5a-tJR" kind="show" identifier="toReviewUserFromParticipant" id="d4s-e9-jwd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lV-pX-XdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -612,6 +615,7 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="myy-S9-C5D"/>
+        <segue reference="lBr-oI-yok"/>
+        <segue reference="d4s-e9-jwd"/>
     </inferredMetricsTieBreakers>
 </document>

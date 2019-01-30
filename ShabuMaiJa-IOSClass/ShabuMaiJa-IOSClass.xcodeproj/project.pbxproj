@@ -666,6 +666,7 @@
 				7D0A26F0219E071F0090360A /* GroupDetailController.swift */,
 				7D0A26F2219E0FC10090360A /* AccountProfileController.swift */,
 				C8AE843121C2ACE10043EC17 /* ChooseActionController.swift */,
+				E92D2D4621C78277007A440F /* RoundButton.swift */,
 			);
 			path = GroupPage;
 			sourceTree = "<group>";
@@ -674,7 +675,6 @@
 			isa = PBXGroup;
 			children = (
 				E90F5EFB21A5B1C900B01597 /* RatingController.swift */,
-				E92D2D4621C78277007A440F /* RoundButton.swift */,
 				7DCE4BB121A74C38007E82B2 /* WaitingController.swift */,
 				E92D2D4C21C7A833007A440F /* ShowProfileController.swift */,
 				E92D2D5C21C7CE1D007A440F /* ReviewController.swift */,

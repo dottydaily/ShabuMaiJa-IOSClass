@@ -16,17 +16,18 @@ class WaitingParticipantController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-//        let popUpVC = UIStoryboard(name: "Tab", bundle: nil).instantiateViewController(withIdentifier: "ShowProfileID") as! ShowProfileController
-//        popUpVC.hostUserID = self.hostUserID
-//
-//        self.addChildViewController(popUpVC)
-//        popUpVC.view.frame = participantTableSubView.frame
-//        popUpVC.modalPresentationStyle = .none
-//        self.view.addSubview(popUpVC.view)
-//        popUpVC.didMove(toParentViewController: self)
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)/Status").observe(.value) { (snapshot) in
+            let status = snapshot.value as! String
+            print("test ----------status change ----------")
+            print("test \(status)")
+            if status == "Eating" {
+                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
+
+            }
+        }
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
@@ -38,6 +39,11 @@ class WaitingParticipantController: UIViewController {
             let subVC = segue.destination as! ShowProfileController
             subVC.choosedLobby = choosedLobby
             subVC.loadUser()
+        }
+        
+        if segue.identifier == "toEatingParticipant" {
+            let controller = segue.destination as! EatingParticipantController
+            controller.choosedLobby = choosedLobby
         }
     }
     /*
