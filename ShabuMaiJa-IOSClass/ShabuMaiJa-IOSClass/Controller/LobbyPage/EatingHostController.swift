@@ -9,14 +9,17 @@
 import UIKit
 
 class EatingHostController: UIViewController {
-
+    var hostUserID: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ReviewAllController
+        controller.hostUserID = self.hostUserID
+    }
     /*
     // MARK: - Navigation
 

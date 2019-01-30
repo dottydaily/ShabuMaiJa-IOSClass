@@ -17,6 +17,7 @@ class Restaurant: NSObject {
     var isOpen: Bool
     var iconURL: String
     var minPrice: Double
+    var hostUsername: String?
     
     init(place: DataJSON.Place) {
         self.name = place.name!
@@ -34,6 +35,7 @@ class Restaurant: NSObject {
         self.iconURL = (place.icon)!
         
         self.minPrice = 0
+        self.hostUsername = nil
     }
     
     override init() {
@@ -45,6 +47,7 @@ class Restaurant: NSObject {
         self.address = "NO DATA"
         self.isOpen = false
         self.iconURL = "NO DATA"
+        self.hostUsername = "NO DATA"
         
         self.minPrice = 0
     }

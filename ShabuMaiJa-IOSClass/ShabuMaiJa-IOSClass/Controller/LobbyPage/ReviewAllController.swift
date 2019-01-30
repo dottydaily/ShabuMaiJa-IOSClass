@@ -10,6 +10,7 @@ import UIKit
 
 class ReviewAllController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var ReviewAllTableView: UITableView!
+    var hostUserID: String!
     
     var accountList: AccountData = AccountData()
     func numberOfSections(in tableView: UITableView) -> Int {

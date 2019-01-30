@@ -9,7 +9,7 @@
 import UIKit
 
 class WaitingController: UIViewController {
-
+    var hostUserID: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +20,12 @@ class WaitingController: UIViewController {
     @IBAction func unwindToPrevious(_ sender: Any) {
        self.navigationController?.popToRootViewController(animated: true)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! EatingHostController
+        controller.hostUserID = self.hostUserID
+        let controllerTable = segue.destination as! ShowProfileController
+        controllerTable.hostUserID = self.hostUserID
+    }
     
     /*
     // MARK: - Navigation

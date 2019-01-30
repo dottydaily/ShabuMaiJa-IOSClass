@@ -428,7 +428,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="zta-yI-jbT" kind="show" id="K6x-vj-sZw"/>
+                        <segue destination="zta-yI-jbT" kind="show" identifier="toEatingParticipant" id="m4I-eM-jeY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMv-J3-eEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -483,7 +483,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Dc5-zy-6IW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oeP-35-oNB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="thR-V7-WSV">
@@ -495,6 +494,7 @@
                         <segue destination="Nar-f9-286" kind="relationship" relationship="rootViewController" id="22P-rH-98q"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-hy-hS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="164" y="-20.239880059970016"/>
         </scene>

@@ -25,6 +25,7 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
     // tap on table view cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
