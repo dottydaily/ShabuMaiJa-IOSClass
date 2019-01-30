@@ -141,8 +141,12 @@ class DBManager {
     func createLobby(restaurant: Restaurant, host: Account, maxPeople: Int, description: String, completion: @escaping ()->Void) {
         ref.child("LobbyList/\(restaurant.placeId)/\(host.uid)").setValue([
             "Status" : "Wating", "CurrentPeople" : 1, "TotalPeople" : maxPeople,
-            "Description" : description, "Participant" : ["1" : host.uid]])
+            "Description" : description, "Participant" : ["1" : host.uid], "Restaurant Name" : restaurant.name])
         completion()
+    }
+    
+    func updateStatus(status: String,lobby: Lobby)->Void{
+        ref.child("LobbyList/\(lobby.placeId)/\(lobby.hostId)/Status").setValue(status)
     }
     
     // getting lobby list of specific restaurant

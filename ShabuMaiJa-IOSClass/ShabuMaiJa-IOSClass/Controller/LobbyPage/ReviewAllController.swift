@@ -9,10 +9,10 @@
 import UIKit
 
 class ReviewAllController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    @IBOutlet weak var ReviewAllTableView: UITableView!
-    var hostUserID: String!
-    
+    @IBOutlet weak var reviewAllTableView: UITableView!
+    var choosedLobby: Lobby! = nil
     var accountList: AccountData = AccountData()
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -48,11 +48,14 @@ class ReviewAllController: UIViewController, UITableViewDelegate, UITableViewDat
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         // Do any additional setup after loading the view.
-        for _ in 1...20{
-            self.accountList.add(account: Account(random: true))
+        loadUser()
+    }
+    func loadUser() {
+        database.getUserListFromLobby(placeID: choosedLobby.placeId, hostID: choosedLobby.hostId) { (users) in
+            self.accountList = users
+            self.reviewAllTableView.reloadData()
         }
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

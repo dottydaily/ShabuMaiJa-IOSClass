@@ -14,6 +14,7 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var peopleTextField: UITextField!
     @IBOutlet weak var peopleStepper: UIStepper!
+    var choosedLobby: Lobby! = nil
     
     var peopleNumber: Int = 1
     let handle: AuthStateDidChangeListenerHandle? = nil
@@ -57,8 +58,13 @@ class CreateGroupController: UIViewController {
                 print("Success get user data")
                 database.createLobby(restaurant: self.choosedRestaurant, host: user, maxPeople: self.peopleNumber, description: self.descriptionTextView.text, completion: {
                     print("Success create lobby")
-                    self.removeSpinner(spinner: sv)
-                    self.performSegue(withIdentifier: "hostGoToWatingPage", sender: self)
+                    database.getLobby(placeId: self.choosedRestaurant.placeId, hostId: (Auth.auth().currentUser?.uid)!){ (lobby) in
+                        self.choosedLobby = lobby
+                        print(self.choosedLobby.hostId)
+                        self.removeSpinner(spinner: sv)
+                        self.performSegue(withIdentifier: "hostGoToWatingPage", sender: self)
+                    }
+                    
                 })
             }
             
@@ -68,7 +74,7 @@ class CreateGroupController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "hostGoToWatingPage" {
             let controller = segue.destination as! WaitingController
-            controller.hostUID = Auth.auth().currentUser?.uid
+            controller.choosedLobby = self.choosedLobby
         }
     }
     /*

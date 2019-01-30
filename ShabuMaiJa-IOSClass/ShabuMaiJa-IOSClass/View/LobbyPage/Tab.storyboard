@@ -46,13 +46,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="U35-WW-FwJ" kind="show" id="pDE-4U-Q15"/>
+                                    <action selector="handleEatButton:" destination="Nar-f9-286" eventType="touchUpInside" id="2dN-9x-zZq"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-m5-Yd5">
                                 <rect key="frame" x="10" y="202.5" width="355" height="337.5"/>
                                 <connections>
-                                    <segue destination="7JO-w0-nXe" kind="embed" id="s3L-4e-wBu"/>
+                                    <segue destination="7JO-w0-nXe" kind="embed" identifier="waitingSubViewHost" id="s3L-4e-wBu"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -78,6 +78,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="U35-WW-FwJ" kind="show" identifier="goToEatingHost" id="B79-66-4DW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBF-NB-d0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,13 +121,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="E9s-5a-tJR" kind="show" id="5bN-HI-ldS"/>
+                                    <action selector="handleFinishButton:" destination="U35-WW-FwJ" eventType="touchUpInside" id="5gA-r8-n3N"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-h5-6XD">
                                 <rect key="frame" x="10" y="202.5" width="355" height="337.5"/>
                                 <connections>
-                                    <segue destination="7JO-w0-nXe" kind="embed" id="L8s-Jt-DKQ"/>
+                                    <segue destination="7JO-w0-nXe" kind="embed" identifier="eatingSubViewHost" id="L8s-Jt-DKQ"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -143,6 +146,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UQx-Cg-j7i"/>
                     </view>
+                    <connections>
+                        <segue destination="E9s-5a-tJR" kind="show" identifier="goToReviewAll" id="dkH-o4-Lsm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2e-dE-wld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,7 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="TZW-k5-OiF"/>
                     </view>
                     <connections>
-                        <outlet property="ReviewAllTableView" destination="Nk9-P6-ak1" id="Cwv-bk-peb"/>
+                        <outlet property="reviewAllTableView" destination="Nk9-P6-ak1" id="Cwv-bk-peb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JWt-19-Ec9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -612,6 +618,6 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="myy-S9-C5D"/>
+        <segue reference="L8s-Jt-DKQ"/>
     </inferredMetricsTieBreakers>
 </document>

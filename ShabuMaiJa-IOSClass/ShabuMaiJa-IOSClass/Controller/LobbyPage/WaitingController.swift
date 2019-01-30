@@ -9,12 +9,12 @@
 import UIKit
 
 class WaitingController: UIViewController {
-    var hostUID: String! = nil
+    var choosedLobby: Lobby! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(hostUID)
+        
 //        self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -22,12 +22,19 @@ class WaitingController: UIViewController {
        self.navigationController?.popToRootViewController(animated: true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let controller = segue.destination as! EatingHostController
-//        controller.hostUserID = self.hostUserID
-//        let controllerTable = segue.destination as! ShowProfileController
-//        controllerTable.hostUserID = self.hostUserID
+        if segue.identifier == "waitingSubViewHost" {
+            let subVC = segue.destination as! ShowProfileController
+            subVC.choosedLobby = choosedLobby
+            subVC.loadUser()
+        }else{
+           let controller = segue.destination as! EatingHostController
+            controller.choosedLobby = self.choosedLobby
+        }
     }
-    
+    @IBAction func handleEatButton(_ sender: Any) {
+        database.updateStatus(status: "Eating", lobby: choosedLobby)
+        performSegue(withIdentifier: "goToEatingHost", sender: self)
+    }
     /*
     // MARK: - Navigation
 

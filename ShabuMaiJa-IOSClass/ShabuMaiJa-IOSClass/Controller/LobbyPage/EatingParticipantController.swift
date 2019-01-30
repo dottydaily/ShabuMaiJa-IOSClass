@@ -17,10 +17,10 @@ class EatingParticipantController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! ReviewAllController
-        controller.hostUserID = self.hostUserID
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let controller = segue.destination as! ReviewAllController
+//        controller.hostUserID = self.hostUserID
+//    }
     /*
     // MARK: - Navigation
 

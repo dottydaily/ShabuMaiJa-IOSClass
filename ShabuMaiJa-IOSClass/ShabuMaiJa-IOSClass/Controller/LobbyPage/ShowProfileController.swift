@@ -55,9 +55,6 @@ class ShowProfileController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        for _ in 1...20{
-            self.accountList.add(account: Account(random: true))
-        }
     }
 
     override func didReceiveMemoryWarning() {

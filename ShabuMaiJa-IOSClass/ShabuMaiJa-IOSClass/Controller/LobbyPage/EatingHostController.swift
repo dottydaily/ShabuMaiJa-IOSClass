@@ -9,16 +9,26 @@
 import UIKit
 
 class EatingHostController: UIViewController {
-    var hostUserID: String!
+    var choosedLobby: Lobby! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func handleFinishButton(_ sender: Any) {
+        database.updateStatus(status: "Finish", lobby: choosedLobby)
+        performSegue(withIdentifier: "goToReviewAll", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! ReviewAllController
-        controller.hostUserID = self.hostUserID
+        if segue.identifier == "eatingSubViewHost" {
+            let subVC = segue.destination as! ShowProfileController
+            subVC.choosedLobby = choosedLobby
+            subVC.loadUser()
+        }else{
+            let controller = segue.destination as! ReviewAllController
+            controller.choosedLobby = self.choosedLobby
+        }
     }
     /*
     // MARK: - Navigation
