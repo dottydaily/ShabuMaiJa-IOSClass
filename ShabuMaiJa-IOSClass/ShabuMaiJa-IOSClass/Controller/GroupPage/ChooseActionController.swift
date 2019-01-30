@@ -60,19 +60,38 @@ class ChooseActionController: UIViewController {
     @IBAction func handleCreateButton(_ sender: Any) {
         print("\n\nPREPARING BEFORE GO TO CREATE GROUP")
         if Auth.auth().currentUser == nil {
-            print("nil need to login")
-            // create subview that let user signin or signup
-            let popUpVC = UIStoryboard(name: "AuthenticateUser", bundle: nil).instantiateViewController(withIdentifier: "SignUpPopUpID") as! AuthenticateUserViewController
-            self.navigationController?.navigationBar.isHidden = true
-            self.tabBarController?.tabBar.isHidden = true
-            self.addChildViewController(popUpVC)
-            popUpVC.view.frame = self.view.frame
-            popUpVC.modalPresentationStyle = .popover
-            self.view.addSubview(popUpVC.view)
-            popUpVC.didMove(toParentViewController: self)
+            handleIfNotSignIn()
         } else {
             print(Auth.auth().currentUser?.email)
             performSegue(withIdentifier: "goToCreatePage", sender: self)
+        }
+    }
+    
+    func handleIfNotSignIn() {
+        print("nil need to login")
+        
+        // pop up alert to let user decision if he/she need to sign in or not
+        // create subview that let user signin or signup
+        self.sendAlertWithHandler(Title: "You are not logged in.", Description: "Please Sign in to use this feature.") { (alert) in
+            
+            // add action of Sign in button
+            alert.addAction(UIAlertAction.init(title: "Sign in", style: .default, handler: { (action) in
+                let popUpVC = UIStoryboard(name: "AuthenticateUser", bundle: nil).instantiateViewController(withIdentifier: "SignInPopUpID") as! SignInViewController
+               
+                popUpVC.previousController = self
+                self.navigationController?.navigationBar.isHidden = true
+                self.tabBarController?.tabBar.isHidden = true
+                self.addChildViewController(popUpVC)
+                popUpVC.view.frame = self.view.frame
+                popUpVC.modalPresentationStyle = .popover
+                self.view.addSubview(popUpVC.view)
+                popUpVC.didMove(toParentViewController: self)
+            }))
+            
+            // add action of Cancel button
+            alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

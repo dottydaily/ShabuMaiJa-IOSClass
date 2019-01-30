@@ -16,8 +16,8 @@ class AccountData: NSObject {
         data.append(account)
     }
     
-    func add(name: String, username: String, email: String, password: String) {
-        data.append(Account(name: name, username: username, email: email, password: password))
+    func add(name: String, username: String, email: String, rating: Float) {
+        data.append(Account(name: name, username: username, email: email, rating: rating))
     }
     
     func addAt(index: Int, account: Account) {
