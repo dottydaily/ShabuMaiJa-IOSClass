@@ -20,6 +20,7 @@ class DBManager {
     }
     
     func deleteDataAtPath(path: String) {
+        print("Removing \(path)")
         ref.child(path).removeValue()
     }
     

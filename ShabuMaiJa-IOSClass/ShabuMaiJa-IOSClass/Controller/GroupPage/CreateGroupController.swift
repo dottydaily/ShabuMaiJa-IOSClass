@@ -52,6 +52,11 @@ class CreateGroupController: UIViewController {
     }
     
     @IBAction func handleSubmitButton(_ sender: Any) {
+        if isParticipate {
+            sendAlertUtil(Title: "Can't create", Description: "Has been participating with another room")
+            return
+        }
+        
         let sv = displaySpinner(onView: self.view, alpha: 0.6)
         database.getUser(uid: (Auth.auth().currentUser?.uid)!) { (user) in
             if let user = user {
@@ -62,9 +67,9 @@ class CreateGroupController: UIViewController {
                         self.choosedLobby = lobby
                         print(self.choosedLobby.hostId)
                         self.removeSpinner(spinner: sv)
+                        isParticipate = true
                         self.performSegue(withIdentifier: "hostGoToWatingPage", sender: self)
                     }
-                    
                 })
             }
             

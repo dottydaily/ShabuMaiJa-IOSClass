@@ -23,6 +23,7 @@ class ChooseActionController: UIViewController {
     var imageArr : [UIImage] = []
     var totalImage :Int = 0
     var isFailed = false
+    var isLoaded = false
     var handle: AuthStateDidChangeListenerHandle? = nil
 
     override func viewDidLoad() {
@@ -52,8 +53,9 @@ class ChooseActionController: UIViewController {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             
         }
+        if(!isLoaded){
             downloadImage()
-    
+        }
     }
     
     @IBAction func handleCreateButton(_ sender: Any) {
@@ -102,6 +104,7 @@ class ChooseActionController: UIViewController {
         
         getData(success: {
             self.removeSpinner(spinner: sv)
+            self.isLoaded = true
             self.collectionView.reloadData()
         }) {
             //self.removeSpinner(spinner: sv)
@@ -109,6 +112,7 @@ class ChooseActionController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
                     if(self.imageArr.count == self.totalImage){
                         self.removeSpinner(spinner: sv)
+                        self.isLoaded = true
                         self.collectionView.reloadData()
                     }else{
                         self.downloadImage()

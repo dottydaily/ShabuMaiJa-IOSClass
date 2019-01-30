@@ -47,6 +47,7 @@ class WaitingParticipantController: UIViewController {
                     if isError {
                         self.sendAlertUtil(Title: "Something went wrong", Description: "Try again later.")
                     } else {
+                        isParticipate = false
                         self.navigationController?.popToRootViewController(animated: true)
                     }
                 })

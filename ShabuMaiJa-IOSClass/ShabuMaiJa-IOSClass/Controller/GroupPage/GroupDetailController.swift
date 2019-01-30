@@ -41,6 +41,11 @@ class GroupDetailController: UIViewController {
     }
     
     @IBAction func handleJoinButton(_ sender: Any) {
+        if isParticipate {
+            sendAlertUtil(Title: "Can't join", Description: "Has been participating with another room")
+            return
+        }
+        
         database.addParticipantLobby(placeId: placeId, hostId: ownerId, userId: (Auth.auth().currentUser?.uid)!) { (isError) in
             if isError {
                 self.sendAlertUtil(Title: "Can't join this lobby.", Description: "Participant reach lobby's limit.")
@@ -50,6 +55,7 @@ class GroupDetailController: UIViewController {
                     self.detailTextView.text = lobby.lobbyDescription
                 }
             } else {
+                isParticipate = true
                 self.performSegue(withIdentifier: "goToWaitingPage", sender: self)
             }
         }

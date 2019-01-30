@@ -19,8 +19,15 @@ class WaitingController: UIViewController {
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
-
-       self.navigationController?.popToRootViewController(animated: true)
+        sendAlertWithHandler(Title: "Cancel your lobby?", Description: "If you accept, this lobby will be remove. including all participant.") { (alert) in
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (alert) in
+                database.deleteDataAtPath(path: "LobbyList/\(self.choosedLobby.placeId)/\((Auth.auth().currentUser?.uid)!)")
+                isParticipate = false
+                self.navigationController?.popToRootViewController(animated: true)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
