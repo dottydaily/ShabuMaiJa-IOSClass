@@ -19,8 +19,10 @@ class WaitingController: UIViewController {
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
+
        self.navigationController?.popToRootViewController(animated: true)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "waitingSubViewHost" {
             let subVC = segue.destination as! ShowProfileController

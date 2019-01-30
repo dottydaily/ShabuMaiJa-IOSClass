@@ -19,6 +19,10 @@ class DBManager {
         ref = database.reference()
     }
     
+    func deleteDataAtPath(path: String) {
+        ref.child(path).removeValue()
+    }
+    
     func hasPlace(placeId: String) -> Bool {
         var hasIt: Bool = false
         
@@ -212,6 +216,29 @@ class DBManager {
             } else {
                 completion(true)
             }
+        }
+    }
+    
+    func removeParticipant(placeId: String, hostId: String, userId: String, completion: @escaping (_ isError: Bool)->Void) {
+        ref.child("LobbyList/\(placeId)/\(hostId)/Participant").observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                let childSnapshot = child as! DataSnapshot
+                let checkedID = childSnapshot.value as! String
+                if userId == checkedID {
+                    self.deleteDataAtPath(path: "LobbyList/\(placeId)/\(hostId)/Participant/\(childSnapshot.key)")
+                }
+                break
+            }
+            
+            self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.key != nil {
+                    let currentPeople = snapshot.value as! Int
+                    self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").setValue(currentPeople-1)
+                    completion(false)
+                } else {
+                    completion(true)
+                }
+            })
         }
     }
     

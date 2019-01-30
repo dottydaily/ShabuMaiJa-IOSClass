@@ -28,10 +28,32 @@ class WaitingParticipantController: UIViewController {
 
             }
         }
+        
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)").observe(.value) {
+            (snapshot) in
+            if (snapshot.key as? String) == nil{
+                self.sendAlertUtil(Title: "Host Left", Description: "Please join other lobby")
+//                self.unwindToPrevious(self)
+            }
+        }
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        sendAlertWithHandler(Title: "Cancel your meeting?", Description: "If you accept, you will be remove from this lobby.") { (alert) in
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (alert) in
+                
+                database.removeParticipant(placeId: self.choosedLobby.placeId, hostId: self.choosedLobby.hostId, userId: (Auth.auth().currentUser?.uid)!, completion: { (isError) in
+                    if isError {
+                        self.sendAlertUtil(Title: "Something went wrong", Description: "Try again later.")
+                    } else {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                })
+                
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
