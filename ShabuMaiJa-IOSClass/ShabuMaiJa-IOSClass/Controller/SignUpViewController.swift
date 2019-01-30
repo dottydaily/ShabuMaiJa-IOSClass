@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController {
                 
                 if let _error = error {
                     print("CAN'T CREATE USER : \(_error)")
-                    self.sendAlertUtil(Title: "Error sign up", Description: "Please fill valid information")
+                    self.sendAlertUtil(Title: "Error sign up", Description: "\(_error.localizedDescription)")
                     self.removeSpinner(spinner: sv)
                 }
                 else if let result = authResult {

@@ -20,12 +20,20 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
         let sv = displaySpinner(onView: self.view, alpha: 0.6)
         database.getLobbyList(placeId: choosedRestaurant.placeId,completion: { (account) in
-            print("IN FIND GROUP PAGE : \(account.count)")
             
-            self.accountList = account
-            self.accountTableView.reloadData()
-            self.removeSpinner(spinner: sv)
-            })
+            if account.count == 0 {
+                self.sendAlertUtil(Title: "No Lobby", Description: "Create or Join other restaurants")
+                self.removeSpinner(spinner: sv)
+            } else {
+                print("IN FIND GROUP PAGE : \(account.count)")
+                
+                self.accountList = account
+                self.accountTableView.reloadData()
+                self.removeSpinner(spinner: sv)
+            }
+            
+        })
+        
     }
     
     // tap on table view cell
