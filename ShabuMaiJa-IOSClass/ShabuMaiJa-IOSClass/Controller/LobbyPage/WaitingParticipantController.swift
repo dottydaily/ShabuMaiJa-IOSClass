@@ -15,11 +15,11 @@ class WaitingParticipantController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        database.checkStatusFromLobby(HostUserID: <#T##String#>, placeID: <#T##String#>, status: <#T##String#>) { (status) in
-            if status == "Eat" {
-                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
-            }
-        }
+//        database.checkStatusFromLobby(HostUserID: <#T##String#>, placeID: <#T##String#>, status: <#T##String#>) { (status) in
+//            if status == "Eat" {
+//                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
+//            }
+//        }
         
     }
     

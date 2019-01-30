@@ -132,7 +132,7 @@ class DBManager {
                 let values3 = childDataSnapshot3.value as! NSDictionary
                 let nameHost = values3["Name"] as! String
                 let emailHost = values3["Email"] as! String
-                let accountHost = Account.init(name: nameHost, username: HostUserID, email: emailHost, password: "")
+            let accountHost = Account.init(name: nameHost, username: HostUserID, email: emailHost, rating: 5.0)
                 accountList.append(accountHost)
             
         }
@@ -145,7 +145,7 @@ class DBManager {
                         let values2 = childDataSnapshot2.value as! NSDictionary
                         let name = values2["Name"] as! String
                         let email = values2["Email"] as! String
-                        let account = Account.init(name: name, username: username, email: email, password: "")
+                    let account = Account.init(name: name, username: username, email: email, rating: 5.0)
                         accountList.append(account)
                 }
             }
