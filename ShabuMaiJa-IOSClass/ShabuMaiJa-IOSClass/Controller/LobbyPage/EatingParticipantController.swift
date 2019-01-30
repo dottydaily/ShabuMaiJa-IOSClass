@@ -9,7 +9,8 @@
 import UIKit
 
 class EatingParticipantController: UIViewController {
-    var hostUserID: String!
+    
+    var choosedLobby: Lobby! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +18,30 @@ class EatingParticipantController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let controller = segue.destination as! ReviewAllController
-//        controller.hostUserID = self.hostUserID
-//    }
-    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "eatingParticipantSubView" {
+            let subVC = segue.destination as! ShowProfileController
+            subVC.choosedLobby = choosedLobby
+            subVC.loadUser()
+        }
+        
+        if segue.identifier == "toReviewUserFromParticipant" {
+            let controller = segue.destination as! ReviewAllController
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)/Status").observe(.value) { (snapshot) in
+            let status = snapshot.value as! String
+            print("test \(status)")
+            if status == "Finish" {
+                print("testteststsetsteststst")
+                self.performSegue(withIdentifier: "toReviewUserFromParticipant", sender: self)
+            }
+        }
+    }
+    
+       /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
