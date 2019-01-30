@@ -22,7 +22,6 @@ class ChooseActionController: UIViewController {
     
     var imageArr : [UIImage] = []
     var totalImage :Int = 0
-    var isLoaded = false
     var isFailed = false
     var handle: AuthStateDidChangeListenerHandle? = nil
 
@@ -53,9 +52,8 @@ class ChooseActionController: UIViewController {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             
         }
-        if (!isLoaded){
             downloadImage()
-        }
+    
     }
     
     @IBAction func handleCreateButton(_ sender: Any) {
@@ -105,13 +103,12 @@ class ChooseActionController: UIViewController {
         getData(success: {
             self.removeSpinner(spinner: sv)
             self.collectionView.reloadData()
-            self.isLoaded = true
         }) {
-            self.removeSpinner(spinner: sv)
+            //self.removeSpinner(spinner: sv)
             self.sendAlertWithHandler(Title: "Cant Load Data", Description: "Check Connection", completion: { (alert) in
                 alert.addAction(UIAlertAction(title: "Reload", style: .default, handler: { (action) in
                     if(self.imageArr.count == self.totalImage){
-                        self.isLoaded = true
+                        self.removeSpinner(spinner: sv)
                         self.collectionView.reloadData()
                     }else{
                         self.downloadImage()
@@ -128,42 +125,42 @@ class ChooseActionController: UIViewController {
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: self.choosedRestaurant.placeId) { (photos, err) in
             
             if let err = err {
-                print("can't get image from this place : \(err)")
+                print("test can't get image from this place : \(err)")
                 failure()
             } else {
                 self.imageArr = []
                 self.totalImage = (photos?.results.count)!
-                print("----------------")
-                print(self.totalImage)
+                print("test ----------------")
+                print("test \(self.totalImage)")
                 if let firstPhoto = photos?.results.first {
                     for pic in (photos?.results)!{
                         GMSPlacesClient.shared().loadPlacePhoto(pic, callback: {
                             (photo, error) -> Void in
                             if let error = error {
                                 self.isFailed = true
-                                print("Error Cant show image : \(error)")
+                                print("test Error Cant show image : \(error)")
                             } else {
                                 self.imageArr.append(photo!)
-                                print("-----------------\n Loaded Image :\(self.imageArr.count)")
+                                print("test -----------------\n test Loaded Image :\(self.imageArr.count)")
                             }
                             
-                            if let lastPhoto = photos?.results.last {
+                            if pic == photos?.results.last {
                                 print("\n\n Start Checking \n\n")
                                 // will do if at last round
                                 if self.imageArr.count == self.totalImage{
-                                    print("\n\n\n\nSuccess Data : imageArrayList :\(self.imageArr.count), totalImage :\(self.totalImage)\n\n\n\n")
+                                    print("\n\n\n\ntest Success Data : imageArrayList :\(self.imageArr.count), totalImage :\(self.totalImage)\n\n\n\n")
                                     success()
                                 }
                                 else{ // otherwise
-                                    print("\n\n\n OH MY GOD.IT GONNA BE FAILED!?\n\n\n")
+                                    print("\n\n\n test OH MY GOD.IT GONNA BE FAILED!?\n\n\n")
                                     
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                                         if(self.imageArr.count < self.totalImage && !self.isFailed){
-                                            print("\n\n\nFAILED LOADING DATA : \(self.choosedRestaurant.name)\n\n\n")
+                                            print("\n\n\n test FAILED LOADING DATA : \(self.choosedRestaurant.name)\n\n\n")
                                             failure()
                                         }
                                         else {
-                                            print("\n\n\n\n\n Final success \n\n\n")
+                                            print("\n\n\n\n\n test  Final success \n\n\n")
                                             success()
                                         }
                                     }
