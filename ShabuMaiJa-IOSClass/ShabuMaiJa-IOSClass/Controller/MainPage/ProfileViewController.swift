@@ -24,7 +24,6 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,9 +31,13 @@ class ProfileViewController: UIViewController {
             if auth.currentUser != nil {
                 let sv = self.displaySpinner(onView: self.view, alpha: 0.6)
                 
-                self.emailLabel.text = Auth.auth().currentUser?.email!
-                self.signInButton.setTitle("Sign Out", for: .normal)
-                
+                database.getUser(uid: (auth.currentUser?.uid)!, completion: { (user) in
+                    self.fullNameLabel.text = user?.name
+                    self.emailLabel.text = user?.email
+                    self.signInButton.setTitle("Sign Out", for: .normal)
+                    
+                    self.removeSpinner(spinner: sv)
+                })
                 
             } else {
                 self.fullNameLabel.text = "Guest"

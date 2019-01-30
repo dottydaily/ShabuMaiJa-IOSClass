@@ -30,12 +30,10 @@ class SignUpViewController: UIViewController {
                 self.present(alert, animated: true)
             }
         } else {
-            let currentUser = Account(name: nameTextField.text!, username: usernameTextField.text!, email: emailTextField.text!, rating: 5.0)
-            
             let sv = displaySpinner(onView: self.view, alpha: 0.6)
             
             print("Trying to SignUp")
-            Auth.auth().createUser(withEmail: currentUser.email, password: passwordTextField.text!) { (authResult, error) in
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
                 
                 if let _error = error {
                     print("CAN'T CREATE USER : \(_error)")
@@ -44,9 +42,12 @@ class SignUpViewController: UIViewController {
                 }
                 else if let result = authResult {
                     if result.user == nil {
-                        
+                        // need to do
                     } else {
+                        let currentUser = Account(name: self.nameTextField.text!, username: self.usernameTextField.text!, uid:result.user.uid , email: result.user.email!, rating: 5.0)
+                        
                         print("CURRENT USER : \(currentUser.username) -> \(currentUser.name)")
+                        print("CURRENT UID : \(currentUser.uid)")
                         print("CURRENT EMAIL : \(result.user.email!)")
                         
                         let changeUpdateUserRequest = Auth.auth().currentUser?.createProfileChangeRequest()
@@ -54,13 +55,20 @@ class SignUpViewController: UIViewController {
                         // need to do : update profile
                         // ref : https://firebase.google.com/docs/reference/swift/firebaseauth/api/reference/Classes/User#createprofilechangerequest
                         
+                        changeUpdateUserRequest?.displayName = currentUser.name
                         
-                        database.createUser(user: currentUser, completion: { (resultUser) in
-                            if let resultUser = resultUser {
-                                
-                                
+                        changeUpdateUserRequest?.commitChanges(completion: { (error) in
+                            if let error = error {
+                                print(error)
+                                self.sendAlertUtil(Title: "Can't update profile", Description: "Try again")
                                 self.removeSpinner(spinner: sv)
-                                self.performSegue(withIdentifier: "backToSignInPage", sender: self)
+                            } else {
+                                database.createUser(user: currentUser, completion: { (resultUser) in
+                                    if let resultUser = resultUser {
+                                        self.removeSpinner(spinner: sv)
+                                        self.performSegue(withIdentifier: "backToSignInPage", sender: self)
+                                    }
+                                })
                             }
                         })
                     }

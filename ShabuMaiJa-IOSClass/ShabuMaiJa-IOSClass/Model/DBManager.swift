@@ -119,39 +119,54 @@ class DBManager {
     }
     
     func createUser(user: Account, completion: @escaping (_ user: Account?)->Void) {
-        ref.child("UserList/\(user.username)").setValue(["Name":user.name, "Username":user.username, "Email":user.email, "Rating":user.rating])
+        ref.child("UserList/\(user.uid)").setValue(["Name":user.name, "Username":user.username, "Email":user.email, "Rating":user.rating])
         
         completion(user)
     }
-    func getUserListFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
     
-        var accountList: [Account] = []
-        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)/Participant"
-        self.ref.child("UserList/\(HostUserID)").observeSingleEvent(of: .value){ (snapshot3) in // get info of host
-                let childDataSnapshot3 = snapshot3
-                let values3 = childDataSnapshot3.value as! NSDictionary
-                let nameHost = values3["Name"] as! String
-                let emailHost = values3["Email"] as! String
-            let accountHost = Account.init(name: nameHost, username: HostUserID, email: emailHost, rating: 5.0)
-                accountList.append(accountHost)
+    func getUser(uid: String, completion: @escaping (_ user: Account?)->Void) {
+        ref.child("UserList/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+            let datas = snapshot.value as! NSDictionary
+            let name = datas["Name"] as! String
+            let username = datas["Username"] as! String
+            let email = datas["Email"] as! String
+            let rating = datas["Rating"] as! Float
             
-        }
-        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
-            for child in snapshot1.children {
-                let childDataSnapshot = child as! DataSnapshot
-                let username = childDataSnapshot.key
-                self.ref.child("UserList/\(username)").observeSingleEvent(of: .value){(snapshot2) in // get info of all participant
-                        let childDataSnapshot2 = snapshot2
-                        let values2 = childDataSnapshot2.value as! NSDictionary
-                        let name = values2["Name"] as! String
-                        let email = values2["Email"] as! String
-                    let account = Account.init(name: name, username: username, email: email, rating: 5.0)
-                        accountList.append(account)
-                }
-            }
-            completion(accountList)
+            let user = Account(name: name, username: username, uid: uid, email: email, rating: rating)
+            
+            completion(user)
         }
     }
+    
+//    func getUserListFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
+//    
+//        var accountList: [Account] = []
+//        let stringPath : String = "LobbyList/\(placeID)/\(HostUserID)/Participant"
+//        self.ref.child("UserList/\(HostUserID)").observeSingleEvent(of: .value){ (snapshot3) in // get info of host
+//                let childDataSnapshot3 = snapshot3
+//                let values3 = childDataSnapshot3.value as! NSDictionary
+//                let nameHost = values3["Name"] as! String
+//                let emailHost = values3["Email"] as! String
+//            let accountHost = Account.init(name: nameHost, username: HostUserID, email: emailHost, rating: 5.0)
+//                accountList.append(accountHost)
+//            
+//        }
+//        self.ref.child(stringPath).observeSingleEvent(of: .value) { (snapshot1) in
+//            for child in snapshot1.children {
+//                let childDataSnapshot = child as! DataSnapshot
+//                let username = childDataSnapshot.key
+//                self.ref.child("UserList/\(username)").observeSingleEvent(of: .value){(snapshot2) in // get info of all participant
+//                        let childDataSnapshot2 = snapshot2
+//                        let values2 = childDataSnapshot2.value as! NSDictionary
+//                        let name = values2["Name"] as! String
+//                        let email = values2["Email"] as! String
+//                    let account = Account.init(name: name, username: username, email: email, rating: 5.0)
+//                        accountList.append(account)
+//                }
+//            }
+//            completion(accountList)
+//        }
+//    }
     
     func checkStatusFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ currentS: String) -> Void) {
         
