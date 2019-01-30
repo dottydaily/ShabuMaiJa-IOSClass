@@ -19,21 +19,18 @@ class WaitingParticipantController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)/Status").observe(.value) { (snapshot) in
-            let status = snapshot.value as! String
-            print("test ----------status change ----------")
-            print("test \(status)")
-            if status == "Eating" {
-                self.performSegue(withIdentifier: "toEatingParticipant", sender: self)
-
-            }
-        }
         
-        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)").observe(.value) {
+        //host left
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/").observe(.childRemoved) {
             (snapshot) in
-            if (snapshot.key as? String) == nil{
-                self.sendAlertUtil(Title: "Host Left", Description: "Please join other lobby")
-//                self.unwindToPrevious(self)
+            if !snapshot.hasChild(self.choosedLobby.hostId){
+                self.sendAlertWithHandler(Title: "Host Left", Description: "Please join other lobby", completion: { (alert) in
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+                    self.navigationController?.popToRootViewController(animated: true)
+                    }))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                })
             }
         }
     }
