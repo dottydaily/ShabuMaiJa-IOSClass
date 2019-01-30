@@ -234,7 +234,7 @@
                                                 <rect key="frame" x="237.5" y="150" width="49" height="30"/>
                                                 <state key="normal" title="Submit"/>
                                                 <connections>
-                                                    <segue destination="Xa4-ww-cI9" kind="show" id="eYX-K1-Qm2"/>
+                                                    <action selector="handleSubmitButton:" destination="rJG-OF-ehf" eventType="touchUpInside" id="sok-36-qjl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -257,16 +257,17 @@
                         <outlet property="descriptionTextView" destination="MXu-55-EFe" id="Ji9-Zz-gog"/>
                         <outlet property="peopleStepper" destination="ErB-Zf-4F0" id="08A-F6-BY7"/>
                         <outlet property="peopleTextField" destination="5lX-3j-HoM" id="D5H-kl-jfS"/>
+                        <segue destination="Xa4-ww-cI9" kind="show" identifier="hostGoToWatingPage" id="xdD-P4-Lc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqx-xe-2BD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4333.6000000000004" y="-450.22488755622192"/>
         </scene>
-        <!--WaitingPage-->
+        <!--WaitingHost-->
         <scene sceneID="iBE-hH-Aft">
             <objects>
-                <viewControllerPlaceholder storyboardName="Tab" referencedIdentifier="WaitingPage" id="Xa4-ww-cI9" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Tab" referencedIdentifier="WaitingHost" id="Xa4-ww-cI9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ih-O2-yeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5147.1999999999998" y="-451.57421289355324"/>

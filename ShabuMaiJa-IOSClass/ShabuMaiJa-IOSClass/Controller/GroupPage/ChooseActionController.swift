@@ -185,10 +185,9 @@ class ChooseActionController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var controller = segue.destination
-        
-        if controller is CreateGroupController {
-            // do something
+        if segue.identifier == "goToCreatePage" {
+            var controller = segue.destination as! CreateGroupController
+            controller.choosedRestaurant = choosedRestaurant
         } else { // is FindGroupController
             // do something
         }

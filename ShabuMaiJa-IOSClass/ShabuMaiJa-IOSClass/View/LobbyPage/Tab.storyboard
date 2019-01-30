@@ -13,7 +13,7 @@
         <!--WaitingHost-->
         <scene sceneID="Zht-MP-GkE">
             <objects>
-                <viewController storyboardIdentifier="WaitingPage" title="WaitingHost" id="Nar-f9-286" customClass="WaitingController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WaitingHost" title="WaitingHost" id="Nar-f9-286" customClass="WaitingController" customModule="ShabuMaiJa_IOSClass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yJ7-4x-ARe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -611,6 +611,6 @@
         <image name="usericon.png" width="2240" height="2240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="myy-S9-C5D"/>
+        <segue reference="s3L-4e-wBu"/>
     </inferredMetricsTieBreakers>
 </document>

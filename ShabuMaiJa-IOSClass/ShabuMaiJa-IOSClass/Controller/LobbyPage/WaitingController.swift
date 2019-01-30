@@ -9,11 +9,12 @@
 import UIKit
 
 class WaitingController: UIViewController {
-    var hostUserID: String!
+    var hostUID: String! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(hostUID)
 //        self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -21,10 +22,10 @@ class WaitingController: UIViewController {
        self.navigationController?.popToRootViewController(animated: true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = segue.destination as! EatingHostController
-        controller.hostUserID = self.hostUserID
-        let controllerTable = segue.destination as! ShowProfileController
-        controllerTable.hostUserID = self.hostUserID
+//        let controller = segue.destination as! EatingHostController
+//        controller.hostUserID = self.hostUserID
+//        let controllerTable = segue.destination as! ShowProfileController
+//        controllerTable.hostUserID = self.hostUserID
     }
     
     /*

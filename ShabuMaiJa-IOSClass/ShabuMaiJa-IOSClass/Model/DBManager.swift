@@ -138,6 +138,13 @@ class DBManager {
         }
     }
     
+    func createLobby(restaurant: Restaurant, host: Account, maxPeople: Int, description: String, completion: @escaping ()->Void) {
+        ref.child("LobbyList/\(restaurant.placeId)/\(host.uid)").setValue([
+            "Status" : "Wating", "CurrentPeople" : 1, "TotalPeople" : maxPeople,
+            "Description" : description, "Participant" : ["1" : host.uid]])
+        completion()
+    }
+    
 //    func getUserListFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
 //    
 //        var accountList: [Account] = []
