@@ -9,7 +9,8 @@
 import UIKit
 
 class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var accountList: AccountData = AccountData()
+    var accountList: [Account] = []
+    var choosedRestaurant: Restaurant! = nil
     
     @IBOutlet weak var accountTableView: UITableView!
     
@@ -17,9 +18,14 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        for _ in 1...8{
-            self.accountList.add(account: Account(random: true))
-        }
+        let sv = displaySpinner(onView: self.view, alpha: 0.6)
+        database.getLobbyToShowInTable(placeId: choosedRestaurant.placeId,completion: { (account) in
+            print("IN FIND GROUP PAGE : \(account.count)")
+            
+            self.accountList = account
+            self.accountTableView.reloadData()
+            self.removeSpinner(spinner: sv)
+            })
     }
     
     // tap on table view cell
@@ -33,21 +39,23 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.accountList.total()
+        return self.accountList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountTableViewCell", for: indexPath) as! AccountTableViewCell
-        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
-        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
+        cell.nameLabel.text = accountList[indexPath.row].name
+        cell.usernameLabel.text = accountList[indexPath.row].username
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! GroupDetailController
         if let index = accountTableView.indexPathForSelectedRow {
-            controller.ownerName = accountList.getAt(index: index.row).name
-            controller.ownerUsername = accountList.getAt(index: index.row).username
+            controller.ownerName = accountList[index.row].name
+            controller.ownerUsername = accountList[index.row].username
+            controller.placeId = choosedRestaurant.placeId
+            controller.ownerId = accountList[index.row].uid
         }
         
         /*

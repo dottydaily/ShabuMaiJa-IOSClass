@@ -190,6 +190,9 @@ class ChooseActionController: UIViewController {
             controller.choosedRestaurant = choosedRestaurant
         } else { // is FindGroupController
             // do something
+            var controller = segue.destination as! FindGroupController
+            controller.choosedRestaurant = choosedRestaurant
+            
         }
         
             

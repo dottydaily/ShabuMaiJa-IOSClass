@@ -17,8 +17,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func handleSignUpButton(_ sender: Any) {

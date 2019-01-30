@@ -446,6 +446,7 @@
                         <viewLayoutGuide key="safeArea" id="UKr-cd-IWp"/>
                     </view>
                     <connections>
+                        <outlet property="amountPeople" destination="555-Tp-UOH" id="FJq-62-XkR"/>
                         <outlet property="detailTextView" destination="A3t-Jy-dk1" id="4TL-2V-MbO"/>
                         <outlet property="groupOwnerName" destination="9Bk-Tn-FFw" id="0uq-rf-yOd"/>
                         <outlet property="groupOwnerUsername" destination="YUw-o8-cIV" id="kvx-0w-z1a"/>

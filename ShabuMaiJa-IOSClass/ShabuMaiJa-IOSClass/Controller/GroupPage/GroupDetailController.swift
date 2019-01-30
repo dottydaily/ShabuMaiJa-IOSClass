@@ -9,7 +9,8 @@
 import UIKit
 
 class GroupDetailController: UIViewController {
-    
+    public var placeId:String!
+    public var ownerId:String!
     public var ownerName:String!
     public var ownerUsername:String!
     var isPressJoin = false
@@ -18,6 +19,7 @@ class GroupDetailController: UIViewController {
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var groupOwnerName: UILabel!
     @IBOutlet weak var groupOwnerUsername: UILabel!
+    @IBOutlet weak var amountPeople: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,15 @@ class GroupDetailController: UIViewController {
         // Do any additional setup after loading the view.
         self.detailTextView.layer.borderWidth = 1
         self.detailTextView.layer.borderColor = UIColor(displayP3Red: 190/255, green: 190/255, blue: 190/255, alpha: 1).cgColor
+        self.detailTextView.isEditable = false
         
         self.groupOwnerName.text = ownerName
         self.groupOwnerUsername.text = ownerUsername
+        database.getLobby(placeId: placeId, hostId: ownerId) { (lobby) in
+            print(lobby.lobbyDescription)
+            self.amountPeople.text = "\(lobby.currentPeople)/\(lobby.totalPeople)"
+            self.detailTextView.text = lobby.lobbyDescription
+        }
     }
     
     @IBAction func handleJoinButton(_ sender: Any) {
@@ -49,6 +57,7 @@ class GroupDetailController: UIViewController {
             
             controller.name = ownerName
         }
+        
 //        let controller = segue.destination
 //        if controller is AccountProfileController {
 //            // do something

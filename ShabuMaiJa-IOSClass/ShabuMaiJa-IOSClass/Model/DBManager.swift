@@ -145,6 +145,53 @@ class DBManager {
         completion()
     }
     
+    func getLobbyToShowInTable(placeId: String,completion: @escaping(_ accountList: [Account])->Void){
+        var accountList : [Account] = []
+        
+        ref.child("LobbyList/\(placeId)").observeSingleEvent(of: .value) {(snapshot) in
+            let totalChild = snapshot.childrenCount
+            var i = 0
+            for child in snapshot.children{
+                let childDataSnapshot = child as! DataSnapshot
+                i += 1
+                
+                let uid = childDataSnapshot.key
+                print(uid)
+                
+                self.getUser(uid: uid, completion: { (user) in
+                    print(user?.name)
+                    accountList.append(user!)
+                    
+                    if i == totalChild {
+                        completion(accountList)
+                    }
+                })
+                
+            }
+            
+        }
+        
+    }
+    func getLobby(placeId:String,hostId:String,completion: @escaping(_ lobby: Lobby)->Void){
+        
+        print("LobbyList/\(placeId)/\(hostId)")
+        ref.child("LobbyList/\(placeId)/\(hostId)").observeSingleEvent(of: .value){(snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let currentPeople = value["CurrentPeople"] as! Int
+            let totalPeople = value["TotalPeople"] as! Int
+            let description = value["Description"] as! String
+            let status = value["Status"] as! String
+            
+            let desLobby = Lobby(currentPeople: currentPeople, totalPeople: totalPeople, description: description, status: status, hostId: hostId, placeId: placeId)
+            completion(desLobby)
+        }
+        
+        
+        
+    }
+    
+    
+    
 //    func getUserListFromLobby(HostUserID: String,placeID: String,status: String, completion:@escaping (_ accountList: [Account]) -> Void) {
 //    
 //        var accountList: [Account] = []
