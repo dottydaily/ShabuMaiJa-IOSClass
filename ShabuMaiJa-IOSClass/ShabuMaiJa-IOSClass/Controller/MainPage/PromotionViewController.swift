@@ -105,20 +105,18 @@ class PromotionViewController: UIViewController {
                         self.imageArr.append(myImage)
                     }
                     
-                    // if we done our loop
-                    if i == self.totalImage-1 {
-                        if (self.imageArr.count==self.totalImage) {
-                            success()
-                        }else{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
-                                if(self.imageArr.count < self.totalImage && !self.isFailed){
-                                    notYet()
-                                }else{
-                                    success()
-                                }
+                    if (self.imageArr.count==self.totalImage) {
+                        success()
+                    }else{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                            if(self.imageArr.count < self.totalImage && !self.isFailed){
+                                notYet()
+                            }else{
+                                success()
                             }
                         }
                     }
+                    
                 }
             }
         })
