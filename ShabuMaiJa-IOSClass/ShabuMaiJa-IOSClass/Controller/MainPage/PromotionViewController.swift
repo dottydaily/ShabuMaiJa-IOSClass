@@ -87,14 +87,14 @@ class PromotionViewController: UIViewController {
         database?.reference().child("NecessaryData").observeSingleEvent(of: .value, with: { (snapshot) in
             let datas = snapshot.value as! NSDictionary
             self.totalImage = datas["PromotionViewImageCount"] as! Int
-            
+            self.imageArr = []
             var resStr: String
             
             resStr = ""
             for i in 0 ..< self.totalImage{
                 // Create a reference with an initial file path and name
                 resStr = String(i)
-                let reference = Storage.storage().reference(withPath: "\(folderPath)/\(resStr).png")
+                let reference = Storage.storage().reference(withPath: "\(folderPath)/\(i).jpg")
                 reference.getData(maxSize: (2 * 1024 * 1024)) { (data, error) in
                     if let _error = error{
                         print(_error)
@@ -141,20 +141,20 @@ extension PromotionViewController: UICollectionViewDelegate,UICollectionViewData
 }
 
 extension PromotionViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = UIScreen.main.bounds
         return CGSize(width: size.width, height: size.height)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
