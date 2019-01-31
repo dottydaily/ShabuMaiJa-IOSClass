@@ -159,27 +159,29 @@ class DBManager {
     func getLobbyList(placeId: String,completion: @escaping(_ accountList: [Account])->Void){
         var accountList : [Account] = []
         
-        ref.child("LobbyList/\(placeId)").observeSingleEvent(of: .value) {(snapshot) in
-            let totalChild = snapshot.childrenCount
-            var i = 0
-            for child in snapshot.children{
-                let childDataSnapshot = child as! DataSnapshot
-                i += 1
-                
-                let uid = childDataSnapshot.key
-                print(uid)
-                
-                self.getUser(uid: uid, completion: { (user) in
-                    print(user?.name)
-                    accountList.append(user!)
+        ref.child("LobbyList/\(placeId)").observe(.value) {(snapshot) in
+            if snapshot.exists() {
+                let totalChild = snapshot.childrenCount
+                var i = 0
+                for child in snapshot.children{
+                    let childDataSnapshot = child as! DataSnapshot
+                    i += 1
                     
-                    if i == totalChild {
-                        completion(accountList)
-                    }
-                })
-                
+                    let uid = childDataSnapshot.key
+                    print(uid)
+                    
+                    self.getUser(uid: uid, completion: { (user) in
+                        print(user?.name)
+                        accountList.append(user!)
+                        
+                        if i == totalChild {
+                            completion(accountList)
+                        }
+                    })
+                }
+            } else {
+                completion(accountList)
             }
-            
         }
         
     }

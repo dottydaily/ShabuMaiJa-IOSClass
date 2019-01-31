@@ -33,7 +33,7 @@ class SignInViewController: UIViewController {
             Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
                 if let error = error {
                     self.removeSpinner(spinner: sv)
-                    self.sendAlertUtil(Title: "Something went wrong", Description: "Please try again later.")
+                    self.sendAlertUtil(Title: "Failed to Login", Description: "\(error.localizedDescription)")
                     print(error)
                 } else {
                     self.removeSpinner(spinner: sv)
