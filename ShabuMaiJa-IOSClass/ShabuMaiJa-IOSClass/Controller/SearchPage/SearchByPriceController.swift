@@ -12,11 +12,13 @@ class SearchByPriceController: UIViewController {
     
     @IBOutlet weak var minPrice: UITextField!
     @IBOutlet weak var maxPrice: UITextField!
+    
+    var min: Double = 0
+    var max: Double = 99999
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
     }
     
 
@@ -32,8 +34,28 @@ class SearchByPriceController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! ShowPriceListController
         controller.previousViewController = self
-        controller.min = Double(minPrice.text!)!
-        controller.max = Double(maxPrice.text!)!
+        
+        if !(minPrice.text?.isEmpty)! && (minPrice.text?.isInt)! {
+            self.min = Double(minPrice.text!)!
+        }
+        if !(maxPrice.text?.isEmpty)! && (maxPrice.text?.isInt)! {
+            if Double(maxPrice.text!)! >= self.min {
+                self.max = Double(maxPrice.text!)!
+            } else {
+                let temp = self.min
+                self.min = Double(maxPrice.text!)!
+                self.max = temp
+//                sendAlertUtil(Title: "Max < Min", Description: "Use default value")
+            }
+        }
+        
+        controller.min = min
+        controller.max = max
     }
 
+}
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
 }

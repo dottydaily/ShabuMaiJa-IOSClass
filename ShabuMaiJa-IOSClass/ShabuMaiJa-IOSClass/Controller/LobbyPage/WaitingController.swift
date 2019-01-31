@@ -13,16 +13,17 @@ class WaitingController: UIViewController {
     var choosedLobby: Lobby! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)").observe(.value) { (snapshot) in
-            let current = snapshot.childSnapshot(forPath: "CurrentPeople").value as! Int
-            let total = snapshot.childSnapshot(forPath: "TotalPeople").value as! Int
-            
-            self.peopleLabel.text = "\(current)/\(total)"
+            if snapshot.exists() {
+                let current = snapshot.childSnapshot(forPath: "CurrentPeople").value as! Int
+                let total = snapshot.childSnapshot(forPath: "TotalPeople").value as! Int
+                
+                self.peopleLabel.text = "\(current)/\(total)"
+            }
         }
-        
-//        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func unwindToPrevious(_ sender: Any) {

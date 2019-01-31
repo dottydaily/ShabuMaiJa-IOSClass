@@ -9,6 +9,7 @@
 import UIKit
 
 class EatingParticipantController: UIViewController {
+    @IBOutlet weak var peopleLabel: UILabel!
     
     var choosedLobby: Lobby! = nil
 
@@ -16,6 +17,30 @@ class EatingParticipantController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)/Status").observe(.value) { (snapshot) in
+           
+            if snapshot.exists() {
+                let status = snapshot.value as! String
+                print("test \(status)")
+                
+                if status == "Finish" {
+                    print("testteststsetsteststst")
+                    self.performSegue(withIdentifier: "toReviewUserFromParticipant", sender: self)
+                }
+            }
+        }
+        
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)").observe(.value) { (snapshot) in
+            if snapshot.exists() {
+                let current = snapshot.childSnapshot(forPath: "CurrentPeople").value as! Int
+                let total = snapshot.childSnapshot(forPath: "TotalPeople").value as! Int
+                
+                self.peopleLabel.text = "\(current)/\(total)"
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,20 +52,10 @@ class EatingParticipantController: UIViewController {
         
         if segue.identifier == "toReviewUserFromParticipant" {
             let controller = segue.destination as! ReviewAllController
+            controller.choosedLobby = self.choosedLobby
+            controller.isFromParticipant = true
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)/Status").observe(.value) { (snapshot) in
-            let status = snapshot.value as! String
-            print("test \(status)")
-            if status == "Finish" {
-                print("testteststsetsteststst")
-                self.performSegue(withIdentifier: "toReviewUserFromParticipant", sender: self)
-            }
-        }
-    }
-    
        /*
     // MARK: - Navigation
 

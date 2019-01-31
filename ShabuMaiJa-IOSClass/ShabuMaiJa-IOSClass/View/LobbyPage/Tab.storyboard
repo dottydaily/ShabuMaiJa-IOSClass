@@ -123,7 +123,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="handleFinishButton:" destination="U35-WW-FwJ" eventType="touchUpInside" id="5gA-r8-n3N"/>
-                                    <segue destination="E9s-5a-tJR" kind="show" identifier="toReviewUser" id="5bN-HI-ldS"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-h5-6XD">
@@ -149,7 +148,8 @@
                         <viewLayoutGuide key="safeArea" id="UQx-Cg-j7i"/>
                     </view>
                     <connections>
-                        <segue destination="E9s-5a-tJR" kind="show" identifier="goToReviewAll" id="dkH-o4-Lsm"/>
+                        <outlet property="peopleLabel" destination="pJX-qS-UaK" id="7tE-dk-nk9"/>
+                        <segue destination="E9s-5a-tJR" kind="show" identifier="toReviewUser" id="dkH-o4-Lsm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2e-dE-wld" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,6 +252,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="participantTableSubView" destination="TYp-Ov-xGo" id="21t-rP-gRw"/>
+                        <outlet property="peopleLabel" destination="N0h-cS-JbJ" id="ST5-c8-Jr4"/>
                         <segue destination="zta-yI-jbT" kind="show" identifier="toEatingParticipant" id="m4I-eM-jeY"/>
                     </connections>
                 </viewController>
@@ -300,6 +301,7 @@
                         <viewLayoutGuide key="safeArea" id="P8H-9p-ge8"/>
                     </view>
                     <connections>
+                        <outlet property="peopleLabel" destination="rG2-g7-mPh" id="Ril-D7-fsz"/>
                         <segue destination="E9s-5a-tJR" kind="show" identifier="toReviewUserFromParticipant" id="d4s-e9-jwd"/>
                     </connections>
                 </viewController>

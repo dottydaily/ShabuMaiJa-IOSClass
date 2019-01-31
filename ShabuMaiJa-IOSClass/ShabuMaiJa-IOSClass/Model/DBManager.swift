@@ -48,7 +48,7 @@ class DBManager {
             , "Latitude": restaurant.latitude, "Longitude": restaurant.longtitude
             , "Address": restaurant.address, "ReviewScore": restaurant.reviewScore
             , "isOpen": restaurant.isOpen, "IconURL": restaurant.iconURL
-            , "MinPrice": restaurant.minPrice]
+                , "MinPrice": restaurant.minPrice, "Category": restaurant.category]
         )
         
         return nodeAtPlaceList
@@ -145,7 +145,7 @@ class DBManager {
     
     func createLobby(restaurant: Restaurant, host: Account, maxPeople: Int, description: String, completion: @escaping ()->Void) {
         ref.child("LobbyList/\(restaurant.placeId)/\(host.uid)").setValue([
-            "Status" : "Wating", "CurrentPeople" : 1, "TotalPeople" : maxPeople,
+            "Status" : "Waiting", "CurrentPeople" : 1, "TotalPeople" : maxPeople,
             "Description" : description, "Participant" : ["1" : host.uid], "Restaurant Name" : restaurant.name])
         completion()
     }
@@ -163,21 +163,28 @@ class DBManager {
             if snapshot.exists() {
                 let totalChild = snapshot.childrenCount
                 var i = 0
+                
+                // child is each lobby of this restaurant
                 for child in snapshot.children{
                     let childDataSnapshot = child as! DataSnapshot
                     i += 1
                     
                     let uid = childDataSnapshot.key
                     print(uid)
+                    let status = childDataSnapshot.childSnapshot(forPath: "Status").value as! String
                     
-                    self.getUser(uid: uid, completion: { (user) in
-                        print(user?.name)
-                        accountList.append(user!)
-                        
-                        if i == totalChild {
-                            completion(accountList)
-                        }
-                    })
+                    if status == "Waiting" {
+                        self.getUser(uid: uid, completion: { (user) in
+                            print(user?.name)
+                            accountList.append(user!)
+                            
+                            if i == totalChild {
+                                completion(accountList)
+                            }
+                        })
+                    } else {
+                        completion(accountList)
+                    }
                 }
             } else {
                 completion(accountList)
@@ -222,26 +229,36 @@ class DBManager {
         }
     }
     
-    func removeParticipant(placeId: String, hostId: String, userId: String, completion: @escaping (_ isError: Bool)->Void) {
+    func removeParticipant(placeId: String, hostId: String, userId: String, completion: @escaping (_ isError: Bool, _ currentPeople: Int)->Void) {
+        
+        // check if has this room, then delete specific participant
         ref.child("LobbyList/\(placeId)/\(hostId)/Participant").observe(.value) { (snapshot) in
-            for child in snapshot.children {
-                let childSnapshot = child as! DataSnapshot
-                let checkedID = childSnapshot.value as! String
-                if userId == checkedID {
-                    self.deleteDataAtPath(path: "LobbyList/\(placeId)/\(hostId)/Participant/\(childSnapshot.key)")
+            if snapshot.exists() {
+                for child in snapshot.children {
+                    let childSnapshot = child as! DataSnapshot
+                    let checkedID = childSnapshot.value as! String
+                    if userId == checkedID {
+                        self.deleteDataAtPath(path: "LobbyList/\(placeId)/\(hostId)/Participant/\(childSnapshot.key)")
+                    }
+                    break
                 }
-                break
-            }
-            
-            self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.key != nil {
+                
+                // update CurrentPeople Count
+                self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").observeSingleEvent(of: .value, with: { (snapshot) in
+                    
                     let currentPeople = snapshot.value as! Int
-                    self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").setValue(currentPeople-1)
-                    completion(false)
-                } else {
-                    completion(true)
-                }
-            })
+                    
+                    if snapshot.key != nil {
+                        self.ref.child("LobbyList/\(placeId)/\(hostId)/CurrentPeople").setValue(currentPeople-1)
+                        completion(false, currentPeople-1)
+                    } else {
+                        completion(true, currentPeople)
+                    }
+                })
+            }
+            else {
+                completion(true, 0)
+            }
         }
     }
     
@@ -329,7 +346,11 @@ class DBManager {
             for item in snapshot.children {
                 var child = item as! DataSnapshot
                 print(child.ref)
-                child.ref.updateChildValues(["MinPrice" : Int.random(in: 100 ..< 700)])
+                
+                let randomNumber = Int.random(in: 100 ..< 700)
+                let categoryList = ["Shabu", "Yakiniku", "FastFood", "Dessert"]
+                child.ref.updateChildValues(["MinPrice" : randomNumber])
+                child.ref.child("Category").setValue(categoryList[randomNumber%4])
             }
         }
     }

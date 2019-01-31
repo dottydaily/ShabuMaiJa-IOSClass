@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
 
         super.viewDidLoad()
         
-        //database.getPlaceByPrice(minPrice: 400, maxPrice: 1000)
+//        database.emergencyMethod()  // use for random minPrice and Category (use if needed)
         
         /////////////////////////////////////////////////////
         // Do any additional setup after loading the view. //

@@ -9,25 +9,41 @@
 import UIKit
 
 class EatingHostController: UIViewController {
+    
+    @IBOutlet weak var peopleLabel: UILabel!
+    
     var choosedLobby: Lobby! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        Database.database().reference().child("LobbyList/\(choosedLobby.placeId)/\(choosedLobby.hostId)").observe(.value) { (snapshot) in
+            if snapshot.exists() {
+                let current = snapshot.childSnapshot(forPath: "CurrentPeople").value as! Int
+                let total = snapshot.childSnapshot(forPath: "TotalPeople").value as! Int
+                
+                self.peopleLabel.text = "\(current)/\(total)"
+            }
+        }
+    }
+    
     @IBAction func handleFinishButton(_ sender: Any) {
         database.updateStatus(status: "Finish", lobby: choosedLobby)
-        performSegue(withIdentifier: "goToReviewAll", sender: self)
+        performSegue(withIdentifier: "toReviewUser", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "eatingSubViewHost" {
             let subVC = segue.destination as! ShowProfileController
             subVC.choosedLobby = choosedLobby
             subVC.loadUser()
-        }else{
+        }else if segue.identifier == "toReviewUser" {
             let controller = segue.destination as! ReviewAllController
             controller.choosedLobby = self.choosedLobby
+            controller.isFromParticipant = false
         }
     }
     /*

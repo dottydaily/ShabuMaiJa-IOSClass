@@ -18,6 +18,7 @@ class Restaurant: NSObject {
     var iconURL: String
     var minPrice: Double
     var hostUsername: String?
+    var category: String
     
     init(place: DataJSON.Place) {
         self.name = place.name!
@@ -34,8 +35,11 @@ class Restaurant: NSObject {
         
         self.iconURL = (place.icon)!
         
-        self.minPrice = 0
+        self.minPrice = Double(Int.random(in: 100..<700))
         self.hostUsername = nil
+        
+        let categoryList = ["Shabu", "Yakiniku", "FastFood", "Dessert"]
+        self.category = categoryList[Int.random(in: 0...3)]
     }
     
     override init() {
@@ -48,6 +52,7 @@ class Restaurant: NSObject {
         self.isOpen = false
         self.iconURL = "NO DATA"
         self.hostUsername = "NO DATA"
+        self.category = "NO DATA"
         
         self.minPrice = 0
     }
@@ -63,6 +68,9 @@ class Restaurant: NSObject {
         self.isOpen = isOpen
         self.iconURL = iconURL
         self.minPrice = minPrice
+        
+        let categoryList = ["Shabu", "Yakiniku", "FastFood", "Dessert"]
+        self.category = categoryList[Int.random(in: 0...3)]
     }
     
     override var description: String {

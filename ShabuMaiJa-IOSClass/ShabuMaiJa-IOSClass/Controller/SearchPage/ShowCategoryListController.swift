@@ -57,49 +57,58 @@ class ShowCategoryListController: UIViewController, UITableViewDelegate, UITable
     @IBAction func getShabu(_ sender: Any) {
         let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByCategory(category: "Shabu", completion: { (restaurants) in
-            self.restaurantList = restaurants
-            for restaurant in self.restaurantList {
-                print(restaurant.name)
+            if restaurants.count != 0 {
+                for restaurant in self.restaurantList {
+                    print(restaurant.name)
+                }
+                
+                self.restaurantList = restaurants
+                self.categoryTableView.reloadData()
             }
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            
-            self.categoryTableView.reloadData()
             self.removeSpinner(spinner: sv)
-        }
+        })
     }
     @IBAction func getDessert(_ sender: Any) {
         let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByCategory(category: "Dessert", completion: { (restaurants) in
-            self.restaurantList = restaurants
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            
-            self.categoryTableView.reloadData()
+            if restaurants.count != 0 {
+                for restaurant in self.restaurantList {
+                    print(restaurant.name)
+                }
+                
+                self.restaurantList = restaurants
+                self.categoryTableView.reloadData()
+            }
             self.removeSpinner(spinner: sv)
-        }
+        })
     }
     @IBAction func getFastFood(_ sender: Any) {
         let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByCategory(category: "FastFood", completion: { (restaurants) in
-            self.restaurantList = restaurants
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            
-            self.categoryTableView.reloadData()
+            if restaurants.count != 0 {
+                for restaurant in self.restaurantList {
+                    print(restaurant.name)
+                }
+                
+                self.restaurantList = restaurants
+                self.categoryTableView.reloadData()
+            }
             self.removeSpinner(spinner: sv)
-        }
+        })
     }
     @IBAction func getYakiniku(_ sender: Any) {
         let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByCategory(category: "Yakiniku", completion: { (restaurants) in
-            self.restaurantList = restaurants
-        })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            
-            self.categoryTableView.reloadData()
+            if restaurants.count != 0 {
+                for restaurant in self.restaurantList {
+                    print(restaurant.name)
+                }
+                
+                self.restaurantList = restaurants
+                self.categoryTableView.reloadData()
+            }
             self.removeSpinner(spinner: sv)
-        }
+        })
     }
     /*
     // MARK: - Navigation

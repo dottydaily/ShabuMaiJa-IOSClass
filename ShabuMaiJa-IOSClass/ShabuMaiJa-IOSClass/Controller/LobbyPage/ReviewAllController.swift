@@ -11,19 +11,7 @@ import UIKit
 class ReviewAllController: UIViewController {
     
     var choosedLobby: Lobby! = nil
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        var controller: ReviewController!
-        if (segue.destination is ReviewController) {
-            controller = segue.destination as! ReviewController
-            
-            // use for pop up back to previous view controller
-            // because we can go to ChooseActionView by multiple ways
-            controller.previousViewController = self
-        }
-        
-    }
+    var isFromParticipant = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +22,24 @@ class ReviewAllController: UIViewController {
     }
     
     @IBAction func handleSubmitButton(_ sender: Any) {
-        isParticipate = false
-        database.removeParticipant(placeId: self.choosedLobby.placeId, hostId: self.choosedLobby.hostId, userId: (Auth.auth().currentUser?.uid)!, completion: { (isError) in
-            if isError {
-                self.sendAlertUtil(Title: "Something went wrong", Description: "Try again later.")
-            } else {
-                isParticipate = false
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-        })
+        if isFromParticipant {
+            print(choosedLobby.placeId)
+            print(choosedLobby.hostId)
+            print(Auth.auth().currentUser?.uid)
+            database.removeParticipant(placeId: self.choosedLobby.placeId, hostId: self.choosedLobby.hostId, userId: (Auth.auth().currentUser?.uid)!, completion: { (isError, currentPeople) in
+                print("Checking if error")
+                if isError && (currentPeople != 0) {
+                    self.sendAlertUtil(Title: "Something went wrong", Description: "Try again later.")
+                } else {
+                    isParticipate = false
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            })
+        } else {
+            isParticipate = false
+            database.deleteDataAtPath(path: "LobbyList/\(choosedLobby.placeId)/\((Auth.auth().currentUser?.uid)!)")
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     /*

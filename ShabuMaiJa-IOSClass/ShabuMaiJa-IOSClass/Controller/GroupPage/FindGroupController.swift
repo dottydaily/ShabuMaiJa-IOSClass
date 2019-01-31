@@ -11,29 +11,49 @@ import UIKit
 class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var accountList: [Account] = []
     var choosedRestaurant: Restaurant! = nil
+    var observer: NSObject? = nil
     
     @IBOutlet weak var accountTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        let sv = displaySpinner(onView: self.view, alpha: 0.6)
-        database.getLobbyList(placeId: choosedRestaurant.placeId,completion: { (account) in
+        // check if found and has no lobby
+        var foundNoLobby = false
+        
+        // reload lobby automatically when lobby is add or remove
+        observer = Database.database().reference().child("LobbyList/\(choosedRestaurant.placeId)").observe(.value) { (snapshot) in
             
-            if account.count == 0 {
-                self.sendAlertUtil(Title: "No Lobby", Description: "Create or Join other restaurants")
-                self.removeSpinner(spinner: sv)
-            } else {
-                print("IN FIND GROUP PAGE : \(account.count)")
+            let sv = self.displaySpinner(onView: self.view, alpha: 0.6)
+            
+            if snapshot.exists() {  // if have any lobby
+                foundNoLobby = false
+                print("IN FIND GROUP PAGE : \(snapshot.childrenCount)")
                 
-                self.accountList = account
+                // get lobby from firebase
+                database.getLobbyList(placeId: self.choosedRestaurant.placeId,completion: { (account) in
+                    
+                    if account.count == 0 {  // error
+                        self.accountList = []
+                        self.sendAlertUtil(Title: "No Lobby", Description: "Create or Join other restaurants")
+                        self.accountTableView.reloadData()
+                        self.removeSpinner(spinner: sv)
+                    } else if !foundNoLobby{  // if found then reload
+                        print("IN FIND GROUP PAGE : account.count = \(account.count)")
+                        
+                        self.accountList = account
+                        self.accountTableView.reloadData()
+                        self.removeSpinner(spinner: sv)
+                    }
+                })
+            } else {  // no lobby
+                self.accountList = []
+                foundNoLobby = true
+                self.sendAlertUtil(Title: "No Lobby", Description: "Create or Join other restaurants")
                 self.accountTableView.reloadData()
                 self.removeSpinner(spinner: sv)
             }
-            
-        })
-        
+            } as NSObject
     }
     
     // tap on table view cell
@@ -58,6 +78,7 @@ class FindGroupController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        Database.database().removeObserver(observer!, forKeyPath: "LobbyList/\(choosedRestaurant.placeId)")
         let controller = segue.destination as! GroupDetailController
         if let index = accountTableView.indexPathForSelectedRow {
             controller.ownerName = accountList[index.row].name

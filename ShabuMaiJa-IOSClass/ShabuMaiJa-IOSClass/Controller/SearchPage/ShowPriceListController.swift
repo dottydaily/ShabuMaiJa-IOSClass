@@ -24,24 +24,13 @@ class ShowPriceListController: UIViewController {
         
         let sv = displaySpinner(onView: self.view,alpha: 0.6)
         database.getPlaceByPrice(minPrice: min, maxPrice: max, completion: { (restaurants) in
-            self.restaurantList = restaurants
+            if restaurants.count != 0 {
+                self.restaurantList = restaurants
+                self.restaurantTableView.reloadData()
+                self.removeSpinner(spinner: sv)
+            }
         })
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-    
-            self.restaurantTableView.reloadData()
-            self.removeSpinner(spinner: sv)
-        }
-        
-        
-        // Do any additional setup after loading the view.
-//        for _ in 1...20{
-//            self.accountList.add(account: Account(random: true))
-//        }
-        // do some magic here
-        
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! ChooseActionController
@@ -49,6 +38,10 @@ class ShowPriceListController: UIViewController {
         // use for pop up back to previous view controller
         // because we can go to ChooseActionView by multiple ways
         controller.previousViewController = self
+        
+        if let index = restaurantTableView.indexPathForSelectedRow {
+            controller.choosedRestaurant = restaurantList[index.item]
+        }
     }
 }
 extension ShowPriceListController : UITableViewDelegate, UITableViewDataSource {

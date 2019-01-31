@@ -93,7 +93,6 @@ class PromotionViewController: UIViewController {
             resStr = ""
             for i in 0 ..< self.totalImage{
                 // Create a reference with an initial file path and name
-                resStr = String(i)
                 let reference = Storage.storage().reference(withPath: "\(folderPath)/\(i).jpg")
                 reference.getData(maxSize: (2 * 1024 * 1024)) { (data, error) in
                     if let _error = error{
