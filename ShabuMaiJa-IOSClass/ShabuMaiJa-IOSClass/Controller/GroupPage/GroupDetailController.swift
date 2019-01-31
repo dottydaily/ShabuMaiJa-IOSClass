@@ -62,10 +62,6 @@ class GroupDetailController: UIViewController {
         
     }
     
-    @IBAction func handleViewDetailButton(_ sender: Any) {
-        performSegue(withIdentifier: "goToViewProfile", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWaitingPage" {
             let controller = segue.destination as! WaitingParticipantController

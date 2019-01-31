@@ -68,6 +68,16 @@ class ChooseActionController: UIViewController {
         }
     }
     
+    @IBAction func handleFindButton(_ sender: Any) {
+        print("\n\nPREPARING BEFORE GO TO FIND GROUP")
+        if Auth.auth().currentUser == nil {
+            handleIfNotSignIn()
+        } else {
+            print(Auth.auth().currentUser?.email)
+            performSegue(withIdentifier: "goToFindPage", sender: self)
+        }
+    }
+    
     func handleIfNotSignIn() {
         print("nil need to login")
         

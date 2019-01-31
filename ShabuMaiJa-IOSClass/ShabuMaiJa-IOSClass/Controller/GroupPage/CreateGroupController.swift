@@ -16,7 +16,7 @@ class CreateGroupController: UIViewController {
     @IBOutlet weak var peopleStepper: UIStepper!
     var choosedLobby: Lobby! = nil
     
-    var peopleNumber: Int = 1
+    var peopleNumber: Int = 2
     let handle: AuthStateDidChangeListenerHandle? = nil
     var choosedRestaurant: Restaurant! = nil
     

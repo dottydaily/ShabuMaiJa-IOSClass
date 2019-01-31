@@ -8,25 +8,9 @@
 
 import UIKit
 
-class ReviewAllController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    @IBOutlet weak var reviewAllTableView: UITableView!
+class ReviewAllController: UIViewController {
+    
     var choosedLobby: Lobby! = nil
-    var accountList: AccountData = AccountData()
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.accountList.total()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewAllTableViewCell", for: indexPath) as! ReviewAllTableViewCell
-        cell.nameLabel.text = accountList.getAt(index: indexPath.row).name
-        cell.usernameLabel.text = accountList.getAt(index: indexPath.row).username
-        return cell
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -41,26 +25,25 @@ class ReviewAllController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         // Do any additional setup after loading the view.
-        loadUser()
-    }
-    func loadUser() {
-        database.getUserListFromLobby(placeID: choosedLobby.placeId, hostID: choosedLobby.hostId) { (users) in
-            self.accountList = users
-            self.reviewAllTableView.reloadData()
-        }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func handleSubmitButton(_ sender: Any) {
+        isParticipate = false
+        database.removeParticipant(placeId: self.choosedLobby.placeId, hostId: self.choosedLobby.hostId, userId: (Auth.auth().currentUser?.uid)!, completion: { (isError) in
+            if isError {
+                self.sendAlertUtil(Title: "Something went wrong", Description: "Try again later.")
+            } else {
+                isParticipate = false
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        })
+    }
     
     /*
      // MARK: - Navigation
